@@ -12,7 +12,6 @@
 html{font-size:16px}
 body{font-family:'Inter',system-ui,sans-serif;background:#f5f5f4;color:#1c1917;line-height:1.6;min-height:100vh}
 
-/* ── TOKENS ── */
 :root{
   --bg:#f5f5f4;
   --surface:#ffffff;
@@ -31,11 +30,13 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f5f5f4;color:#1c1917;l
   --danger:#dc2626;
   --danger-bg:#fef2f2;
   --danger-border:#fecaca;
-  --warning-bg:#fffbeb;
+  --warn:#b45309;
+  --warn-bg:#fffbeb;
+  --warn-border:#fde68a;
   --radius:8px;
 }
 
-/* ── NAV ── */
+/* NAV */
 .nav{background:var(--surface);border-bottom:0.5px solid var(--border);padding:0 1.5rem;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
 .nav-left{display:flex;align-items:center;gap:10px}
 .nav-mark{width:28px;height:28px;border:1.5px solid var(--border-strong);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:14px}
@@ -43,22 +44,32 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f5f5f4;color:#1c1917;l
 .nav-sub{font-size:11px;color:var(--text-faint)}
 .pill{font-size:11px;padding:3px 10px;border-radius:100px;border:0.5px solid var(--border);color:var(--text-muted);background:var(--surface-muted)}
 
-/* ── PAGES ── */
+/* RESOURCE BAR */
+.res-bar{background:var(--surface);border-bottom:0.5px solid var(--border);padding:0 1.5rem;height:44px;display:flex;align-items:center;gap:2rem;position:sticky;top:52px;z-index:49}
+.res-item{display:flex;align-items:center;gap:8px}
+.res-label{font-size:11px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.05em}
+.res-val{font-size:13px;font-weight:600;color:var(--text)}
+.res-track{width:60px;height:3px;background:var(--border-strong);border-radius:2px;overflow:hidden}
+.res-fill{height:100%;border-radius:2px;transition:width .4s ease}
+.fill-budget{background:var(--success)}
+.fill-cc{background:var(--accent)}
+.fill-ah{background:#7c3aed}
+.res-divider{width:0.5px;height:20px;background:var(--border)}
+
+/* PAGES */
 .page{display:none}
 .page.active{display:block}
 
-/* ── LANDING ── */
+/* LANDING */
 .landing{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
 .landing-kicker{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-faint);font-weight:500;margin-bottom:.5rem}
 .landing-h1{font-size:22px;font-weight:600;color:var(--text);margin-bottom:.5rem;line-height:1.25}
 .landing-sub{font-size:14px;color:var(--text-muted);max-width:560px;line-height:1.65;margin-bottom:2rem}
-
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:2.5rem}
 .tile{background:var(--surface-muted);border-radius:var(--radius);padding:.75rem 1rem;border:0.5px solid var(--border)}
 .tile-label{font-size:11px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
 .tile-val{font-size:20px;font-weight:600;color:var(--text)}
 .tile-sub{font-size:11px;color:var(--text-muted);margin-top:2px}
-
 .section-label{font-size:11px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.6rem}
 .rounds-list{display:flex;flex-direction:column;gap:6px;margin-bottom:2rem}
 .round-row{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:.875rem 1.25rem;display:flex;align-items:center;gap:.875rem;cursor:pointer;transition:border-color .14s}
@@ -73,15 +84,26 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f5f5f4;color:#1c1917;l
 .sb-open{background:var(--success-bg);color:var(--success);border:0.5px solid var(--success-border)}
 .sb-done{background:var(--accent-bg);color:var(--accent);border:0.5px solid var(--accent-border)}
 .sb-locked{background:var(--surface-muted);color:var(--text-faint);border:0.5px solid var(--border)}
-
 .about-box{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:1rem 1.25rem}
 .about-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-faint);margin-bottom:.5rem}
 .about-text{font-size:13px;color:var(--text-muted);line-height:1.65}
 
-/* ── ROUND PAGE ── */
+/* ROUND PAGE */
 .rpage{max-width:720px;margin:0 auto;padding:1.5rem 1.5rem 4rem}
-.breadcrumb{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);margin-bottom:1.25rem;cursor:pointer}
+.breadcrumb{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);margin-bottom:1rem;cursor:pointer}
 .bc-link{color:var(--accent)}
+
+/* STEP INDICATOR */
+.step-indicator{display:flex;gap:4px;margin-bottom:1.25rem;align-items:center}
+.step-dot{width:6px;height:6px;border-radius:50%;background:var(--border-strong);cursor:pointer;transition:all .2s}
+.step-dot.done{background:var(--success)}
+.step-dot.active{background:var(--accent);width:18px;border-radius:3px}
+.step-label{font-size:11px;color:var(--text-faint);margin-left:6px}
+
+/* STEP PAGES */
+.step-page{display:none}
+.step-page.active{display:block}
+
 .rp-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-faint);font-weight:500;margin-bottom:.3rem}
 .rp-title{font-size:20px;font-weight:600;color:var(--text);margin-bottom:.3rem}
 .rp-sub{font-size:13px;color:var(--text-muted);margin-bottom:.75rem}
@@ -91,25 +113,23 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f5f5f4;color:#1c1917;l
 .crisis-tag{font-size:11px;color:var(--danger);background:var(--danger-bg);border:0.5px solid var(--danger-border);padding:3px 10px;border-radius:100px;font-weight:500}
 .d1-tag{font-size:11px;color:var(--accent);background:var(--accent-bg);border:0.5px solid var(--accent-border);padding:3px 10px;border-radius:100px;font-weight:500}
 
+/* BLOCKS */
 .block{margin-bottom:1.75rem}
 .block-head{display:flex;align-items:center;gap:8px;margin-bottom:.6rem}
 .block-num{width:18px;height:18px;border-radius:50%;border:0.5px solid var(--border);font-size:10px;display:flex;align-items:center;justify-content:center;color:var(--text-muted);flex-shrink:0}
 .block-label-text{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-muted);font-weight:500}
-
 .brief-card{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:1.25rem;font-size:13.5px;color:var(--text-muted);line-height:1.7}
 .brief-card strong{color:var(--text);font-weight:500}
-
 .dtabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:.75rem}
 .dtab{font-size:11px;padding:3px 10px;border-radius:100px;border:0.5px solid var(--border);background:var(--surface-muted);color:var(--text-muted)}
 .dtab.primary{border-color:var(--accent-border);background:var(--accent-bg);color:var(--accent)}
-
 .findings{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:1.25rem}
 .finding{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px}
 .finding:last-child{margin-bottom:0}
 .fdot{width:5px;height:5px;border-radius:50%;background:var(--border-strong);flex-shrink:0;margin-top:7px}
 .ftext{font-size:13px;color:var(--text-muted);line-height:1.55}
 .ftext strong{color:var(--text);font-weight:500}
-.anchors-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:.875rem;padding-top:.875rem;border-top:0.5px solid var(--border)}
+.anchors-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:.875rem;padding-top:.875rem;border-top:0.5px solid var(--border);align-items:center}
 .anchor-chip{display:flex;align-items:center;gap:6px;padding:3px 10px;border:0.5px solid var(--border);border-radius:100px;background:var(--surface-muted)}
 .av{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600}
 .av-blue{background:var(--accent-bg);color:var(--accent)}
@@ -117,6 +137,12 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f5f5f4;color:#1c1917;l
 .anchor-label{font-size:11px;color:var(--text-muted)}
 .anch-note{font-size:11px;color:var(--text-faint);align-self:center}
 
+/* CASCADE HINT */
+.cascade-card{background:var(--accent-bg);border:0.5px solid var(--accent-border);border-radius:12px;padding:1rem 1.25rem;font-size:13px;color:var(--text-muted);line-height:1.65}
+.cascade-card strong{color:var(--accent);font-weight:500}
+.cascade-num{background:var(--accent-bg);border-color:var(--accent-border);color:var(--accent)}
+
+/* OPTIONS */
 .opts-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:520px){.opts-grid{grid-template-columns:1fr}}
 .opt{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:1rem;cursor:pointer;transition:border-color .14s}
@@ -124,51 +150,86 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f5f5f4;color:#1c1917;l
 .opt.selected{border:2px solid var(--accent);background:var(--accent-bg)}
 .opt.selected .ocode{color:var(--accent)}
 .opt.selected .otitle{color:var(--accent)}
-.opt.locked-opt{cursor:not-allowed}
+.opt.locked-opt{cursor:not-allowed;opacity:.65}
 .ocode{font-size:11px;font-weight:500;color:var(--text-faint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
 .otitle{font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px}
 .odesc{font-size:12px;color:var(--text-muted);line-height:1.5}
 .ocosts{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
 .cpill{font-size:11px;padding:2px 8px;border-radius:100px;background:var(--surface-muted);border:0.5px solid var(--border);color:var(--text-muted)}
 
+/* COST PREVIEW */
+.cost-preview{background:var(--surface-muted);border:0.5px solid var(--border);border-radius:var(--radius);padding:.5rem 1rem;font-size:12px;color:var(--text-muted);display:flex;gap:1.25rem;align-items:center;margin-top:8px;flex-wrap:wrap}
+.cost-preview strong{color:var(--text);font-weight:500}
+
+/* RATIONALE */
+.rationale-wrap{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:1rem 1.25rem}
+.rationale-wrap textarea{width:100%;border:0.5px solid var(--border);border-radius:var(--radius);padding:.75rem;font-size:13px;color:var(--text);background:var(--surface-muted);font-family:inherit;line-height:1.6;resize:vertical;min-height:90px}
+.rationale-wrap textarea:focus{outline:none;border-color:var(--accent)}
+.rationale-meta{display:flex;justify-content:space-between;align-items:center;margin-top:.4rem}
+.wc{font-size:11px;color:var(--text-faint)}
+.wc.ok{color:var(--success)}
+.wc.mid{color:var(--warn)}
+
+/* STAKEHOLDER */
 .stakeholder{background:var(--surface);border-left:2.5px solid var(--border-strong);padding:1rem 1.25rem}
 .stwho{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-faint);margin-bottom:.35rem}
 .stq{font-size:13.5px;color:var(--text);font-style:italic;line-height:1.55}
+.st-input{margin-top:.75rem}
+.st-input textarea{width:100%;border:0.5px solid var(--border);border-radius:var(--radius);padding:.75rem;font-size:13px;color:var(--text);background:var(--surface-muted);font-family:inherit;line-height:1.6;resize:vertical;min-height:80px}
+.st-input textarea:focus{outline:none;border-color:var(--accent)}
 
+/* CONFIRM BAR */
 .confirm-bar{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:.875rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1.5rem;flex-wrap:wrap}
 .confirm-text{font-size:13px;color:var(--text-muted)}
 .confirm-text strong{color:var(--text)}
 .confirm-btns{display:flex;gap:8px}
 .btn-back{background:transparent;border:0.5px solid var(--border-strong);color:var(--text-muted);padding:7px 14px;border-radius:var(--radius);font-size:13px;cursor:pointer;font-family:inherit}
 .btn-back:hover{background:var(--surface-muted)}
+.btn-next{background:var(--accent);color:#fff;border:none;padding:7px 18px;border-radius:var(--radius);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;transition:opacity .14s}
+.btn-next:hover{opacity:.88}
 .btn-submit{background:var(--text);color:#fff;border:none;padding:7px 18px;border-radius:var(--radius);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;transition:opacity .14s}
 .btn-submit:hover{opacity:.85}
 .btn-submit:disabled{opacity:.3;cursor:not-allowed}
-.btn-next{background:var(--accent);color:#fff;border:none;padding:7px 18px;border-radius:var(--radius);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;transition:opacity .14s}
-.btn-next:hover{opacity:.88}
+.btn-danger{background:var(--danger);color:#fff;border:none;padding:7px 18px;border-radius:var(--radius);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit}
 
-.success-box{background:var(--success-bg);border:0.5px solid var(--success-border);border-radius:12px;padding:.875rem 1.25rem;display:flex;align-items:center;gap:10px;margin-top:1.5rem}
+/* OUTCOME */
+.outcome-box{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:1rem 1.25rem;margin-top:1rem}
+.outcome-head{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-faint);font-weight:500;margin-bottom:.6rem}
+.outcome-row{display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:0.5px solid var(--border);font-size:13px}
+.outcome-row:last-child{border-bottom:none}
+.outcome-axis{color:var(--text-muted)}
+.delta-pos{font-weight:600;color:var(--success)}
+.delta-neg{font-weight:600;color:var(--danger)}
+.delta-neu{font-weight:600;color:var(--text-faint)}
+
+/* SUCCESS */
+.success-box{background:var(--success-bg);border:0.5px solid var(--success-border);border-radius:12px;padding:.875rem 1.25rem;display:flex;align-items:center;gap:10px;margin-top:1rem}
 .success-box i{color:var(--success);font-size:16px}
 .success-text{font-size:13px;color:var(--success)}
 .next-row{display:flex;justify-content:flex-end;margin-top:.75rem}
 
+/* CRISIS */
 .crisis-box{background:var(--danger-bg);border:0.5px solid var(--danger-border);border-radius:12px;padding:1.25rem;margin-top:1.5rem}
 .crisis-head{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--danger);font-weight:500;margin-bottom:.5rem;display:flex;align-items:center;gap:6px}
 .crisis-head i{font-size:14px}
 .crisis-body{font-size:13.5px;color:var(--danger);line-height:1.65}
 .crisis-body strong{font-weight:500}
+.crisis-severity{font-size:12px;color:var(--danger);background:rgba(220,38,38,.06);border-radius:var(--radius);padding:.5rem .75rem;margin-top:.75rem;line-height:1.55}
 .crisis-prompts{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:1rem 1.25rem;margin-top:.875rem}
 .cp-head{font-size:12px;font-weight:500;color:var(--text-muted);margin-bottom:.5rem}
 .cp-item{font-size:13px;color:var(--text-muted);margin-bottom:4px}
-
 .done-banner{background:var(--success-bg);border:0.5px solid var(--success-border);border-radius:12px;padding:.75rem 1.25rem;display:flex;align-items:center;gap:8px;margin-top:.75rem}
 .done-banner i{color:var(--success);font-size:16px}
 .done-banner span{font-size:13px;color:var(--success)}
+.confirm-danger{background:var(--danger-bg);border:0.5px solid var(--danger-border);border-radius:12px;padding:.875rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1.5rem;flex-wrap:wrap}
+.confirm-danger-text{font-size:13px;color:var(--danger)}
 
 @media(max-width:600px){
   .tiles{grid-template-columns:repeat(2,1fr)}
-  .confirm-bar{flex-direction:column;align-items:flex-start}
+  .confirm-bar,.confirm-danger{flex-direction:column;align-items:flex-start}
   .rp-meta{gap:.5rem}
+  .res-bar{gap:1rem;overflow-x:auto}
+  .cost-preview{gap:.75rem}
 }
 </style>
 </head>
@@ -185,77 +246,61 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f5f5f4;color:#1c1917;l
   </div>
   <div style="display:flex;gap:8px;align-items:center">
     <span class="pill">M.Com. PGCF 2025</span>
-    <span class="pill" id="nav-team">Team &mdash;</span>
+    <span class="pill">DHTO Pod</span>
   </div>
 </nav>
 
-<!-- ═══════════════════════════════ LANDING ═══════════════════════════════ -->
+<!-- RESOURCE BAR -->
+<div class="res-bar">
+  <div class="res-item">
+    <span class="res-label">Budget</span>
+    <span class="res-val" id="res-budget">&#8377;600L</span>
+    <div class="res-track"><div class="res-fill fill-budget" id="bar-budget" style="width:100%"></div></div>
+  </div>
+  <div class="res-divider"></div>
+  <div class="res-item">
+    <span class="res-label">Change Capital</span>
+    <span class="res-val" id="res-cc">100 pts</span>
+    <div class="res-track"><div class="res-fill fill-cc" id="bar-cc" style="width:100%"></div></div>
+  </div>
+  <div class="res-divider"></div>
+  <div class="res-item">
+    <span class="res-label">Analyst Hours</span>
+    <span class="res-val" id="res-ah">60 hrs</span>
+    <div class="res-track"><div class="res-fill fill-ah" id="bar-ah" style="width:100%"></div></div>
+  </div>
+</div>
+
+<!-- LANDING -->
 <div class="page active" id="page-landing">
 <div class="landing">
   <div class="landing-kicker">Department of Commerce &middot; Faculty of Commerce and Business &middot; University of Delhi</div>
   <h1 class="landing-h1">Project Disha &mdash; Digital HR Transformation Simulation</h1>
   <p class="landing-sub">You are the Digital HR Transformation Office (DHTO) of GreenLeaf Retail &mdash; an 8,000-person Indian omnichannel retailer. Every decision must be grounded in the dataset. Shortcuts in one round return to haunt the next.</p>
-
   <div class="tiles">
-    <div class="tile">
-      <div class="tile-label">Total budget</div>
-      <div class="tile-val">&#8377;6 Cr</div>
-      <div class="tile-sub">Across all 6 rounds</div>
-    </div>
-    <div class="tile">
-      <div class="tile-label">Change Capital</div>
-      <div class="tile-val">100 pts</div>
-      <div class="tile-sub">Persists round to round</div>
-    </div>
-    <div class="tile">
-      <div class="tile-label">Analyst Hours</div>
-      <div class="tile-val">60 hrs</div>
-      <div class="tile-sub">Resets each round</div>
-    </div>
-    <div class="tile">
-      <div class="tile-label">Workforce</div>
-      <div class="tile-val">8,000</div>
-      <div class="tile-sub">GreenLeaf employees</div>
-    </div>
+    <div class="tile"><div class="tile-label">Total budget</div><div class="tile-val">&#8377;6 Cr</div><div class="tile-sub">Across all 6 rounds</div></div>
+    <div class="tile"><div class="tile-label">Change Capital</div><div class="tile-val">100 pts</div><div class="tile-sub">Persists round to round</div></div>
+    <div class="tile"><div class="tile-label">Analyst Hours</div><div class="tile-val">60 hrs</div><div class="tile-sub">Resets each round</div></div>
+    <div class="tile"><div class="tile-label">Workforce</div><div class="tile-val">8,000</div><div class="tile-sub">GreenLeaf employees</div></div>
   </div>
-
   <div class="section-label">Simulation rounds &mdash; this demo</div>
   <div class="rounds-list">
     <div class="round-row" onclick="goRound(1)">
       <div class="rnum">R1</div>
-      <div class="rbody">
-        <div class="rtitle">The Diagnosis</div>
-        <div class="rmeta">Digital_HR_Maturity &middot; Employee_Master &middot; Transformation thesis</div>
-      </div>
-      <div class="rright">
-        <span class="sbadge sb-open" id="badge-r1">Open</span>
-        <i class="ti ti-chevron-right" style="color:var(--text-faint);font-size:16px"></i>
-      </div>
+      <div class="rbody"><div class="rtitle">The Diagnosis</div><div class="rmeta">Digital_HR_Maturity &middot; Employee_Master &middot; Transformation thesis</div></div>
+      <div class="rright"><span class="sbadge sb-open" id="badge-r1">Open</span><i class="ti ti-chevron-right" style="color:var(--text-faint);font-size:16px"></i></div>
     </div>
     <div class="round-row locked" id="row-r2" onclick="goRound(2)">
       <div class="rnum">R2</div>
-      <div class="rbody">
-        <div class="rtitle">The Architecture</div>
-        <div class="rmeta">TechStack_Inventory &middot; Stack rationalization &middot; D1 deliverable</div>
-      </div>
-      <div class="rright">
-        <span class="sbadge sb-locked" id="badge-r2">Locked</span>
-        <i class="ti ti-chevron-right" style="color:var(--text-faint);font-size:16px"></i>
-      </div>
+      <div class="rbody"><div class="rtitle">The Architecture</div><div class="rmeta">TechStack_Inventory &middot; Stack rationalization &middot; D1 deliverable</div></div>
+      <div class="rright"><span class="sbadge sb-locked" id="badge-r2">Locked</span><i class="ti ti-chevron-right" style="color:var(--text-faint);font-size:16px"></i></div>
     </div>
     <div class="round-row locked" id="row-r3" onclick="goRound(3)">
       <div class="rnum">R3</div>
-      <div class="rbody">
-        <div class="rtitle">The Rollout</div>
-        <div class="rmeta">Adoption_Telemetry &middot; LMS_Learning &middot; Change program</div>
-      </div>
-      <div class="rright">
-        <span class="sbadge sb-locked" id="badge-r3">Locked</span>
-        <i class="ti ti-chevron-right" style="color:var(--text-faint);font-size:16px"></i>
-      </div>
+      <div class="rbody"><div class="rtitle">The Rollout</div><div class="rmeta">Adoption_Telemetry &middot; LMS_Learning &middot; Change program &middot; &#128680; Crisis event</div></div>
+      <div class="rright"><span class="sbadge sb-locked" id="badge-r3">Locked</span><i class="ti ti-chevron-right" style="color:var(--text-faint);font-size:16px"></i></div>
     </div>
   </div>
-
   <div class="about-box">
     <div class="about-label">About GreenLeaf Retail</div>
     <p class="about-text">A fictional 8,000-employee Indian omnichannel retailer spanning Metro to Tier-3 India. Payroll is already mature at Level 4. Analytics, performance management, and workforce planning sit at Levels 1&ndash;2: spreadsheets, paper files, and gut decisions. A new CHRO has secured a &#8377;6 crore, six-quarter transformation mandate from a skeptical Board. That mandate is yours.</p>
@@ -263,312 +308,480 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f5f5f4;color:#1c1917;l
 </div>
 </div>
 
-<!-- ═══════════════════════════════ ROUND 1 ═══════════════════════════════ -->
+<!-- ROUND 1 -->
 <div class="page" id="page-r1">
 <div class="rpage">
-  <div class="breadcrumb" onclick="goHome()">
-    <i class="ti ti-arrow-left" style="font-size:14px"></i>
-    <span class="bc-link">Dashboard</span>
-    <span>/</span><span>Round 1</span>
-  </div>
-  <div class="rp-label">Round 1 &middot; Q1 &middot; Unit I</div>
-  <h2 class="rp-title">The Diagnosis</h2>
-  <p class="rp-sub">Locate GreenLeaf on the digital-HR maturity curve and quantify the divide before choosing a transformation thesis.</p>
-  <div class="rp-meta">
-    <span class="rp-meta-item"><i class="ti ti-database"></i> Digital_HR_Maturity, Employee_Master</span>
-    <span class="rp-meta-item"><i class="ti ti-coin"></i> Budget: &#8377;40&ndash;80L</span>
-    <span class="rp-meta-item"><i class="ti ti-clock"></i> Analyst Hours: 8&ndash;18</span>
+  <div class="breadcrumb" onclick="goHome()"><i class="ti ti-arrow-left" style="font-size:14px"></i><span class="bc-link">Dashboard</span><span>/</span><span>Round 1</span></div>
+  <div class="step-indicator" id="si-r1">
+    <div class="step-dot active" onclick="gotoStep(1,0)" title="Brief &amp; findings"></div>
+    <div class="step-dot" onclick="gotoStep(1,1)" title="Option &amp; rationale"></div>
+    <div class="step-dot" onclick="gotoStep(1,2)" title="Stakeholder &amp; submit"></div>
+    <span class="step-label" id="sl-r1">Step 1 of 3 &mdash; Brief &amp; findings</span>
   </div>
 
-  <div class="block">
-    <div class="block-head"><div class="block-num">1</div><div class="block-label-text">Round brief</div></div>
-    <div class="brief-card">GreenLeaf's new CHRO needs a clear-eyed diagnosis before committing the &#8377;6 crore mandate. The <strong>Digital_HR_Maturity</strong> tab scores ten HR processes 1&ndash;5. People Analytics sits at Level 1 (10% automated). Payroll alone is mature at Level 4. The <strong>Employee_Master</strong> reveals a sharp digital divide: frontline staff in Tier-2 and Tier-3 locations show Digital Literacy averaging <strong>~2.4</strong>, against <strong>~4.0</strong> for corporate and e-commerce roles. Smartphone-only device access rises from ~24% in Metro to ~60% in Tier-3 locations. Your task: read the maturity curve, quantify the divide, and commit to a transformation thesis that anchors all six rounds.</div>
+  <!-- S0: Brief -->
+  <div class="step-page active" id="r1-s0">
+    <div class="rp-label">Round 1 &middot; Q1 &middot; Unit I</div>
+    <h2 class="rp-title">The Diagnosis</h2>
+    <p class="rp-sub">Locate GreenLeaf on the digital-HR maturity curve and quantify the divide before choosing a transformation thesis.</p>
+    <div class="rp-meta">
+      <span class="rp-meta-item"><i class="ti ti-database"></i> Digital_HR_Maturity, Employee_Master</span>
+      <span class="rp-meta-item"><i class="ti ti-coin"></i> Budget: &#8377;40&ndash;80L</span>
+      <span class="rp-meta-item"><i class="ti ti-clock"></i> Analyst Hours: 8&ndash;18</span>
+    </div>
+    <div class="block">
+      <div class="block-head"><div class="block-num">1</div><div class="block-label-text">Round brief</div></div>
+      <div class="brief-card">GreenLeaf's new CHRO needs a clear-eyed diagnosis before committing the &#8377;6 crore mandate. The <strong>Digital_HR_Maturity</strong> tab scores ten HR processes 1&ndash;5. People Analytics sits at Level 1 (10% automated). Payroll alone is mature at Level 4. The <strong>Employee_Master</strong> reveals a sharp digital divide: frontline staff in Tier-2 and Tier-3 locations show Digital Literacy averaging <strong>~2.4</strong>, against <strong>~4.0</strong> for corporate and e-commerce roles. Smartphone-only device access rises from ~24% in Metro to ~60% in Tier-3 locations. Voluntary attrition is <strong>17.2%</strong> against a 12% sector benchmark. Commit to a transformation thesis that anchors all six rounds.</div>
+    </div>
+    <div class="block">
+      <div class="block-head"><div class="block-num">2</div><div class="block-label-text">Key dataset findings</div></div>
+      <div class="dtabs"><span class="dtab primary">Digital_HR_Maturity</span><span class="dtab primary">Employee_Master</span></div>
+      <div class="findings">
+        <div class="finding"><div class="fdot"></div><div class="ftext">People Analytics: <strong>Level 1, 10% automated</strong> &mdash; the most critical transformation gap</div></div>
+        <div class="finding"><div class="fdot"></div><div class="ftext">Payroll outlier: <strong>Level 4</strong> &mdash; already mature, not a priority</div></div>
+        <div class="finding"><div class="fdot"></div><div class="ftext">Frontline Digital Literacy mean: <strong>~2.4 / 5.0</strong> vs benchmark 3.5 &mdash; critical gap</div></div>
+        <div class="finding"><div class="fdot"></div><div class="ftext">Tier-3 smartphone-only device access: <strong>~60%</strong> vs ~24% Metro &mdash; infrastructure divide</div></div>
+        <div class="finding"><div class="fdot"></div><div class="ftext">Voluntary attrition: <strong>17.2%</strong> vs 12% benchmark &mdash; highest cost of inaction</div></div>
+        <div class="anchors-row">
+          <span class="anch-note">Human anchors this round:</span>
+          <div class="anchor-chip"><div class="av av-blue">LN</div><span class="anchor-label">GL-1001 Lakshmi Naidu</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:flex-end">
+      <button class="btn-next" onclick="gotoStep(1,1)">Choose your option <i class="ti ti-arrow-right"></i></button>
+    </div>
   </div>
 
-  <div class="block">
-    <div class="block-head"><div class="block-num">2</div><div class="block-label-text">Key dataset findings</div></div>
-    <div class="dtabs"><span class="dtab primary">Digital_HR_Maturity</span><span class="dtab primary">Employee_Master</span></div>
-    <div class="findings">
-      <div class="finding"><div class="fdot"></div><div class="ftext">People Analytics: <strong>Level 1, 10% automated</strong> &mdash; the most critical transformation gap</div></div>
-      <div class="finding"><div class="fdot"></div><div class="ftext">Payroll outlier: <strong>Level 4</strong> &mdash; already mature, not a priority</div></div>
-      <div class="finding"><div class="fdot"></div><div class="ftext">Frontline Digital Literacy mean: <strong>~2.4 / 5.0</strong> vs benchmark 3.5 &mdash; critical gap</div></div>
-      <div class="finding"><div class="fdot"></div><div class="ftext">Tier-3 smartphone-only device access: <strong>~60%</strong> vs ~24% Metro &mdash; infrastructure divide</div></div>
-      <div class="finding"><div class="fdot"></div><div class="ftext">Voluntary attrition: <strong>17.2%</strong> vs 12% benchmark &mdash; highest cost of inaction</div></div>
-      <div class="anchors-row">
-        <span class="anch-note">Human anchors this round:</span>
-        <div class="anchor-chip"><div class="av av-blue">LN</div><span class="anchor-label">GL-1001 Lakshmi Naidu</span></div>
+  <!-- S1: Option + rationale -->
+  <div class="step-page" id="r1-s1">
+    <div class="block">
+      <div class="block-head"><div class="block-num">3</div><div class="block-label-text">Choose your option</div></div>
+      <div class="opts-grid" id="r1-opts">
+        <div class="opt" id="r1-A" onclick="pick(1,'A')">
+          <div class="ocode">Option 1A</div><div class="otitle">Foundations first</div>
+          <div class="odesc">Stabilize data infrastructure and governance before analytics investment. Fix the base before building on it.</div>
+          <div class="ocosts"><span class="cpill">&#8377;40L</span><span class="cpill">8 hrs</span><span class="cpill">CC &plusmn;0</span></div>
+        </div>
+        <div class="opt" id="r1-B" onclick="pick(1,'B')">
+          <div class="ocode">Option 1B</div><div class="otitle">Analytics-first leap</div>
+          <div class="odesc">Deploy people analytics immediately to generate insights and build the Board's appetite for data-driven HR.</div>
+          <div class="ocosts"><span class="cpill">&#8377;80L</span><span class="cpill">18 hrs</span><span class="cpill">CC &minus;5</span></div>
+        </div>
+        <div class="opt" id="r1-C" onclick="pick(1,'C')">
+          <div class="ocode">Option 1C</div><div class="otitle">Mobile-first equity lens</div>
+          <div class="odesc">Design every system decision around smartphone-only frontline access from day one.</div>
+          <div class="ocosts"><span class="cpill">&#8377;60L</span><span class="cpill">12 hrs</span><span class="cpill">CC +5</span></div>
+        </div>
+        <div class="opt" id="r1-D" onclick="pick(1,'D')">
+          <div class="ocode">Option 1D</div><div class="otitle">Regulatory alignment</div>
+          <div class="odesc">Lead with DPDP 2023 compliance and data governance. Build institutional trust before transformation speed.</div>
+          <div class="ocosts"><span class="cpill">&#8377;50L</span><span class="cpill">10 hrs</span><span class="cpill">CC +3</span></div>
+        </div>
+      </div>
+      <div class="cost-preview" id="r1-cost" style="display:none">
+        Will spend: <strong id="r1-cb"></strong> &nbsp;&middot;&nbsp; <strong id="r1-ca"></strong> analyst hours &nbsp;&middot;&nbsp; CC: <strong id="r1-cc"></strong>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-head"><div class="block-num">4</div><div class="block-label-text">Evidence rationale <span style="color:var(--text-faint);font-size:10px;font-weight:400;text-transform:none;letter-spacing:0">(min 50 words &mdash; 40% of your score)</span></div></div>
+      <div class="rationale-wrap">
+        <textarea id="r1-rat" placeholder="Cite specific dataset figures to justify your option. e.g. 'Frontline Digital Literacy at ~2.4 vs benchmark 3.5 means analytics investment without foundational data quality will compound interpretation errors in R4&ndash;R5...'" onkeyup="updateWC(1)"></textarea>
+        <div class="rationale-meta"><span class="wc" id="r1-wc">0 / 50 words minimum</span><span style="font-size:11px;color:var(--text-faint)">No figures = zero on Analytical Rigour</span></div>
+      </div>
+    </div>
+    <div class="confirm-bar">
+      <div class="confirm-text" id="r1-ctxt">Select an option and write your evidence rationale.</div>
+      <div class="confirm-btns">
+        <button class="btn-back" onclick="gotoStep(1,0)"><i class="ti ti-arrow-left"></i> Brief</button>
+        <button class="btn-next" id="r1-btn" disabled onclick="gotoStep(1,2)">Stakeholder challenge <i class="ti ti-arrow-right"></i></button>
       </div>
     </div>
   </div>
 
-  <div class="block">
-    <div class="block-head"><div class="block-num">3</div><div class="block-label-text">Choose your option</div></div>
-    <div class="opts-grid" id="r1-opts">
-      <div class="opt" id="r1-A" onclick="pick(1,'A')">
-        <div class="ocode">Option 1A</div>
-        <div class="otitle">Foundations first</div>
-        <div class="odesc">Stabilize data infrastructure and governance before analytics investment. Fix the base before building on it.</div>
-        <div class="ocosts"><span class="cpill">&#8377;40L</span><span class="cpill">8 hrs</span><span class="cpill">CC &plusmn;0</span></div>
+  <!-- S2: Stakeholder + submit -->
+  <div class="step-page" id="r1-s2">
+    <div class="block">
+      <div class="block-head"><div class="block-num">5</div><div class="block-label-text">Stakeholder challenge &mdash; CFO</div></div>
+      <div class="stakeholder">
+        <div class="stwho">CFO &middot; Priya Sharma</div>
+        <div class="stq">&ldquo;Why fund HR analytics when payroll and compliance already work? Show me the cost of inaction &mdash; not the cost of the system.&rdquo;</div>
       </div>
-      <div class="opt" id="r1-B" onclick="pick(1,'B')">
-        <div class="ocode">Option 1B</div>
-        <div class="otitle">Analytics-first leap</div>
-        <div class="odesc">Deploy people analytics immediately to generate insights and build the Board's appetite for data-driven HR.</div>
-        <div class="ocosts"><span class="cpill">&#8377;80L</span><span class="cpill">18 hrs</span><span class="cpill">CC &minus;5</span></div>
-      </div>
-      <div class="opt" id="r1-C" onclick="pick(1,'C')">
-        <div class="ocode">Option 1C</div>
-        <div class="otitle">Mobile-first equity lens</div>
-        <div class="odesc">Design every system decision around smartphone-only frontline access from day one.</div>
-        <div class="ocosts"><span class="cpill">&#8377;60L</span><span class="cpill">12 hrs</span><span class="cpill">CC +5</span></div>
-      </div>
-      <div class="opt" id="r1-D" onclick="pick(1,'D')">
-        <div class="ocode">Option 1D</div>
-        <div class="otitle">Regulatory alignment</div>
-        <div class="odesc">Lead with DPDP 2023 compliance and data governance. Build institutional trust before transformation speed.</div>
-        <div class="ocosts"><span class="cpill">&#8377;50L</span><span class="cpill">10 hrs</span><span class="cpill">CC +3</span></div>
+      <div class="st-input">
+        <textarea id="r1-st" placeholder="Respond with data. Cite attrition cost (17.2% &times; regrettable exit cost), digital literacy gap as productivity risk, staged ROI logic. Min 100 words &mdash; saves separately, does not block submission." onkeyup="updateST(1)"></textarea>
+        <div class="rationale-meta"><span class="wc" id="r1-stwc">0 / 100 words &mdash; saves separately &mdash; does not block submission</span></div>
       </div>
     </div>
-  </div>
-
-  <div class="block">
-    <div class="block-head"><div class="block-num">4</div><div class="block-label-text">Stakeholder challenge &mdash; CFO</div></div>
-    <div class="stakeholder">
-      <div class="stwho">CFO &middot; Priya Sharma</div>
-      <div class="stq">&ldquo;Why fund HR analytics when payroll and compliance already work? Show me the cost of inaction &mdash; not the cost of the system.&rdquo;</div>
+    <div id="r1-submit-area">
+      <div class="confirm-bar">
+        <div class="confirm-text"><strong>Ready to lock Round 1?</strong> Your option and rationale are final once submitted.</div>
+        <div class="confirm-btns">
+          <button class="btn-back" onclick="gotoStep(1,1)"><i class="ti ti-arrow-left"></i> Back</button>
+          <button class="btn-submit" onclick="submit(1)">Submit Round 1</button>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div id="r1-confirm-bar" class="confirm-bar">
-    <div class="confirm-text" id="r1-confirm-txt">Select an option above to confirm your Round 1 decision.</div>
-    <div class="confirm-btns">
-      <button class="btn-back" onclick="goHome()">Back</button>
-      <button class="btn-submit" id="r1-btn" disabled onclick="submit(1)">Confirm decision</button>
+    <div id="r1-success" style="display:none">
+      <div class="outcome-box">
+        <div class="outcome-head">Round 1 &mdash; scorecard movement</div>
+        <div id="r1-outcome"></div>
+      </div>
+      <div class="success-box"><i class="ti ti-circle-check"></i><span class="success-text"><strong id="r1-stxt"></strong> Round 2 is now open.</span></div>
+      <div class="next-row"><button class="btn-next" onclick="goRound(2)">Continue to Round 2 <i class="ti ti-arrow-right"></i></button></div>
     </div>
-  </div>
-  <div id="r1-success" style="display:none">
-    <div class="success-box"><i class="ti ti-circle-check"></i><span class="success-text"><strong id="r1-stxt"></strong> Round 2 is now open.</span></div>
-    <div class="next-row"><button class="btn-next" onclick="goRound(2)">Continue to Round 2 <i class="ti ti-arrow-right"></i></button></div>
   </div>
 </div>
 </div>
 
-<!-- ═══════════════════════════════ ROUND 2 ═══════════════════════════════ -->
+<!-- ROUND 2 -->
 <div class="page" id="page-r2">
 <div class="rpage">
-  <div class="breadcrumb" onclick="goHome()">
-    <i class="ti ti-arrow-left" style="font-size:14px"></i>
-    <span class="bc-link">Dashboard</span>
-    <span>/</span><span>Round 2</span>
-  </div>
-  <div class="rp-label">Round 2 &middot; Q2 &middot; Unit I&ndash;II</div>
-  <h2 class="rp-title">The Architecture</h2>
-  <p class="rp-sub">Rationalize GreenLeaf's fragmented tech stack and decide how mobile-first to build the target architecture.</p>
-  <div class="rp-meta">
-    <span class="rp-meta-item"><i class="ti ti-database"></i> TechStack_Inventory</span>
-    <span class="rp-meta-item"><i class="ti ti-coin"></i> Budget: &#8377;90&ndash;180L</span>
-    <span class="rp-meta-item"><i class="ti ti-clock"></i> Analyst Hours: 15&ndash;30</span>
-    <span class="d1-tag">D1 deliverable due</span>
+  <div class="breadcrumb" onclick="goHome()"><i class="ti ti-arrow-left" style="font-size:14px"></i><span class="bc-link">Dashboard</span><span>/</span><span>Round 2</span></div>
+  <div class="step-indicator" id="si-r2">
+    <div class="step-dot active" onclick="gotoStep(2,0)"></div>
+    <div class="step-dot" onclick="gotoStep(2,1)"></div>
+    <div class="step-dot" onclick="gotoStep(2,2)"></div>
+    <span class="step-label" id="sl-r2">Step 1 of 3 &mdash; Brief &amp; findings</span>
   </div>
 
-  <div class="block">
-    <div class="block-head"><div class="block-num">1</div><div class="block-label-text">Round brief</div></div>
-    <div class="brief-card">GreenLeaf runs <strong>16 HR systems</strong> simultaneously &mdash; including two HRIS platforms in live parallel (a legacy on-prem core and a cloud pilot). Total annual license spend is <strong>~&#8377;1.57 crore</strong>. InsightHR Analytics (SYS-10) is licensed for 90 users but only 38 use it. WellbeingPlus has a genuine adoption rate of just 18%. Shadow spreadsheets remain universal. Your task: resolve the dual-HRIS situation, rationalize the stack inside the &#8377;6 crore envelope, and decide how deeply mobile-first to build &mdash; knowing that GL-1001 Lakshmi Naidu (Tier-3, smartphone-only) represents ~60% of your frontline. Output: the Maturity and Tech-Stack Blueprint (D1).</div>
+  <!-- S0 -->
+  <div class="step-page active" id="r2-s0">
+    <div class="rp-label">Round 2 &middot; Q2 &middot; Unit I&ndash;II</div>
+    <h2 class="rp-title">The Architecture</h2>
+    <p class="rp-sub">Rationalize GreenLeaf's fragmented tech stack and decide how mobile-first to build the target architecture.</p>
+    <div class="rp-meta">
+      <span class="rp-meta-item"><i class="ti ti-database"></i> TechStack_Inventory</span>
+      <span class="rp-meta-item"><i class="ti ti-coin"></i> Budget: &#8377;90&ndash;180L</span>
+      <span class="rp-meta-item"><i class="ti ti-clock"></i> Analyst Hours: 15&ndash;30</span>
+      <span class="d1-tag">D1 deliverable due</span>
+    </div>
+    <div class="block" id="r2-cascade" style="display:none">
+      <div class="block-head">
+        <div class="block-num cascade-num">&#8617;</div>
+        <div class="block-label-text" style="color:var(--accent)">Carry-over from Round 1</div>
+      </div>
+      <div class="cascade-card" id="r2-cascade-text"></div>
+    </div>
+    <div class="block">
+      <div class="block-head"><div class="block-num">1</div><div class="block-label-text">Round brief</div></div>
+      <div class="brief-card">GreenLeaf runs <strong>16 HR systems</strong> simultaneously &mdash; including two HRIS platforms in live parallel (a legacy on-prem core and a cloud pilot). Total annual license spend is <strong>~&#8377;1.57 crore</strong>. InsightHR Analytics (SYS-10) is licensed for 90 users but only 38 use it. WellbeingPlus has a genuine adoption rate of just 18%. Shadow spreadsheets remain universal. Resolve the dual-HRIS situation, rationalize the stack inside the &#8377;6 crore envelope, and decide how deeply mobile-first to build &mdash; knowing that GL-1001 Lakshmi Naidu (Tier-3, smartphone-only) represents ~60% of your frontline. Output: the Maturity and Tech-Stack Blueprint (D1).</div>
+    </div>
+    <div class="block">
+      <div class="block-head"><div class="block-num">2</div><div class="block-label-text">Key dataset findings</div></div>
+      <div class="dtabs"><span class="dtab primary">TechStack_Inventory</span><span class="dtab">Digital_HR_Maturity</span></div>
+      <div class="findings">
+        <div class="finding"><div class="fdot"></div><div class="ftext"><strong>Dual HRIS:</strong> SYS-01 LegacyHR (on-prem) running alongside SYS-02 PeopleCloud (cloud pilot, Aug 2025)</div></div>
+        <div class="finding"><div class="fdot"></div><div class="ftext">SYS-10 InsightHR Analytics: licensed 90, active users <strong>38 only</strong> &mdash; critical adoption failure (42% utilization)</div></div>
+        <div class="finding"><div class="fdot"></div><div class="ftext">SYS-14 WellbeingPlus: adoption rate <strong>0.18</strong> &mdash; lowest genuine adoption in the entire stack</div></div>
+        <div class="finding"><div class="fdot"></div><div class="ftext">SYS-01 and SYS-08 (PayEasy): <strong>not mobile-enabled</strong> &mdash; structurally excluded from smartphone-only users</div></div>
+        <div class="finding"><div class="fdot"></div><div class="ftext">3 systems on US/EU data residency &mdash; DPDP 2023 compliance review required</div></div>
+        <div class="anchors-row">
+          <span class="anch-note">Human anchors this round:</span>
+          <div class="anchor-chip"><div class="av av-blue">LN</div><span class="anchor-label">GL-1001 Lakshmi Naidu</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:flex-end">
+      <button class="btn-next" onclick="gotoStep(2,1)">Choose your option <i class="ti ti-arrow-right"></i></button>
+    </div>
   </div>
 
-  <div class="block">
-    <div class="block-head"><div class="block-num">2</div><div class="block-label-text">Key dataset findings</div></div>
-    <div class="dtabs"><span class="dtab primary">TechStack_Inventory</span><span class="dtab">Digital_HR_Maturity</span></div>
-    <div class="findings">
-      <div class="finding"><div class="fdot"></div><div class="ftext"><strong>Dual HRIS:</strong> SYS-01 LegacyHR (on-prem) running alongside SYS-02 PeopleCloud (cloud pilot, Aug 2025)</div></div>
-      <div class="finding"><div class="fdot"></div><div class="ftext">SYS-10 InsightHR Analytics: licensed 90, active users <strong>38 only</strong> &mdash; critical adoption failure</div></div>
-      <div class="finding"><div class="fdot"></div><div class="ftext">SYS-14 WellbeingPlus: adoption rate <strong>0.18</strong> &mdash; lowest genuine adoption in the entire stack</div></div>
-      <div class="finding"><div class="fdot"></div><div class="ftext">SYS-01 and SYS-08 (PayEasy): <strong>not mobile-enabled</strong> &mdash; structurally excluded from smartphone-only users</div></div>
-      <div class="finding"><div class="fdot"></div><div class="ftext">3 systems on US/EU data residency &mdash; DPDP 2023 compliance review required</div></div>
-      <div class="anchors-row">
-        <span class="anch-note">Human anchors this round:</span>
-        <div class="anchor-chip"><div class="av av-blue">LN</div><span class="anchor-label">GL-1001 Lakshmi Naidu</span></div>
+  <!-- S1 -->
+  <div class="step-page" id="r2-s1">
+    <div class="block">
+      <div class="block-head"><div class="block-num">3</div><div class="block-label-text">Choose your option</div></div>
+      <div class="opts-grid" id="r2-opts">
+        <div class="opt" id="r2-A" onclick="pick(2,'A')">
+          <div class="ocode">Option 2A</div><div class="otitle">Modular HRMS Core</div>
+          <div class="odesc">Retire legacy HRIS and migrate to PeopleCloud. Keep specialist tools for ATS and LMS. Modular and phased.</div>
+          <div class="ocosts"><span class="cpill">&#8377;120L</span><span class="cpill">20 hrs</span><span class="cpill">CC &minus;5</span></div>
+        </div>
+        <div class="opt" id="r2-B" onclick="pick(2,'B')">
+          <div class="ocode">Option 2B</div><div class="otitle">People Analytics Platform</div>
+          <div class="odesc">Lead with InsightHR as the intelligence layer. Invest in adoption first, then migrate HRIS on top of proven analytics.</div>
+          <div class="ocosts"><span class="cpill">&#8377;150L</span><span class="cpill">25 hrs</span><span class="cpill">CC &minus;8</span></div>
+        </div>
+        <div class="opt" id="r2-C" onclick="pick(2,'C')">
+          <div class="ocode">Option 2C</div><div class="otitle">Integrated Talent Suite</div>
+          <div class="odesc">Full suite replacement: one vendor for HRIS, ATS, LMS, and analytics. Maximum integration, highest cost and change risk.</div>
+          <div class="ocosts"><span class="cpill">&#8377;180L</span><span class="cpill">30 hrs</span><span class="cpill">CC &minus;10</span></div>
+        </div>
+        <div class="opt" id="r2-D" onclick="pick(2,'D')">
+          <div class="ocode">Option 2D</div><div class="otitle">Mobile-first lightweight</div>
+          <div class="odesc">Prioritize the ESS App and SahayakBot for frontline reach. Defer heavy HRIS migration. Build for Lakshmi first.</div>
+          <div class="ocosts"><span class="cpill">&#8377;90L</span><span class="cpill">15 hrs</span><span class="cpill">CC +5</span></div>
+        </div>
+      </div>
+      <div class="cost-preview" id="r2-cost" style="display:none">
+        Will spend: <strong id="r2-cb"></strong> &nbsp;&middot;&nbsp; <strong id="r2-ca"></strong> analyst hours &nbsp;&middot;&nbsp; CC: <strong id="r2-cc"></strong>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-head"><div class="block-num">4</div><div class="block-label-text">Evidence rationale <span style="color:var(--text-faint);font-size:10px;font-weight:400;text-transform:none;letter-spacing:0">(min 50 words)</span></div></div>
+      <div class="rationale-wrap">
+        <textarea id="r2-rat" placeholder="Justify your architecture choice with specific figures: dual-HRIS risk, InsightHR adoption failure (38/90 users), DPDP compliance gaps, mobile-first implications for GL-1001..." onkeyup="updateWC(2)"></textarea>
+        <div class="rationale-meta"><span class="wc" id="r2-wc">0 / 50 words minimum</span></div>
+      </div>
+    </div>
+    <div class="confirm-bar">
+      <div class="confirm-text" id="r2-ctxt">Select an option and write your evidence rationale.</div>
+      <div class="confirm-btns">
+        <button class="btn-back" onclick="gotoStep(2,0)"><i class="ti ti-arrow-left"></i> Brief</button>
+        <button class="btn-next" id="r2-btn" disabled onclick="gotoStep(2,2)">Stakeholder challenge <i class="ti ti-arrow-right"></i></button>
       </div>
     </div>
   </div>
 
-  <div class="block">
-    <div class="block-head"><div class="block-num">3</div><div class="block-label-text">Choose your option</div></div>
-    <div class="opts-grid" id="r2-opts">
-      <div class="opt" id="r2-A" onclick="pick(2,'A')">
-        <div class="ocode">Option 2A</div>
-        <div class="otitle">Modular HRMS Core</div>
-        <div class="odesc">Retire legacy HRIS and migrate to PeopleCloud. Keep specialist tools for ATS and LMS. Modular and phased.</div>
-        <div class="ocosts"><span class="cpill">&#8377;120L</span><span class="cpill">20 hrs</span><span class="cpill">CC &minus;5</span></div>
+  <!-- S2 -->
+  <div class="step-page" id="r2-s2">
+    <div class="block">
+      <div class="block-head"><div class="block-num">5</div><div class="block-label-text">Stakeholder challenge &mdash; CIO / CISO</div></div>
+      <div class="stakeholder">
+        <div class="stwho">CIO / CISO &middot; Rahul Menon</div>
+        <div class="stq">&ldquo;Who owns identity, consent, API security, and vendor risk when three of our systems store data in the US and EU? Name the data protection officer before I approve this architecture.&rdquo;</div>
       </div>
-      <div class="opt" id="r2-B" onclick="pick(2,'B')">
-        <div class="ocode">Option 2B</div>
-        <div class="otitle">People Analytics Platform</div>
-        <div class="odesc">Lead with InsightHR as the intelligence layer. Invest in adoption first, then migrate HRIS on top of proven analytics.</div>
-        <div class="ocosts"><span class="cpill">&#8377;150L</span><span class="cpill">25 hrs</span><span class="cpill">CC &minus;8</span></div>
-      </div>
-      <div class="opt" id="r2-C" onclick="pick(2,'C')">
-        <div class="ocode">Option 2C</div>
-        <div class="otitle">Integrated Talent Suite</div>
-        <div class="odesc">Full suite replacement: one vendor for HRIS, ATS, LMS, and analytics. Maximum integration, highest cost and change risk.</div>
-        <div class="ocosts"><span class="cpill">&#8377;180L</span><span class="cpill">30 hrs</span><span class="cpill">CC &minus;10</span></div>
-      </div>
-      <div class="opt" id="r2-D" onclick="pick(2,'D')">
-        <div class="ocode">Option 2D</div>
-        <div class="otitle">Mobile-first lightweight</div>
-        <div class="odesc">Prioritize the ESS App and SahayakBot for frontline reach. Defer heavy HRIS migration. Build for Lakshmi first.</div>
-        <div class="ocosts"><span class="cpill">&#8377;90L</span><span class="cpill">15 hrs</span><span class="cpill">CC +5</span></div>
+      <div class="st-input">
+        <textarea id="r2-st" placeholder="Name a DPO or equivalent, map API ownership, state DPDP consent architecture per data category, name vendor data-processing agreement approach..." onkeyup="updateST(2)"></textarea>
+        <div class="rationale-meta"><span class="wc" id="r2-stwc">0 / 100 words &mdash; saves separately &mdash; does not block submission</span></div>
       </div>
     </div>
-  </div>
-
-  <div class="block">
-    <div class="block-head"><div class="block-num">4</div><div class="block-label-text">Stakeholder challenge &mdash; CIO / CISO</div></div>
-    <div class="stakeholder">
-      <div class="stwho">CIO / CISO &middot; Rahul Menon</div>
-      <div class="stq">&ldquo;Who owns identity, consent, API security, and vendor risk when three of our systems store data in the US and EU? Name the data protection officer before I approve this architecture.&rdquo;</div>
+    <div id="r2-submit-area">
+      <div class="confirm-bar">
+        <div class="confirm-text"><strong>Ready to lock Round 2?</strong> Remember to submit D1 via Google Classroom.</div>
+        <div class="confirm-btns">
+          <button class="btn-back" onclick="gotoStep(2,1)"><i class="ti ti-arrow-left"></i> Back</button>
+          <button class="btn-submit" onclick="submit(2)">Submit Round 2</button>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div id="r2-confirm-bar" class="confirm-bar">
-    <div class="confirm-text" id="r2-confirm-txt">Select an option above to confirm your Round 2 decision.</div>
-    <div class="confirm-btns">
-      <button class="btn-back" onclick="goHome()">Back</button>
-      <button class="btn-submit" id="r2-btn" disabled onclick="submit(2)">Confirm decision</button>
+    <div id="r2-success" style="display:none">
+      <div class="outcome-box">
+        <div class="outcome-head">Round 2 &mdash; scorecard movement</div>
+        <div id="r2-outcome"></div>
+      </div>
+      <div class="success-box"><i class="ti ti-circle-check"></i><span class="success-text"><strong id="r2-stxt"></strong> Round 3 is now open. Submit D1 via Google Classroom.</span></div>
+      <div class="next-row"><button class="btn-next" onclick="goRound(3)">Continue to Round 3 <i class="ti ti-arrow-right"></i></button></div>
     </div>
-  </div>
-  <div id="r2-success" style="display:none">
-    <div class="success-box"><i class="ti ti-circle-check"></i><span class="success-text"><strong id="r2-stxt"></strong> Round 3 is now open. Remember to submit D1 via Google Classroom.</span></div>
-    <div class="next-row"><button class="btn-next" onclick="goRound(3)">Continue to Round 3 <i class="ti ti-arrow-right"></i></button></div>
   </div>
 </div>
 </div>
 
-<!-- ═══════════════════════════════ ROUND 3 ═══════════════════════════════ -->
+<!-- ROUND 3 -->
 <div class="page" id="page-r3">
 <div class="rpage">
-  <div class="breadcrumb" onclick="goHome()">
-    <i class="ti ti-arrow-left" style="font-size:14px"></i>
-    <span class="bc-link">Dashboard</span>
-    <span>/</span><span>Round 3</span>
-  </div>
-  <div class="rp-label">Round 3 &middot; Q3 &middot; Unit II&ndash;III</div>
-  <h2 class="rp-title">The Rollout</h2>
-  <p class="rp-sub">Design the change and adoption program for a smartphone-only frontline. A live crisis event fires on submission.</p>
-  <div class="rp-meta">
-    <span class="rp-meta-item"><i class="ti ti-database"></i> Adoption_Telemetry, LMS_Learning</span>
-    <span class="rp-meta-item"><i class="ti ti-coin"></i> Budget: &#8377;50&ndash;100L</span>
-    <span class="rp-meta-item"><i class="ti ti-clock"></i> Analyst Hours: 10&ndash;20</span>
-    <span class="crisis-tag">Crisis event on submit</span>
+  <div class="breadcrumb" onclick="goHome()"><i class="ti ti-arrow-left" style="font-size:14px"></i><span class="bc-link">Dashboard</span><span>/</span><span>Round 3</span></div>
+  <div class="step-indicator" id="si-r3">
+    <div class="step-dot active" onclick="gotoStep(3,0)"></div>
+    <div class="step-dot" onclick="gotoStep(3,1)"></div>
+    <div class="step-dot" onclick="gotoStep(3,2)"></div>
+    <span class="step-label" id="sl-r3">Step 1 of 3 &mdash; Brief &amp; findings</span>
   </div>
 
-  <div class="block">
-    <div class="block-head"><div class="block-num">1</div><div class="block-label-text">Round brief</div></div>
-    <div class="brief-card">The systems are live &mdash; now you need people to use them. Adoption_Telemetry (480 employees sampled) shows Feature-phone and Tier-3 staff have near-zero ESS logins. LMS_Learning reveals digital-skills courses are Not-started or In-progress for most Tier-3 frontline staff. <strong>GL-1001 Lakshmi Naidu</strong> (Tier-3, smartphone-only, Digital Literacy 2) represents the adoption gap you must close. <strong>GL-1003 Sunil Mehta</strong> (HR Officer, Lucknow, 204 months tenure, Literacy 3) is the face of mid-career change anxiety. Your plan must reach both of them. On submission, a <strong>DPDP data breach event fires automatically</strong> &mdash; your R2 architecture choices determine the damage.</div>
+  <!-- S0 -->
+  <div class="step-page active" id="r3-s0">
+    <div class="rp-label">Round 3 &middot; Q3 &middot; Unit II&ndash;III</div>
+    <h2 class="rp-title">The Rollout</h2>
+    <p class="rp-sub">Design the change and adoption program for a smartphone-only frontline. A live crisis event fires automatically on submission.</p>
+    <div class="rp-meta">
+      <span class="rp-meta-item"><i class="ti ti-database"></i> Adoption_Telemetry, LMS_Learning</span>
+      <span class="rp-meta-item"><i class="ti ti-coin"></i> Budget: &#8377;50&ndash;100L</span>
+      <span class="rp-meta-item"><i class="ti ti-clock"></i> Analyst Hours: 10&ndash;20</span>
+      <span class="crisis-tag">&#128680; Crisis event on submit</span>
+    </div>
+    <div class="block" id="r3-cascade" style="display:none">
+      <div class="block-head">
+        <div class="block-num cascade-num">&#8617;</div>
+        <div class="block-label-text" style="color:var(--accent)">R2 architecture impact on your rollout</div>
+      </div>
+      <div class="cascade-card" id="r3-cascade-text"></div>
+    </div>
+    <div class="block">
+      <div class="block-head"><div class="block-num">1</div><div class="block-label-text">Round brief</div></div>
+      <div class="brief-card">The systems are live &mdash; now you need people to use them. <strong>Adoption_Telemetry</strong> (480 employees sampled) shows Feature-phone and Tier-3 staff have near-zero ESS logins. <strong>LMS_Learning</strong> reveals digital-skills courses are Not-started or In-progress for most Tier-3 frontline staff. <strong>GL-1001 Lakshmi Naidu</strong> (Tier-3, smartphone-only, Digital Literacy 2) represents the adoption gap you must close. <strong>GL-1003 Sunil Mehta</strong> (HR Officer, Lucknow, 204 months tenure, Literacy 3) is the face of mid-career change anxiety. Your plan must reach both of them. On submission, a <strong>DPDP data breach event fires automatically</strong> &mdash; your R2 architecture choices determine the damage.</div>
+    </div>
+    <div class="block">
+      <div class="block-head"><div class="block-num">2</div><div class="block-label-text">Key dataset findings</div></div>
+      <div class="dtabs"><span class="dtab primary">Adoption_Telemetry</span><span class="dtab primary">LMS_Learning</span></div>
+      <div class="findings">
+        <div class="finding"><div class="fdot"></div><div class="ftext">Feature-phone users: <strong>ESS logins &asymp; 0</strong> &mdash; structurally excluded from self-service</div></div>
+        <div class="finding"><div class="fdot"></div><div class="ftext">Tier-3 employees: digital-skills LMS courses <strong>Not-started</strong> at highest rate in sample</div></div>
+        <div class="finding"><div class="fdot"></div><div class="ftext">Training completed = Yes but low ESS usage &rarr; <strong>training effectiveness gap</strong>, not an awareness gap</div></div>
+        <div class="finding"><div class="fdot"></div><div class="ftext">High helpdesk tickets + low ESS logins = <strong>Awareness-stage non-adopter</strong> profile</div></div>
+        <div class="finding"><div class="fdot"></div><div class="ftext">GL-1003 Sunil Mehta: Tier-1, Literacy 3, 204 months tenure &mdash; needs structured transition path, not just a training module</div></div>
+        <div class="anchors-row">
+          <span class="anch-note">Human anchors this round:</span>
+          <div class="anchor-chip"><div class="av av-blue">LN</div><span class="anchor-label">GL-1001 Lakshmi Naidu</span></div>
+          <div class="anchor-chip"><div class="av av-green">SM</div><span class="anchor-label">GL-1003 Sunil Mehta</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:flex-end">
+      <button class="btn-next" onclick="gotoStep(3,1)">Choose your option <i class="ti ti-arrow-right"></i></button>
+    </div>
   </div>
 
-  <div class="block">
-    <div class="block-head"><div class="block-num">2</div><div class="block-label-text">Key dataset findings</div></div>
-    <div class="dtabs"><span class="dtab primary">Adoption_Telemetry</span><span class="dtab primary">LMS_Learning</span></div>
-    <div class="findings">
-      <div class="finding"><div class="fdot"></div><div class="ftext">Feature-phone users: <strong>ESS logins &asymp; 0</strong> &mdash; structurally excluded from self-service</div></div>
-      <div class="finding"><div class="fdot"></div><div class="ftext">Tier-3 employees: digital-skills LMS courses <strong>Not-started</strong> at highest rate in sample</div></div>
-      <div class="finding"><div class="fdot"></div><div class="ftext">Training completed = Yes but low ESS usage &rarr; <strong>training effectiveness gap</strong>, not an awareness gap</div></div>
-      <div class="finding"><div class="fdot"></div><div class="ftext">High helpdesk tickets + low ESS logins = <strong>Awareness-stage non-adopter</strong> profile</div></div>
-      <div class="finding"><div class="fdot"></div><div class="ftext">GL-1003 Sunil Mehta: Tier-1, Literacy 3 &mdash; needs a structured transition path, not just a training module</div></div>
-      <div class="anchors-row">
-        <span class="anch-note">Human anchors this round:</span>
-        <div class="anchor-chip"><div class="av av-blue">LN</div><span class="anchor-label">GL-1001 Lakshmi Naidu</span></div>
-        <div class="anchor-chip"><div class="av av-green">SM</div><span class="anchor-label">GL-1003 Sunil Mehta</span></div>
+  <!-- S1 -->
+  <div class="step-page" id="r3-s1">
+    <div class="block">
+      <div class="block-head"><div class="block-num">3</div><div class="block-label-text">Choose your option</div></div>
+      <div class="opts-grid" id="r3-opts">
+        <div class="opt" id="r3-A" onclick="pick(3,'A')">
+          <div class="ocode">Option 3A</div><div class="otitle">Phased rollout</div>
+          <div class="odesc">Start with high-literacy Metro staff, stabilize, then extend to Tier-2 and Tier-3. Lower risk, delayed frontline reach.</div>
+          <div class="ocosts"><span class="cpill">&#8377;60L</span><span class="cpill">12 hrs</span><span class="cpill">CC +5</span></div>
+        </div>
+        <div class="opt" id="r3-B" onclick="pick(3,'B')">
+          <div class="ocode">Option 3B</div><div class="otitle">Full rollout and training</div>
+          <div class="odesc">Deploy simultaneously across all tiers with mandatory ILT. Maximum coverage, maximum productivity disruption.</div>
+          <div class="ocosts"><span class="cpill">&#8377;100L</span><span class="cpill">20 hrs</span><span class="cpill">CC &minus;5</span></div>
+        </div>
+        <div class="opt" id="r3-C" onclick="pick(3,'C')">
+          <div class="ocode">Option 3C</div><div class="otitle">Change agent network</div>
+          <div class="odesc">Train frontline adoption champions in each store and warehouse. Peer-led change &mdash; slower burn, higher trust.</div>
+          <div class="ocosts"><span class="cpill">&#8377;50L</span><span class="cpill">10 hrs</span><span class="cpill">CC +10</span></div>
+        </div>
+        <div class="opt" id="r3-D" onclick="pick(3,'D')">
+          <div class="ocode">Option 3D</div><div class="otitle">Gamified campaign</div>
+          <div class="odesc">Drive adoption through mobile-native gamification: badges, leaderboards, incentives for ESS app engagement.</div>
+          <div class="ocosts"><span class="cpill">&#8377;70L</span><span class="cpill">14 hrs</span><span class="cpill">CC +8</span></div>
+        </div>
+      </div>
+      <div class="cost-preview" id="r3-cost" style="display:none">
+        Will spend: <strong id="r3-cb"></strong> &nbsp;&middot;&nbsp; <strong id="r3-ca"></strong> analyst hours &nbsp;&middot;&nbsp; CC: <strong id="r3-cc"></strong>
+      </div>
+    </div>
+    <div class="block">
+      <div class="block-head"><div class="block-num">4</div><div class="block-label-text">Evidence rationale <span style="color:var(--text-faint);font-size:10px;font-weight:400;text-transform:none;letter-spacing:0">(min 50 words)</span></div></div>
+      <div class="rationale-wrap">
+        <textarea id="r3-rat" placeholder="Cite adoption telemetry figures. What is Lakshmi Naidu's Adoption_Stage? How many Tier-3 employees are Awareness-stage? How does your option reach feature-phone users?" onkeyup="updateWC(3)"></textarea>
+        <div class="rationale-meta"><span class="wc" id="r3-wc">0 / 50 words minimum</span></div>
+      </div>
+    </div>
+    <div class="confirm-bar">
+      <div class="confirm-text" id="r3-ctxt">Select an option and write your evidence rationale.</div>
+      <div class="confirm-btns">
+        <button class="btn-back" onclick="gotoStep(3,0)"><i class="ti ti-arrow-left"></i> Brief</button>
+        <button class="btn-next" id="r3-btn" disabled onclick="gotoStep(3,2)">Stakeholder challenge <i class="ti ti-arrow-right"></i></button>
       </div>
     </div>
   </div>
 
-  <div class="block">
-    <div class="block-head"><div class="block-num">3</div><div class="block-label-text">Choose your option</div></div>
-    <div class="opts-grid" id="r3-opts">
-      <div class="opt" id="r3-A" onclick="pick(3,'A')">
-        <div class="ocode">Option 3A</div>
-        <div class="otitle">Phased rollout</div>
-        <div class="odesc">Start with high-literacy Metro staff, stabilize, then extend to Tier-2 and Tier-3. Lower risk, delayed frontline reach.</div>
-        <div class="ocosts"><span class="cpill">&#8377;60L</span><span class="cpill">12 hrs</span><span class="cpill">CC +5</span></div>
+  <!-- S2 -->
+  <div class="step-page" id="r3-s2">
+    <div class="block">
+      <div class="block-head"><div class="block-num">5</div><div class="block-label-text">Stakeholder challenge &mdash; Operations Head</div></div>
+      <div class="stakeholder">
+        <div class="stwho">Operations Head &middot; Vikram Nair</div>
+        <div class="stq">&ldquo;Your rollout reduces store productivity during peak festive weeks. Show me the training-hours impact on sales floor capacity &mdash; with a revised calendar. Not a promise. A plan.&rdquo;</div>
       </div>
-      <div class="opt" id="r3-B" onclick="pick(3,'B')">
-        <div class="ocode">Option 3B</div>
-        <div class="otitle">Full rollout and training</div>
-        <div class="odesc">Deploy simultaneously across all tiers with mandatory ILT. Maximum coverage, maximum productivity disruption.</div>
-        <div class="ocosts"><span class="cpill">&#8377;100L</span><span class="cpill">20 hrs</span><span class="cpill">CC &minus;5</span></div>
-      </div>
-      <div class="opt" id="r3-C" onclick="pick(3,'C')">
-        <div class="ocode">Option 3C</div>
-        <div class="otitle">Change agent network</div>
-        <div class="odesc">Train frontline adoption champions in each store and warehouse. Peer-led change &mdash; slower burn, higher trust.</div>
-        <div class="ocosts"><span class="cpill">&#8377;50L</span><span class="cpill">10 hrs</span><span class="cpill">CC +10</span></div>
-      </div>
-      <div class="opt" id="r3-D" onclick="pick(3,'D')">
-        <div class="ocode">Option 3D</div>
-        <div class="otitle">Gamified campaign</div>
-        <div class="odesc">Drive adoption through mobile-native gamification: badges, leaderboards, incentives for ESS app engagement.</div>
-        <div class="ocosts"><span class="cpill">&#8377;70L</span><span class="cpill">14 hrs</span><span class="cpill">CC +8</span></div>
+      <div class="st-input">
+        <textarea id="r3-st" placeholder="Name specific peak weeks, quantify training-hours productivity impact, show a revised calendar or data-backed trade-off. Weak: 'We will try to minimise disruption.'" onkeyup="updateST(3)"></textarea>
+        <div class="rationale-meta"><span class="wc" id="r3-stwc">0 / 100 words &mdash; saves separately &mdash; does not block submission</span></div>
       </div>
     </div>
-  </div>
-
-  <div class="block">
-    <div class="block-head"><div class="block-num">4</div><div class="block-label-text">Stakeholder challenge &mdash; Operations Head</div></div>
-    <div class="stakeholder">
-      <div class="stwho">Operations Head &middot; Vikram Nair</div>
-      <div class="stq">&ldquo;Your rollout reduces store productivity during peak festive weeks. Show me the training-hours impact on sales floor capacity &mdash; with a revised calendar. Not a promise. A plan.&rdquo;</div>
+    <div id="r3-submit-area">
+      <div class="confirm-danger">
+        <div class="confirm-danger-text"><strong>&#9888; Warning:</strong> Submitting Round 3 triggers the DPDP data breach event automatically on the full platform. This demo shows the event text immediately.</div>
+        <div class="confirm-btns">
+          <button class="btn-back" onclick="gotoStep(3,1)"><i class="ti ti-arrow-left"></i> Back</button>
+          <button class="btn-danger" onclick="submit(3)">Submit Round 3</button>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div id="r3-confirm-bar" class="confirm-bar">
-    <div class="confirm-text" id="r3-confirm-txt">Select an option above to confirm your Round 3 decision.</div>
-    <div class="confirm-btns">
-      <button class="btn-back" onclick="goHome()">Back</button>
-      <button class="btn-submit" id="r3-btn" disabled onclick="submit(3)">Confirm decision</button>
+    <div id="r3-success" style="display:none">
+      <div class="crisis-box">
+        <div class="crisis-head"><i class="ti ti-alert-triangle"></i> &#128680; Breaking &mdash; DPDP Data Breach</div>
+        <div class="crisis-body">At 11:42 PM last night, GreenLeaf's HR platform flagged an anomaly. By 6 AM your security team confirmed it: personal employee data &mdash; including Aadhaar-linked payroll records and performance scores for <strong>340 frontline workers</strong> across Tier-2 and Tier-3 locations &mdash; was exposed due to a misconfigured cloud storage bucket. Under the <strong>Digital Personal Data Protection Act 2023</strong>, GreenLeaf must notify the Data Protection Board within <strong>72 hours</strong>. The CHRO is being briefed in 30 minutes. This happened on your watch &mdash; because of the very systems you are building.</div>
+        <div class="crisis-severity" id="r3-breach-sev"></div>
+      </div>
+      <div class="crisis-prompts">
+        <div class="cp-head">Your crisis response prompts (recorded on the full platform):</div>
+        <div class="cp-item">1. Immediate containment &mdash; what do you shut down or isolate right now?</div>
+        <div class="cp-item">2. DPDP notification &mdash; what do you report to the Data Protection Board, and by when?</div>
+        <div class="cp-item">3. Affected employee communication &mdash; how and when do you tell the 340 workers?</div>
+        <div class="cp-item">4. Systemic fix &mdash; what change to your Round 3 rollout does this incident force?</div>
+      </div>
+      <div class="outcome-box">
+        <div class="outcome-head">Round 3 &mdash; scorecard movement</div>
+        <div id="r3-outcome"></div>
+      </div>
+      <div class="done-banner"><i class="ti ti-circle-check"></i><span><strong id="r3-stxt"></strong> Rounds 4&ndash;6 continue on the full platform at disha-simulation.vercel.app</span></div>
     </div>
-  </div>
-
-  <div id="r3-success" style="display:none">
-    <div class="crisis-box">
-      <div class="crisis-head"><i class="ti ti-alert-triangle"></i> Breaking &mdash; DPDP Data Breach</div>
-      <div class="crisis-body">At 11:42 PM last night, GreenLeaf's HR platform flagged an anomaly. By 6 AM your security team confirmed it: personal employee data &mdash; including Aadhaar-linked payroll records and performance scores for <strong>340 frontline workers</strong> across Tier-2 and Tier-3 locations &mdash; was exposed due to a misconfigured cloud storage bucket. Under the Digital Personal Data Protection Act 2023, GreenLeaf must notify the Data Protection Board within <strong>72 hours</strong>. The CHRO is being briefed in 30 minutes. This happened on your watch &mdash; because of the very systems you are building.</div>
-    </div>
-    <div class="crisis-prompts">
-      <div class="cp-head">Your crisis response prompts (recorded on the full platform):</div>
-      <div class="cp-item">1. Immediate containment &mdash; what do you shut down or isolate right now?</div>
-      <div class="cp-item">2. DPDP notification &mdash; what do you report to the Data Protection Board, and by when?</div>
-      <div class="cp-item">3. Affected employee communication &mdash; how and when do you tell 340 workers?</div>
-      <div class="cp-item">4. Systemic fix &mdash; what change to your Round 3 rollout does this incident force?</div>
-    </div>
-    <div class="done-banner"><i class="ti ti-circle-check"></i><span><strong id="r3-stxt"></strong> Rounds 4&ndash;6 continue on the full platform.</span></div>
   </div>
 </div>
 </div>
 
 <script>
+const COSTS={
+  '1A':{b:40,a:8,c:0},'1B':{b:80,a:18,c:-5},'1C':{b:60,a:12,c:5},'1D':{b:50,a:10,c:3},
+  '2A':{b:120,a:20,c:-5},'2B':{b:150,a:25,c:-8},'2C':{b:180,a:30,c:-10},'2D':{b:90,a:15,c:5},
+  '3A':{b:60,a:12,c:5},'3B':{b:100,a:20,c:-5},'3C':{b:50,a:10,c:10},'3D':{b:70,a:14,c:8}
+};
 const TITLES={
   1:{A:'Foundations first',B:'Analytics-first leap',C:'Mobile-first equity lens',D:'Regulatory alignment'},
   2:{A:'Modular HRMS Core',B:'People Analytics Platform',C:'Integrated Talent Suite',D:'Mobile-first lightweight'},
   3:{A:'Phased rollout',B:'Full rollout and training',C:'Change agent network',D:'Gamified campaign'}
 };
+const OUTCOMES={
+  '1A':[['Analytical Rigour','+2','pos'],['Financial Discipline','+3','pos'],['Equity & Compliance','0','neu'],['Adoption & Change','+1','pos'],['Strategic Coherence','+2','pos']],
+  '1B':[['Analytical Rigour','+3','pos'],['Financial Discipline','-1','neg'],['Equity & Compliance','0','neu'],['Adoption & Change','-1','neg'],['Strategic Coherence','+2','pos']],
+  '1C':[['Analytical Rigour','+2','pos'],['Financial Discipline','+1','pos'],['Equity & Compliance','+2','pos'],['Adoption & Change','+3','pos'],['Strategic Coherence','+2','pos']],
+  '1D':[['Analytical Rigour','+1','pos'],['Financial Discipline','+2','pos'],['Equity & Compliance','+3','pos'],['Adoption & Change','+1','pos'],['Strategic Coherence','+1','pos']],
+  '2A':[['Analytical Rigour','+2','pos'],['Financial Discipline','+2','pos'],['Equity & Compliance','+1','pos'],['Adoption & Change','+2','pos'],['Strategic Coherence','+2','pos']],
+  '2B':[['Analytical Rigour','+3','pos'],['Financial Discipline','-2','neg'],['Equity & Compliance','+1','pos'],['Adoption & Change','+2','pos'],['Strategic Coherence','+2','pos']],
+  '2C':[['Analytical Rigour','+2','pos'],['Financial Discipline','-3','neg'],['Equity & Compliance','+1','pos'],['Adoption & Change','+1','pos'],['Strategic Coherence','+3','pos']],
+  '2D':[['Analytical Rigour','+1','pos'],['Financial Discipline','+3','pos'],['Equity & Compliance','+2','pos'],['Adoption & Change','+3','pos'],['Strategic Coherence','+1','pos']],
+  '3A':[['Analytical Rigour','+2','pos'],['Financial Discipline','+2','pos'],['Equity & Compliance','0','neu'],['Adoption & Change','-1','neg'],['Strategic Coherence','+1','pos']],
+  '3B':[['Analytical Rigour','+2','pos'],['Financial Discipline','-2','neg'],['Equity & Compliance','+1','pos'],['Adoption & Change','+2','pos'],['Strategic Coherence','+2','pos']],
+  '3C':[['Analytical Rigour','+2','pos'],['Financial Discipline','+2','pos'],['Equity & Compliance','+2','pos'],['Adoption & Change','+3','pos'],['Strategic Coherence','+2','pos']],
+  '3D':[['Analytical Rigour','+1','pos'],['Financial Discipline','+1','pos'],['Equity & Compliance','+1','pos'],['Adoption & Change','+3','pos'],['Strategic Coherence','+1','pos']]
+};
+const CASCADE_R1={
+  A:'<strong>Option 1A (Foundations first)</strong> grounds your R2 architecture in data quality before analytics investment. Teams that skip this step and build analytics on poor-quality data create compounding interpretation errors by R4\u2013R5.',
+  B:'<strong>Option 1B (Analytics-first leap)</strong> means InsightHR needs strong underlying data to be credible \u2014 watch InsightHR\u2019s adoption rate carefully. Analytics on poor-quality data creates compounding errors by R4.',
+  C:'<strong>Option 1C (Mobile-first equity lens)</strong> is already established. Any non-mobile-enabled system choice in R2 creates an immediate contradiction with your R1 thesis \u2014 the Board will notice.',
+  D:'<strong>Option 1D (Regulatory alignment)</strong> means DPDP governance must be woven into the R2 architecture explicitly. Teams with DPDP posture from R2 absorb the R3 shock event with significantly lower Change Capital damage.'
+};
+const CASCADE_R2={
+  A:'<strong>Option 2A (Modular HRMS Core):</strong> PeopleCloud is live. The R3 rollout must drive adoption into this new system across all tiers. Feature-phone users remain a structural access gap you must address in your change plan.',
+  B:'<strong>Option 2B (People Analytics Platform):</strong> InsightHR is the primary system. R3 must drive adoption of analytics dashboards alongside the ESS App \u2014 two new systems simultaneously. Change Capital will be under pressure.',
+  C:'<strong>Option 2C (Integrated Talent Suite):</strong> The highest-change scenario. Mandatory ILT in R3 may be the only option that can cover all four new systems at once. Budget pressure is real \u2014 watch your remaining envelope.',
+  D:'<strong>Option 2D (Mobile-first lightweight):</strong> The ESS App and SahayakBot are your primary frontline channels. Your R3 adoption strategy must be mobile-native and peer-led to be consistent with this architecture choice.'
+};
+const BREACH_SEV={
+  A:'Your Modular HRMS Core had partial DPDP governance \u2014 the breach impact is moderate. Estimated Change Capital damage on the full platform: \u221212 pts.',
+  B:'Your People Analytics Platform had some DPDP planning but US-residency data (InsightHR) was not fully governed \u2014 breach impact is significant. Estimated Change Capital damage: \u221215 pts.',
+  C:'Your Integrated Talent Suite deferred DPDP compliance as a later migration step \u2014 the breach hits your ungoverned architecture hard. Estimated Change Capital damage: \u221218 pts.',
+  D:'Your Mobile-first Lightweight approach kept most data in-house via SahayakBot, reducing exposure somewhat. Estimated Change Capital damage: \u221210 pts.'
+};
 
-let S={choices:{},submitted:{},unlocked:{1:true,2:false,3:false}};
+let S={budget:600,cc:100,choices:{},submitted:{},unlocked:{1:true,2:false,3:false}};
+try{const d=localStorage.getItem('disha_v4');if(d)S=JSON.parse(d);}catch(e){}
 
-try{
-  const sc=localStorage.getItem('d_choices'),ss=localStorage.getItem('d_submitted'),su=localStorage.getItem('d_unlocked');
-  if(sc)S.choices=JSON.parse(sc);
-  if(ss)S.submitted=JSON.parse(ss);
-  if(su)S.unlocked=JSON.parse(su);
-}catch(e){}
+function save(){try{localStorage.setItem('disha_v4',JSON.stringify(S));}catch(e){}}
 
-function save(){
-  try{
-    localStorage.setItem('d_choices',JSON.stringify(S.choices));
-    localStorage.setItem('d_submitted',JSON.stringify(S.submitted));
-    localStorage.setItem('d_unlocked',JSON.stringify(S.unlocked));
-  }catch(e){}
+function updateResBar(){
+  const bPct=Math.max(0,(S.budget/600)*100);
+  const cPct=Math.max(0,(S.cc/100)*100);
+  document.getElementById('res-budget').textContent='\u20b9'+S.budget+'L';
+  document.getElementById('res-cc').textContent=S.cc+' pts';
+  document.getElementById('res-ah').textContent='60 hrs';
+  document.getElementById('bar-budget').style.width=bPct+'%';
+  document.getElementById('bar-cc').style.width=cPct+'%';
+  document.getElementById('bar-ah').style.width='100%';
+}
+
+const STEP_LABELS=['Brief & findings','Option & rationale','Stakeholder & submit'];
+function gotoStep(r,s){
+  document.querySelectorAll('#page-r'+r+' .step-page').forEach((p,i)=>p.classList.toggle('active',i===s));
+  document.querySelectorAll('#si-r'+r+' .step-dot').forEach((d,i)=>{
+    d.classList.remove('active','done');
+    if(i<s)d.classList.add('done');
+    else if(i===s)d.classList.add('active');
+  });
+  const sl=document.getElementById('sl-r'+r);
+  if(sl)sl.textContent='Step '+(s+1)+' of 3 \u2014 '+STEP_LABELS[s];
+  window.scrollTo(0,0);
 }
 
 function show(id){
@@ -576,11 +789,25 @@ function show(id){
   document.getElementById('page-'+id).classList.add('active');
   window.scrollTo(0,0);
 }
-
 function goHome(){show('landing');}
 function goRound(n){
   if(!S.unlocked[n])return;
   show('r'+n);
+  showCascades(n);
+  if(S.submitted[n])gotoStep(n,2);
+}
+
+function showCascades(n){
+  if(n===2&&S.choices[1]){
+    const el=document.getElementById('r2-cascade');
+    const txt=document.getElementById('r2-cascade-text');
+    if(el&&txt){el.style.display='block';txt.innerHTML=CASCADE_R1[S.choices[1]]||'';}
+  }
+  if(n===3&&S.choices[2]){
+    const el=document.getElementById('r3-cascade');
+    const txt=document.getElementById('r3-cascade-text');
+    if(el&&txt){el.style.display='block';txt.innerHTML=CASCADE_R2[S.choices[2]]||'';}
+  }
 }
 
 function pick(r,l){
@@ -588,26 +815,76 @@ function pick(r,l){
   S.choices[r]=l;
   document.querySelectorAll('#r'+r+'-opts .opt').forEach(c=>c.classList.remove('selected'));
   document.getElementById('r'+r+'-'+l).classList.add('selected');
-  const t=TITLES[r][l];
-  document.getElementById('r'+r+'-confirm-txt').innerHTML='Option '+r+l+': <strong>'+t+'</strong> selected. Confirm to lock this decision.';
-  document.getElementById('r'+r+'-btn').disabled=false;
-  save();
+  const key=r+''+l,c=COSTS[key];
+  const cp=document.getElementById('r'+r+'-cost');
+  if(cp){
+    cp.style.display='flex';
+    document.getElementById('r'+r+'-cb').textContent='\u20b9'+c.b+'L';
+    document.getElementById('r'+r+'-ca').textContent=c.a;
+    document.getElementById('r'+r+'-cc').textContent=(c.c>0?'+':'')+c.c;
+  }
+  save();checkReady(r);
+}
+
+function wc(txt){return txt.trim().split(/\s+/).filter(w=>w.length>0).length;}
+
+function updateWC(r){
+  const ta=document.getElementById('r'+r+'-rat');
+  const sp=document.getElementById('r'+r+'-wc');
+  if(!ta||!sp)return;
+  const n=wc(ta.value);
+  sp.textContent=n+' / 50 words minimum';
+  sp.className='wc'+(n>=50?' ok':n>20?' mid':'');
+  checkReady(r);
+}
+function updateST(r){
+  const ta=document.getElementById('r'+r+'-st');
+  const sp=document.getElementById('r'+r+'-stwc');
+  if(!ta||!sp)return;
+  const n=wc(ta.value);
+  sp.textContent=n+' / 100 words \u2014 saves separately \u2014 does not block submission';
+  sp.className='wc'+(n>=100?' ok':n>40?' mid':'');
+}
+
+function checkReady(r){
+  const btn=document.getElementById('r'+r+'-btn');
+  if(!btn)return;
+  const hasC=!!S.choices[r];
+  const ta=document.getElementById('r'+r+'-rat');
+  const hasW=ta?wc(ta.value)>=50:false;
+  btn.disabled=!(hasC&&hasW);
+  if(hasC){
+    const l=S.choices[r];
+    const txt=document.getElementById('r'+r+'-ctxt');
+    if(txt)txt.innerHTML='Option '+r+l+': <strong>'+TITLES[r][l]+'</strong>'+(hasW?' \u2014 ready for stakeholder challenge.':' selected. Write your rationale ('+wc(ta?ta.value:'')+'&thinsp;/&thinsp;50 words).');
+  }
+}
+
+function buildOutcome(r){
+  const l=S.choices[r];
+  const rows=OUTCOMES[r+''+l]||[];
+  const el=document.getElementById('r'+r+'-outcome');
+  if(el)el.innerHTML=rows.map(([ax,d,dir])=>`<div class="outcome-row"><span class="outcome-axis">${ax}</span><span class="delta-${dir}">${d}</span></div>`).join('');
 }
 
 function submit(r){
   if(!S.choices[r])return;
-  S.submitted[r]=true;
-  const l=S.choices[r],t=TITLES[r][l];
-  const bar=document.getElementById('r'+r+'-confirm-bar');
-  if(bar)bar.style.display='none';
+  const l=S.choices[r],c=COSTS[r+''+l];
+  S.budget-=c.b; S.cc+=c.c; S.submitted[r]=true;
+  if(r<3)S.unlocked[r+1]=true;
+  buildOutcome(r);
+  const sa=document.getElementById('r'+r+'-submit-area');
+  if(sa)sa.style.display='none';
   const suc=document.getElementById('r'+r+'-success');
   if(suc)suc.style.display='block';
   const stxt=document.getElementById('r'+r+'-stxt');
-  if(stxt)stxt.textContent='Round '+r+' locked \u2014 Option '+r+l+': '+t+'.';
-  document.querySelectorAll('#r'+r+'-opts .opt').forEach(c=>{c.style.cursor='not-allowed';c.onclick=null;});
-  if(r<3){S.unlocked[r+1]=true;}
-  save();
-  updateBadges();
+  if(stxt)stxt.textContent='Round '+r+' locked \u2014 Option '+r+l+': '+TITLES[r][l]+'.';
+  if(r===3){
+    const sev=document.getElementById('r3-breach-sev');
+    if(sev)sev.textContent=(S.choices[2]?BREACH_SEV[S.choices[2]]||'':'')
+  }
+  document.querySelectorAll('#r'+r+'-opts .opt').forEach(c=>{c.classList.add('locked-opt');c.onclick=null;});
+  save(); updateResBar(); updateBadges();
 }
 
 function updateBadges(){
@@ -632,17 +909,22 @@ function restore(){
       if(el)el.classList.add('selected');
     }
     if(S.submitted[r]){
-      const bar=document.getElementById('r'+r+'-confirm-bar');
-      if(bar)bar.style.display='none';
+      buildOutcome(r);
+      const sa=document.getElementById('r'+r+'-submit-area');
+      if(sa)sa.style.display='none';
       const suc=document.getElementById('r'+r+'-success');
       if(suc)suc.style.display='block';
       const l=S.choices[r];
       const stxt=document.getElementById('r'+r+'-stxt');
       if(stxt&&l)stxt.textContent='Round '+r+' locked \u2014 Option '+r+l+': '+TITLES[r][l]+'.';
-      document.querySelectorAll('#r'+r+'-opts .opt').forEach(c=>{c.style.cursor='not-allowed';c.onclick=null;});
+      if(r===3){
+        const sev=document.getElementById('r3-breach-sev');
+        if(sev)sev.textContent=(S.choices[2]?BREACH_SEV[S.choices[2]]||'':'');
+      }
+      document.querySelectorAll('#r'+r+'-opts .opt').forEach(c=>{c.classList.add('locked-opt');c.onclick=null;});
     }
   }
-  updateBadges();
+  updateBadges(); updateResBar();
 }
 
 restore();
