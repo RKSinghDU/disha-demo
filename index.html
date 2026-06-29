@@ -2,644 +2,831 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Project Disha — Demo | DSEH001 · University of Delhi</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
 <style>
+/* ============================================================
+   Project Disha — disha.css v2.3  faithful demo replica
+   Prof. R K Singh · Dept of Commerce · University of Delhi
+   ============================================================ */
+:root {
+  --green:#1B5E20;--green-mid:#2E7D32;--green-light:#43A047;
+  --teal:#00695C;--teal-light:#00897B;--gold:#F9A825;--gold-dark:#C17900;
+  --success:#2E7D32;--warning:#E65100;--danger:#B71C1C;
+  --radius:6px;--radius-lg:10px;
+  --bg:#F4F6F5;--surface:#FFFFFF;--surface-2:#F0F4F2;--surface-3:#E8EDEA;
+  --border:#D5DDD9;--border-light:#E8EDEA;
+  --text:#1A1A1A;--text-2:#3D3D3D;--text-muted:#637068;--text-faint:#95A49D;
+  --input-bg:#FFFFFF;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.07);--shadow:0 2px 8px rgba(0,0,0,.09);--shadow-lg:0 6px 20px rgba(0,0,0,.12);
+  --shock-bg:#FFF3E0;--shock-border:#E65100;--audit-bg:#E8F5E9;--audit-border:#2E7D32;
+  --option-sel:#E8F5E9;--hover-row:#F0F4F2;--calc-bg:#F0F4F2;
+  --impact-bg:#0A0A0A;--impact-bg-inner:#1A1A1A;--impact-border:#F9A825;
+  --impact-divider:rgba(255,255,255,.10);--impact-text:#FFFFFF;--impact-text-2:#E0E0E0;
+  --impact-text-muted:#9E9E9E;--impact-text-faint:#616161;
+  --impact-bar-track:rgba(255,255,255,.10);--impact-cc-centre:rgba(255,255,255,.30);
+  --impact-shadow:0 12px 40px rgba(0,0,0,.60),0 4px 12px rgba(0,0,0,.40);
+  --impact-label-color:#F9A825;
+  --impact-badge-hi-bg:rgba(105,240,174,.15);--impact-badge-hi-text:#69F0AE;
+  --impact-badge-md-bg:rgba(255,213,79,.15);--impact-badge-md-text:#FFD54F;
+  --impact-cascade-line:#26A69A;--impact-anchor-line:#F9A825;
+  --impact-anchor-id-bg:rgba(249,168,37,.15);--impact-anchor-id-text:#F9A825;
+  --impact-cc-pos:#00E5C8;--impact-cc-neg:#FF5252;
+}
+[data-theme="dark"] {
+  --bg:#0D1410;--surface:#141C17;--surface-2:#1A2420;--surface-3:#1F2B26;
+  --border:#283530;--border-light:#1F2B26;
+  --text:#E4EDE8;--text-2:#BDD0C5;--text-muted:#7FA090;--text-faint:#4D6B5C;
+  --input-bg:#0F1812;
+  --shadow-sm:0 1px 4px rgba(0,0,0,.4);--shadow:0 2px 10px rgba(0,0,0,.5);--shadow-lg:0 6px 22px rgba(0,0,0,.6);
+  --shock-bg:#1F1200;--shock-border:#C65900;--audit-bg:#0C1A0D;
+  --option-sel:#182418;--hover-row:#1A2420;--calc-bg:#1A2420;
+  --impact-bg:#FFFFFF;--impact-bg-inner:#F0F4F2;--impact-border:#1B5E20;
+  --impact-divider:rgba(0,0,0,.10);--impact-text:#0A0A0A;--impact-text-2:#212121;
+  --impact-text-muted:#616161;--impact-text-faint:#9E9E9E;
+  --impact-bar-track:rgba(0,0,0,.08);--impact-cc-centre:rgba(0,0,0,.25);
+  --impact-shadow:0 12px 40px rgba(0,0,0,.35),0 4px 12px rgba(0,0,0,.20);
+  --impact-label-color:#1B5E20;
+  --impact-badge-hi-bg:#E8F5E9;--impact-badge-hi-text:#1B5E20;
+  --impact-badge-md-bg:#FFF8E1;--impact-badge-md-text:#7A5000;
+  --impact-cascade-line:#00695C;--impact-anchor-line:#C17900;
+  --impact-anchor-id-bg:#FFF8E1;--impact-anchor-id-text:#7A5000;
+  --impact-cc-pos:#00695C;--impact-cc-neg:#B71C1C;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{font-size:16px}
-body{font-family:'Inter',system-ui,sans-serif;background:#f5f5f4;color:#1c1917;line-height:1.6;min-height:100vh}
-
-:root{
-  --bg:#f5f5f4;
-  --surface:#ffffff;
-  --surface-muted:#fafaf9;
-  --border:rgba(0,0,0,0.08);
-  --border-strong:rgba(0,0,0,0.14);
-  --text:#1c1917;
-  --text-muted:#78716c;
-  --text-faint:#a8a29e;
-  --accent:#2563eb;
-  --accent-bg:#eff6ff;
-  --accent-border:#bfdbfe;
-  --success:#16a34a;
-  --success-bg:#f0fdf4;
-  --success-border:#bbf7d0;
-  --danger:#dc2626;
-  --danger-bg:#fef2f2;
-  --danger-border:#fecaca;
-  --warn:#b45309;
-  --warn-bg:#fffbeb;
-  --warn-border:#fde68a;
-  --radius:8px;
-}
-
-/* NAV */
-.nav{background:var(--surface);border-bottom:0.5px solid var(--border);padding:0 1.5rem;height:52px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
-.nav-left{display:flex;align-items:center;gap:10px}
-.nav-mark{width:28px;height:28px;border:1.5px solid var(--border-strong);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:14px}
-.nav-title{font-size:14px;font-weight:500}
-.nav-sub{font-size:11px;color:var(--text-faint)}
-.pill{font-size:11px;padding:3px 10px;border-radius:100px;border:0.5px solid var(--border);color:var(--text-muted);background:var(--surface-muted)}
-
-/* RESOURCE BAR */
-.res-bar{background:var(--surface);border-bottom:0.5px solid var(--border);padding:0 1.5rem;height:44px;display:flex;align-items:center;gap:2rem;position:sticky;top:52px;z-index:49}
-.res-item{display:flex;align-items:center;gap:8px}
-.res-label{font-size:11px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.05em}
-.res-val{font-size:13px;font-weight:600;color:var(--text)}
-.res-track{width:60px;height:3px;background:var(--border-strong);border-radius:2px;overflow:hidden}
-.res-fill{height:100%;border-radius:2px;transition:width .4s ease}
-.fill-budget{background:var(--success)}
-.fill-cc{background:var(--accent)}
-.fill-ah{background:#7c3aed}
-.res-divider{width:0.5px;height:20px;background:var(--border)}
-
-/* PAGES */
-.page{display:none}
-.page.active{display:block}
-
-/* LANDING */
-.landing{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
-.landing-kicker{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-faint);font-weight:500;margin-bottom:.5rem}
-.landing-h1{font-size:22px;font-weight:600;color:var(--text);margin-bottom:.5rem;line-height:1.25}
-.landing-sub{font-size:14px;color:var(--text-muted);max-width:560px;line-height:1.65;margin-bottom:2rem}
-.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:2.5rem}
-.tile{background:var(--surface-muted);border-radius:var(--radius);padding:.75rem 1rem;border:0.5px solid var(--border)}
-.tile-label{font-size:11px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
-.tile-val{font-size:20px;font-weight:600;color:var(--text)}
-.tile-sub{font-size:11px;color:var(--text-muted);margin-top:2px}
-.section-label{font-size:11px;font-weight:500;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.6rem}
-.rounds-list{display:flex;flex-direction:column;gap:6px;margin-bottom:2rem}
-.round-row{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:.875rem 1.25rem;display:flex;align-items:center;gap:.875rem;cursor:pointer;transition:border-color .14s}
-.round-row:hover:not(.locked){border-color:var(--border-strong)}
-.round-row.locked{opacity:.4;cursor:not-allowed}
-.rnum{width:34px;height:34px;border-radius:50%;border:0.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--text-muted);flex-shrink:0}
-.rbody{flex:1;min-width:0}
-.rtitle{font-size:14px;font-weight:500;color:var(--text)}
-.rmeta{font-size:11px;color:var(--text-faint);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.rright{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.sbadge{font-size:11px;padding:3px 10px;border-radius:100px;font-weight:500;white-space:nowrap}
-.sb-open{background:var(--success-bg);color:var(--success);border:0.5px solid var(--success-border)}
-.sb-done{background:var(--accent-bg);color:var(--accent);border:0.5px solid var(--accent-border)}
-.sb-locked{background:var(--surface-muted);color:var(--text-faint);border:0.5px solid var(--border)}
-.about-box{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:1rem 1.25rem}
-.about-label{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-faint);margin-bottom:.5rem}
-.about-text{font-size:13px;color:var(--text-muted);line-height:1.65}
-
-/* ROUND PAGE */
-.rpage{max-width:720px;margin:0 auto;padding:1.5rem 1.5rem 4rem}
-.breadcrumb{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);margin-bottom:1rem;cursor:pointer}
-.bc-link{color:var(--accent)}
-
-/* STEP INDICATOR */
-.step-indicator{display:flex;gap:4px;margin-bottom:1.25rem;align-items:center}
-.step-dot{width:6px;height:6px;border-radius:50%;background:var(--border-strong);cursor:pointer;transition:all .2s}
-.step-dot.done{background:var(--success)}
-.step-dot.active{background:var(--accent);width:18px;border-radius:3px}
-.step-label{font-size:11px;color:var(--text-faint);margin-left:6px}
-
-/* STEP PAGES */
-.step-page{display:none}
-.step-page.active{display:block}
-
-.rp-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-faint);font-weight:500;margin-bottom:.3rem}
-.rp-title{font-size:20px;font-weight:600;color:var(--text);margin-bottom:.3rem}
-.rp-sub{font-size:13px;color:var(--text-muted);margin-bottom:.75rem}
-.rp-meta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:0.5px solid var(--border)}
-.rp-meta-item{font-size:12px;color:var(--text-muted);display:flex;align-items:center;gap:4px}
-.rp-meta-item i{font-size:14px}
-.crisis-tag{font-size:11px;color:var(--danger);background:var(--danger-bg);border:0.5px solid var(--danger-border);padding:3px 10px;border-radius:100px;font-weight:500}
-.d1-tag{font-size:11px;color:var(--accent);background:var(--accent-bg);border:0.5px solid var(--accent-border);padding:3px 10px;border-radius:100px;font-weight:500}
-
-/* BLOCKS */
-.block{margin-bottom:1.75rem}
-.block-head{display:flex;align-items:center;gap:8px;margin-bottom:.6rem}
-.block-num{width:18px;height:18px;border-radius:50%;border:0.5px solid var(--border);font-size:10px;display:flex;align-items:center;justify-content:center;color:var(--text-muted);flex-shrink:0}
-.block-label-text{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-muted);font-weight:500}
-.brief-card{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:1.25rem;font-size:13.5px;color:var(--text-muted);line-height:1.7}
-.brief-card strong{color:var(--text);font-weight:500}
-.dtabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:.75rem}
-.dtab{font-size:11px;padding:3px 10px;border-radius:100px;border:0.5px solid var(--border);background:var(--surface-muted);color:var(--text-muted)}
-.dtab.primary{border-color:var(--accent-border);background:var(--accent-bg);color:var(--accent)}
-.findings{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:1.25rem}
-.finding{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px}
-.finding:last-child{margin-bottom:0}
-.fdot{width:5px;height:5px;border-radius:50%;background:var(--border-strong);flex-shrink:0;margin-top:7px}
-.ftext{font-size:13px;color:var(--text-muted);line-height:1.55}
-.ftext strong{color:var(--text);font-weight:500}
-.anchors-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:.875rem;padding-top:.875rem;border-top:0.5px solid var(--border);align-items:center}
-.anchor-chip{display:flex;align-items:center;gap:6px;padding:3px 10px;border:0.5px solid var(--border);border-radius:100px;background:var(--surface-muted)}
-.av{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600}
-.av-blue{background:var(--accent-bg);color:var(--accent)}
-.av-green{background:var(--success-bg);color:var(--success)}
-.anchor-label{font-size:11px;color:var(--text-muted)}
-.anch-note{font-size:11px;color:var(--text-faint);align-self:center}
-
-/* CASCADE HINT */
-.cascade-card{background:var(--accent-bg);border:0.5px solid var(--accent-border);border-radius:12px;padding:1rem 1.25rem;font-size:13px;color:var(--text-muted);line-height:1.65}
-.cascade-card strong{color:var(--accent);font-weight:500}
-.cascade-num{background:var(--accent-bg);border-color:var(--accent-border);color:var(--accent)}
-
-/* OPTIONS */
-.opts-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(max-width:520px){.opts-grid{grid-template-columns:1fr}}
-.opt{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:1rem;cursor:pointer;transition:border-color .14s}
-.opt:hover{border-color:var(--border-strong)}
-.opt.selected{border:2px solid var(--accent);background:var(--accent-bg)}
-.opt.selected .ocode{color:var(--accent)}
-.opt.selected .otitle{color:var(--accent)}
-.opt.locked-opt{cursor:not-allowed;opacity:.65}
-.ocode{font-size:11px;font-weight:500;color:var(--text-faint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
-.otitle{font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px}
-.odesc{font-size:12px;color:var(--text-muted);line-height:1.5}
-.ocosts{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-.cpill{font-size:11px;padding:2px 8px;border-radius:100px;background:var(--surface-muted);border:0.5px solid var(--border);color:var(--text-muted)}
-
-/* COST PREVIEW */
-.cost-preview{background:var(--surface-muted);border:0.5px solid var(--border);border-radius:var(--radius);padding:.5rem 1rem;font-size:12px;color:var(--text-muted);display:flex;gap:1.25rem;align-items:center;margin-top:8px;flex-wrap:wrap}
-.cost-preview strong{color:var(--text);font-weight:500}
-
-/* RATIONALE */
-.rationale-wrap{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:1rem 1.25rem}
-.rationale-wrap textarea{width:100%;border:0.5px solid var(--border);border-radius:var(--radius);padding:.75rem;font-size:13px;color:var(--text);background:var(--surface-muted);font-family:inherit;line-height:1.6;resize:vertical;min-height:90px}
-.rationale-wrap textarea:focus{outline:none;border-color:var(--accent)}
-.rationale-meta{display:flex;justify-content:space-between;align-items:center;margin-top:.4rem}
-.wc{font-size:11px;color:var(--text-faint)}
-.wc.ok{color:var(--success)}
-.wc.mid{color:var(--warn)}
-
-/* STAKEHOLDER */
-.stakeholder{background:var(--surface);border-left:2.5px solid var(--border-strong);padding:1rem 1.25rem}
-.stwho{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-faint);margin-bottom:.35rem}
-.stq{font-size:13.5px;color:var(--text);font-style:italic;line-height:1.55}
-.st-input{margin-top:.75rem}
-.st-input textarea{width:100%;border:0.5px solid var(--border);border-radius:var(--radius);padding:.75rem;font-size:13px;color:var(--text);background:var(--surface-muted);font-family:inherit;line-height:1.6;resize:vertical;min-height:80px}
-.st-input textarea:focus{outline:none;border-color:var(--accent)}
-
-/* CONFIRM BAR */
-.confirm-bar{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:.875rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1.5rem;flex-wrap:wrap}
-.confirm-text{font-size:13px;color:var(--text-muted)}
-.confirm-text strong{color:var(--text)}
-.confirm-btns{display:flex;gap:8px}
-.btn-back{background:transparent;border:0.5px solid var(--border-strong);color:var(--text-muted);padding:7px 14px;border-radius:var(--radius);font-size:13px;cursor:pointer;font-family:inherit}
-.btn-back:hover{background:var(--surface-muted)}
-.btn-next{background:var(--accent);color:#fff;border:none;padding:7px 18px;border-radius:var(--radius);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;transition:opacity .14s}
-.btn-next:hover{opacity:.88}
-.btn-submit{background:var(--text);color:#fff;border:none;padding:7px 18px;border-radius:var(--radius);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;transition:opacity .14s}
-.btn-submit:hover{opacity:.85}
-.btn-submit:disabled{opacity:.3;cursor:not-allowed}
-.btn-danger{background:var(--danger);color:#fff;border:none;padding:7px 18px;border-radius:var(--radius);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit}
-
-/* OUTCOME */
-.outcome-box{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:1rem 1.25rem;margin-top:1rem}
-.outcome-head{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-faint);font-weight:500;margin-bottom:.6rem}
-.outcome-row{display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:0.5px solid var(--border);font-size:13px}
-.outcome-row:last-child{border-bottom:none}
-.outcome-axis{color:var(--text-muted)}
-.delta-pos{font-weight:600;color:var(--success)}
-.delta-neg{font-weight:600;color:var(--danger)}
-.delta-neu{font-weight:600;color:var(--text-faint)}
-
-/* SUCCESS */
-.success-box{background:var(--success-bg);border:0.5px solid var(--success-border);border-radius:12px;padding:.875rem 1.25rem;display:flex;align-items:center;gap:10px;margin-top:1rem}
-.success-box i{color:var(--success);font-size:16px}
-.success-text{font-size:13px;color:var(--success)}
-.next-row{display:flex;justify-content:flex-end;margin-top:.75rem}
-
-/* CRISIS — hardcoded dark colours; inline styles on HTML elements as belt-and-braces */
-.crisis-box{background:#450a0a;border:2px solid #991b1b;border-radius:12px;padding:1.25rem;margin-top:1.5rem}
-.crisis-head{color:#fca5a5;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.5rem;display:flex;align-items:center;gap:6px}
-.crisis-head i{font-size:14px;color:#fca5a5}
-.crisis-body{font-size:13.5px;color:#fecaca;line-height:1.7}
-.crisis-body strong{font-weight:600;color:#ffffff}
-.crisis-severity{font-size:12px;color:#fca5a5;background:rgba(255,255,255,.08);border:0.5px solid rgba(252,165,165,.3);border-radius:var(--radius);padding:.625rem .875rem;margin-top:.875rem;line-height:1.6}
-.crisis-prompts{background:#1c0202;border:1.5px solid #7f1d1d;border-radius:12px;padding:1.125rem 1.375rem;margin-top:.875rem}
-.cp-head{font-size:12px;font-weight:700;color:#fca5a5;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em}
-.cp-item{font-size:13px;color:#fecaca;margin-bottom:8px;line-height:1.6;padding-left:10px;border-left:2px solid rgba(252,165,165,.4)}
-.done-banner{background:var(--success-bg);border:0.5px solid var(--success-border);border-radius:12px;padding:.75rem 1.25rem;display:flex;align-items:center;gap:8px;margin-top:.75rem}
-.done-banner i{color:var(--success);font-size:16px}
-.done-banner span{font-size:13px;color:var(--success)}
-.confirm-danger{background:var(--danger-bg);border:0.5px solid var(--danger-border);border-radius:12px;padding:.875rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1.5rem;flex-wrap:wrap}
-.confirm-danger-text{font-size:13px;color:var(--danger)}
-
-@media(max-width:600px){
-  .tiles{grid-template-columns:repeat(2,1fr)}
-  .confirm-bar,.confirm-danger{flex-direction:column;align-items:flex-start}
-  .rp-meta{gap:.5rem}
-  .res-bar{gap:1rem;overflow-x:auto}
-  .cost-preview{gap:.75rem}
-}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;font-size:15px;line-height:1.6;background:var(--bg);color:var(--text);min-height:100vh;transition:background .2s,color .2s}
+.header{background:var(--green);color:#fff;padding:0;border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:50;box-shadow:var(--shadow-lg)}
+.header-inner{max-width:1160px;margin:0 auto;padding:.85rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.header h1{font-size:1.15rem;font-weight:700;letter-spacing:.3px;line-height:1.3}
+.header .subtitle{font-size:.78rem;opacity:.8;margin-top:.15rem;font-weight:400}
+.gold{color:var(--gold);font-weight:700}
+.theme-toggle{display:inline-flex;align-items:center;gap:.3rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:999px;color:#fff;cursor:pointer;font-family:inherit;font-size:.78rem;font-weight:600;padding:.35rem .75rem;transition:background .15s;white-space:nowrap}
+.theme-toggle:hover{background:rgba(255,255,255,.18)}
+.demo-banner{background:var(--gold);color:#1a2a0a;text-align:center;padding:.45rem 1rem;font-size:.78rem;font-weight:700;letter-spacing:.3px}
+.container{max-width:1160px;margin:0 auto;padding:1.5rem}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin-bottom:1.25rem;box-shadow:var(--shadow-sm);transition:background .2s,border-color .2s}
+.card-title{font-size:.95rem;font-weight:700;color:var(--green);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--border);letter-spacing:.2px}
+[data-theme="dark"] .card-title{color:var(--teal-light)}
+.tab-bar{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:1.5rem;overflow-x:auto;scrollbar-width:none}
+.tab-bar::-webkit-scrollbar{display:none}
+.tab-btn{padding:.65rem 1.1rem;border:none;border-bottom:3px solid transparent;background:none;color:var(--text-muted);font-family:inherit;font-size:.85rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:color .15s,border-color .15s;margin-bottom:-2px}
+.tab-btn:hover{color:var(--green)}
+.tab-btn.active{color:var(--green);border-bottom-color:var(--green)}
+[data-theme="dark"] .tab-btn.active{color:var(--teal-light);border-bottom-color:var(--teal-light)}
+.resource-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.85rem;margin:.5rem 0 1rem}
+.resource-tile{border-radius:var(--radius);padding:1rem 1.1rem}
+.resource-tile.budget{background:var(--green);color:#fff}
+.resource-tile.change{background:#004D4B;color:#fff}
+.resource-tile.analyst{background:#3E2080;color:#fff}
+.resource-tile.danger{background:var(--danger);color:#fff}
+.resource-tile.warning{background:var(--warning);color:#fff}
+.resource-label{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;opacity:.75;margin-bottom:.3rem}
+.resource-value{font-size:1.65rem;font-weight:800;color:var(--gold);line-height:1}
+.resource-sub{font-size:.7rem;opacity:.65;margin-top:.3rem}
+.option-card{border:1.5px solid var(--border);border-radius:var(--radius);padding:1rem 1.1rem;margin-bottom:.65rem;cursor:pointer;transition:border-color .15s,box-shadow .15s,background .15s;background:var(--surface);position:relative}
+.option-card:hover{border-color:var(--teal);box-shadow:var(--shadow)}
+.option-card.selected{border-color:var(--green);background:var(--option-sel);box-shadow:0 0 0 2px rgba(27,94,32,.18)}
+.option-card.disabled{pointer-events:none;opacity:.55}
+.option-header{display:flex;align-items:center;gap:.6rem;margin-bottom:.4rem}
+.option-code{background:var(--green);color:#fff;padding:.15rem .55rem;border-radius:4px;font-weight:700;font-size:.82rem;flex-shrink:0}
+.option-name{font-weight:600;font-size:.95rem;color:var(--text)}
+.sel-badge{margin-left:auto;font-size:.72rem;font-weight:700;color:var(--success);background:#E8F5E9;padding:.1rem .45rem;border-radius:4px;flex-shrink:0}
+.option-desc{font-size:.85rem;color:var(--text-muted);margin-bottom:.55rem;line-height:1.5}
+.option-cost{display:flex;gap:.5rem;flex-wrap:wrap;font-size:.8rem}
+.cost-tag{background:var(--surface-2);border:1px solid var(--border);padding:.18rem .55rem;border-radius:4px;color:var(--text-2);font-weight:500}
+.cost-tag.pos{background:#E8F5E9;border-color:#A5D6A7;color:var(--success)}
+.cost-tag.neg{background:#FEECEC;border-color:#FFCDD2;color:var(--danger)}
+.option-impact{position:absolute;right:calc(100% + 14px);top:0;width:272px;background:var(--impact-bg);border:2px solid var(--impact-border);border-radius:var(--radius-lg);box-shadow:var(--impact-shadow);padding:1rem 1.1rem;z-index:40;pointer-events:none;animation:impactFadeIn .13s ease-out}
+@keyframes impactFadeIn{from{opacity:0;transform:translateX(8px)}to{opacity:1;transform:translateX(0)}}
+.option-impact::after{content:'';position:absolute;right:-10px;top:20px;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:10px solid var(--impact-border)}
+@media(max-width:960px){.option-impact{right:auto;left:0;top:calc(100% + 10px);width:100%}.option-impact::after{right:auto;left:20px;top:-10px;border-left:9px solid transparent;border-right:9px solid transparent;border-bottom:10px solid var(--impact-border);border-top:none}}
+.impact-section-label{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:1.1px;color:var(--impact-label-color);margin-bottom:.55rem}
+.impact-divider{height:1px;background:var(--impact-divider);margin:.7rem 0}
+.impact-row{display:flex;align-items:center;gap:.5rem;margin-bottom:.08rem}
+.impact-label{display:flex;align-items:center;gap:.35rem;font-size:.71rem;color:var(--impact-text-muted);width:76px;flex-shrink:0}
+.impact-currency-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.impact-bar-track{flex:1;height:7px;background:var(--impact-bar-track);border-radius:4px;overflow:hidden;position:relative}
+.impact-bar-fill{height:100%;border-radius:4px;position:absolute;top:0;left:0;transition:width .25s ease}
+.impact-val{font-size:.76rem;font-weight:800;width:40px;text-align:right;flex-shrink:0;color:var(--impact-text)}
+.impact-subrow{font-size:.66rem;color:var(--impact-text-faint);margin-left:76px;margin-bottom:.08rem;line-height:1.4}
+.impact-subrow strong{font-weight:700;color:var(--impact-text-2)}
+.impact-cc-gauge{flex:1;display:flex;align-items:center}
+.impact-cc-track{width:100%;height:7px;display:flex;align-items:center}
+.impact-cc-half{flex:1;height:7px;background:var(--impact-bar-track);position:relative;overflow:hidden}
+.impact-cc-half.left{border-radius:4px 0 0 4px}.impact-cc-half.right{border-radius:0 4px 4px 0}
+.impact-cc-centre{width:2px;height:12px;background:var(--impact-cc-centre);flex-shrink:0;border-radius:1px}
+.impact-cc-fill{height:100%;position:absolute;top:0;transition:width .25s ease}
+.impact-cc-fill.neg{background:var(--impact-cc-neg);right:0}.impact-cc-fill.pos{background:var(--impact-cc-pos);left:0}
+.impact-axes-grid{display:flex;flex-direction:column;gap:.28rem}
+.impact-axis-row{display:flex;align-items:center;gap:.4rem;padding:.3rem .5rem;border-radius:4px;background:var(--impact-bg-inner)}
+.impact-axis-row.secondary{opacity:.60}
+.impact-axis-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.impact-axis-label{flex:1;font-size:.69rem;color:var(--impact-text-2);line-height:1.3}
+.impact-axis-badge{font-size:.61rem;font-weight:800;padding:.1rem .4rem;border-radius:3px;flex-shrink:0}
+.impact-axis-badge.high{background:var(--impact-badge-hi-bg);color:var(--impact-badge-hi-text)}
+.impact-axis-badge.med{background:var(--impact-badge-md-bg);color:var(--impact-badge-md-text)}
+.impact-cascade{font-size:.71rem;color:var(--impact-text-2);line-height:1.55;padding:.45rem .55rem;background:var(--impact-bg-inner);border-radius:4px;border-left:2.5px solid var(--impact-cascade-line)}
+.impact-anchor{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem;padding:.45rem .55rem;background:var(--impact-bg-inner);border-radius:4px;border-left:2.5px solid var(--impact-anchor-line)}
+.impact-anchor-id{font-size:.65rem;font-weight:800;color:var(--impact-anchor-id-text);background:var(--impact-anchor-id-bg);padding:.1rem .4rem;border-radius:3px;flex-shrink:0}
+.impact-anchor-name{font-size:.71rem;font-weight:700;color:var(--impact-text);flex-shrink:0}
+.impact-anchor-text{font-size:.68rem;color:var(--impact-text-muted);line-height:1.5;width:100%;margin-top:.2rem}
+.cost-calculator{background:var(--calc-bg);border:1.5px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;margin:1rem 0 1.25rem}
+.cost-row{display:flex;justify-content:space-between;padding:.3rem 0;font-size:.9rem;color:var(--text-2)}
+.cost-row.total{font-weight:700;border-top:1.5px solid var(--border);margin-top:.4rem;padding-top:.5rem;color:var(--text)}
+.alert{padding:.85rem 1rem;border-radius:var(--radius);margin-bottom:.85rem;font-size:.875rem;line-height:1.6;border-left:3px solid}
+.alert-info{background:#EBF3FB;border-color:#1A5C9A;color:#1A3A5C}
+.alert-success{background:#E8F5E9;border-color:var(--success);color:#1B4720}
+.alert-warning{background:#FFF3E0;border-color:var(--warning);color:#6B2400}
+.alert-danger{background:#FEECEC;border-color:var(--danger);color:#7A0C0C}
+[data-theme="dark"] .alert-info{background:#0A1820;border-color:#2A70B8;color:#90CAF9}
+[data-theme="dark"] .alert-success{background:#091409;border-color:#2E7D32;color:#A5D6A7}
+[data-theme="dark"] .alert-warning{background:#160E00;border-color:#E65100;color:#FFB74D}
+[data-theme="dark"] .alert-danger{background:#140505;border-color:#B71C1C;color:#EF9A9A}
+label{display:block;font-weight:600;font-size:.85rem;margin-bottom:.4rem;color:var(--text-2)}
+textarea,input[type="text"]{width:100%;padding:.6rem .75rem;border:1.5px solid var(--border);border-radius:var(--radius);font-family:inherit;font-size:.9rem;background:var(--input-bg);color:var(--text);transition:border-color .15s,background .2s}
+textarea{min-height:120px;resize:vertical}
+textarea:focus,input[type="text"]:focus{outline:none;border-color:var(--teal)}
+.word-count{font-size:.76rem;color:var(--text-faint);text-align:right;margin-top:.2rem}
+.word-count.warning{color:var(--warning)}.word-count.success{color:var(--success)}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.25rem;border:1.5px solid transparent;border-radius:var(--radius);font-family:inherit;font-size:.88rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all .15s;white-space:nowrap;line-height:1.4}
+.btn-primary{background:var(--green);color:#fff;border-color:var(--green)}
+.btn-primary:hover:not(:disabled){background:var(--green-mid);border-color:var(--green-mid)}
+.btn-primary:disabled{opacity:.45;cursor:not-allowed}
+.btn-secondary{background:var(--surface);color:var(--green);border-color:var(--border)}
+.btn-secondary:hover:not(:disabled){border-color:var(--teal);color:var(--teal)}
+[data-theme="dark"] .btn-secondary{background:transparent;color:var(--teal-light);border-color:var(--border)}
+.btn-large{padding:.75rem 1.75rem;font-size:.95rem}
+.btn-sm{padding:.35rem .8rem;font-size:.8rem}
+.sc-card{border:2px solid var(--teal);background:var(--surface-2)}
+.sc-header-badge{display:inline-block;background:var(--teal);color:white;padding:.35rem .9rem;border-radius:5px;font-weight:700;font-size:.82rem;letter-spacing:.5px;margin-bottom:.85rem}
+.sc-question{background:var(--surface-3);border:1px solid var(--border);border-radius:6px;padding:.9rem 1rem;font-size:.95rem;line-height:1.7;margin-bottom:1rem;color:var(--text)}
+.sc-outcome-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1rem;font-size:.82rem}
+.sc-strong{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.25);border-radius:5px;padding:.5rem .75rem}
+.sc-weak{background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:5px;padding:.5rem .75rem}
+.round-nav{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;max-width:720px;margin:1.5rem auto .5rem;padding:0 1rem}
+.round-nav-btn{flex:1 1 auto;min-width:120px;text-align:center;padding:.55rem 1rem;border-radius:var(--radius);font-weight:600;font-size:.85rem;text-decoration:none;border:1.5px solid var(--border);color:var(--text-muted);background:var(--surface);transition:all .15s;cursor:pointer;font-family:inherit}
+.round-nav-home{background:var(--green);color:#fff;border-color:var(--green)}
+.round-nav-next{background:var(--teal);color:#fff;border-color:var(--teal)}
+.footer{text-align:center;padding:1.5rem;color:var(--text-faint);font-size:.75rem;font-style:italic;border-top:1px solid var(--border-light);margin-top:1rem}
+.rule-badge{display:inline-block;font-size:.72rem;font-weight:700;padding:.15rem .5rem;border-radius:4px;margin-right:.4rem}
+.rule-badge.green{background:#E8F5E9;color:var(--success)}
+.rule-badge.amber{background:#FFF8E1;color:#906000}
+.rule-badge.red{background:#FEECEC;color:var(--danger)}
+[data-theme="dark"] .rule-badge.green{background:#0D1F0D}
+[data-theme="dark"] .rule-badge.amber{background:#1F1800;color:#FFD54F}
+[data-theme="dark"] .rule-badge.red{background:#200A0A}
+.currency-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin:.75rem 0}
+.currency-card{border:1px solid var(--border);border-radius:var(--radius);padding:.8rem}
+.currency-card h4{font-size:.82rem;font-weight:700;margin-bottom:.3rem}
+.currency-card p{font-size:.78rem;color:var(--text-muted);line-height:1.55}
+.currency-card.budget{border-top:3px solid var(--green)}
+.currency-card.cc{border-top:3px solid var(--teal)}
+.currency-card.analyst{border-top:3px solid #7B52D0}
+.anchor-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem}
+.anchor-card{border:1px solid var(--border);border-radius:var(--radius);padding:.85rem;font-size:.85rem}
+.anchor-id{font-weight:700;color:var(--green);font-size:.78rem;margin-bottom:.2rem}
+.anchor-name{font-weight:700;margin-bottom:.15rem}
+.anchor-role{color:var(--text-muted);font-size:.78rem;margin-bottom:.3rem}
+.anchor-why{color:var(--text-2);font-size:.82rem;line-height:1.5}
+[data-theme="dark"] .anchor-id{color:var(--teal-light)}
+.page{display:none}.page.active{display:block}
+.round-progress-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem}
+.reflection-q{font-size:.78rem;font-weight:700;color:var(--text-2);margin-bottom:.2rem}
+.reflection-a{font-size:.85rem;color:var(--text-muted);line-height:1.6;background:var(--surface-2);padding:.5rem .75rem;border-radius:4px;border:1px solid var(--border-light)}
+table{width:100%;border-collapse:collapse;font-size:.875rem}
+th,td{padding:.6rem .75rem;text-align:left;border-bottom:1px solid var(--border)}
+th{background:var(--surface-2);color:var(--text-2);font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.5px}
+tbody tr:hover{background:var(--hover-row)}
+@media(max-width:768px){.container{padding:1rem}.round-progress-grid{grid-template-columns:repeat(3,1fr)}.currency-grid{grid-template-columns:1fr}.resource-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.round-nav{flex-direction:column}.round-nav-btn{width:100%}.header h1{font-size:1rem}.round-progress-grid{grid-template-columns:repeat(2,1fr)}.sc-outcome-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <div class="nav-left">
-    <div class="nav-mark"><i class="ti ti-compass"></i></div>
+<div class="demo-banner">
+  ⚡ DEMO MODE &mdash; Rounds 1&ndash;3 &middot; No login required &middot; Progress saved locally &middot; Full platform at <a href="https://disha-simulation.vercel.app" target="_blank" style="color:#1a2a0a;font-weight:700">disha-simulation.vercel.app</a>
+</div>
+
+<header class="header">
+  <div class="header-inner">
     <div>
-      <div class="nav-title">Project Disha</div>
-      <div class="nav-sub">DSEH001 &middot; Demo &middot; Rounds 1&ndash;3</div>
+      <h1>PROJECT <span class="gold">DISHA</span></h1>
+      <div class="subtitle">Demo Dashboard &middot; <strong>DHTO Pod</strong> &middot; DSEH001 &middot; University of Delhi</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:.75rem">
+      <button class="theme-toggle" onclick="toggleTheme()"><span id="theme-ico">🌙</span> <span id="theme-label">Dark mode</span></button>
     </div>
   </div>
-  <div style="display:flex;gap:8px;align-items:center">
-    <span class="pill">M.Com. PGCF 2025</span>
-    <span class="pill">DHTO Pod</span>
-  </div>
-</nav>
+</header>
 
-<!-- RESOURCE BAR -->
-<div class="res-bar">
-  <div class="res-item">
-    <span class="res-label">Budget</span>
-    <span class="res-val" id="res-budget">&#8377;600L</span>
-    <div class="res-track"><div class="res-fill fill-budget" id="bar-budget" style="width:100%"></div></div>
+<!-- ══ HOME ══════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+<div class="container">
+
+  <!-- Active round banner -->
+  <div class="card" id="banner-card" style="background:var(--green);border:none;border-bottom:3px solid var(--gold);margin-bottom:1rem">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+      <div>
+        <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:rgba(255,255,255,.55);margin-bottom:.3rem" id="banner-status">Active now</div>
+        <div style="font-weight:800;font-size:1.15rem;color:#fff;margin-bottom:.2rem" id="banner-title">Round 1 — The Diagnosis</div>
+        <div style="font-size:.8rem;color:rgba(255,255,255,.6)" id="banner-meta">Week 2 · Unit I · Baseline dataset analysis</div>
+      </div>
+      <button class="btn btn-large" id="banner-btn" style="background:var(--gold);border-color:var(--gold);color:#1a2a0a;font-weight:800" onclick="enterRound()">Enter Round 1 →</button>
+    </div>
   </div>
-  <div class="res-divider"></div>
-  <div class="res-item">
-    <span class="res-label">Change Capital</span>
-    <span class="res-val" id="res-cc">100 pts</span>
-    <div class="res-track"><div class="res-fill fill-cc" id="bar-cc" style="width:100%"></div></div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="setTab('control')">⚙️ Project control</button>
+    <button class="tab-btn" onclick="setTab('history')">📋 Round History</button>
+    <button class="tab-btn" onclick="setTab('reflections')">✍️ My Reflections</button>
+    <button class="tab-btn" onclick="setTab('playbook')">📖 Playbook</button>
   </div>
-  <div class="res-divider"></div>
-  <div class="res-item">
-    <span class="res-label">Analyst Hours</span>
-    <span class="res-val" id="res-ah">60 hrs</span>
-    <div class="res-track"><div class="res-fill fill-ah" id="bar-ah" style="width:100%"></div></div>
+
+  <!-- TAB: control -->
+  <div id="tab-control">
+    <div class="card"><div class="card-title">Team resources</div><div class="resource-grid" id="home-res"></div></div>
+    <div class="card">
+      <div class="card-title">Round progress</div>
+      <div class="round-progress-grid" id="round-progress"></div>
+      <div style="margin-top:.75rem;display:flex;gap:.5rem;flex-wrap:wrap">
+        <a href="https://classroom.google.com/c/ODY3ODg5NDU4NjI5" target="_blank" class="btn btn-secondary btn-sm">↗ Google Classroom</a>
+        <a href="https://disha-simulation.vercel.app" target="_blank" class="btn btn-secondary btn-sm">↗ Full platform</a>
+      </div>
+    </div>
   </div>
+
+  <!-- TAB: history -->
+  <div id="tab-history" style="display:none">
+    <div class="card"><div class="card-title">All rounds</div>
+      <table><thead><tr><th>Round</th><th>Theme</th><th>Status</th><th>Option</th><th>Spent</th><th>Action</th></tr></thead>
+      <tbody id="history-tbody"></tbody></table>
+    </div>
+  </div>
+
+  <!-- TAB: reflections -->
+  <div id="tab-reflections" style="display:none">
+    <div class="card"><div class="card-title">My individual reflections</div>
+      <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:1rem">Private to you. Submit after completing each round.</p>
+      <div id="reflections-body"></div>
+    </div>
+  </div>
+
+  <!-- TAB: playbook -->
+  <div id="tab-playbook" style="display:none">
+    <div class="card"><div class="card-title">The mission</div><p style="font-size:.875rem;color:var(--text-muted);line-height:1.7">You are the <strong>Digital HR Transformation Office (DHTO)</strong> at GreenLeaf Retail — a fictional 8,000-employee Indian omnichannel retailer. Over six compressed quarters, carry GreenLeaf from a paper-heavy, fragmented HR function to one that is digital, analytical, equitable, and Board-ready.<br><br>"Disha" (दिशा) means direction. You are setting GreenLeaf's direction for the digital decade.</p></div>
+    <div class="card"><div class="card-title">The three scarce currencies</div>
+      <div class="currency-grid">
+        <div class="currency-card budget"><h4 style="color:var(--green)">₹ Budget</h4><p>₹6 crore total across all six rounds. Overspending is penalised. Under-investing that starves adoption is also penalised.</p></div>
+        <div class="currency-card cc"><h4 style="color:var(--teal)">Change Capital</h4><p>Starts at 100. Organisational trust and political goodwill. Persists round-to-round. Falls below 30 and resistance intensifies.</p></div>
+        <div class="currency-card analyst"><h4 style="color:#7B52D0">Analyst Hours</h4><p>60 hours per round, resets each round. Deep analysis costs more hours but unlocks richer evidence.</p></div>
+      </div>
+    </div>
+    <div class="card"><div class="card-title">The five scorecard axes</div><div id="axes-playbook"></div></div>
+    <div class="card"><div class="card-title">Key rules</div>
+      <ul style="padding-left:1.2rem;font-size:.88rem;color:var(--text-muted);line-height:2">
+        <li><span class="rule-badge red">Final</span> Submissions are final once you click Submit and confirm.</li>
+        <li><span class="rule-badge amber">Evidence</span> Rationale must cite specific figures from the GreenLeaf dataset. Generic reasoning scores zero on Analytical Rigour.</li>
+        <li><span class="rule-badge green">Personal</span> Individual reflections (4 questions, min 30 words each) are private to you.</li>
+        <li><span class="rule-badge red">Crisis</span> Round 3 contains a live DPDP breach event that fires automatically on Submit.</li>
+        <li><span class="rule-badge green">Anchors</span> GL-1001, GL-1002, GL-1003, GL-1004 are real dataset rows. Reference them for Equity &amp; Compliance marks.</li>
+      </ul>
+    </div>
+    <div class="card"><div class="card-title">The four human anchors</div><div class="anchor-grid" id="anchor-playbook"></div></div>
+  </div>
+
+</div>
+<footer class="footer">Project Disha &middot; DSEH001 &middot; Cohort 1 AY 2026&ndash;27 &middot; Prof. R.K. Singh &middot; Dept of Commerce, Faculty of Commerce &amp; Business, University of Delhi</footer>
 </div>
 
-<!-- LANDING -->
-<div class="page active" id="page-landing">
-<div class="landing">
-  <div class="landing-kicker">Department of Commerce &middot; Faculty of Commerce and Business &middot; University of Delhi</div>
-  <h1 class="landing-h1">Project Disha &mdash; Digital HR Transformation Simulation</h1>
-  <p class="landing-sub">You are the Digital HR Transformation Office (DHTO) of GreenLeaf Retail &mdash; an 8,000-person Indian omnichannel retailer. Every decision must be grounded in the dataset. Shortcuts in one round return to haunt the next.</p>
-  <div class="tiles">
-    <div class="tile"><div class="tile-label">Total budget</div><div class="tile-val">&#8377;6 Cr</div><div class="tile-sub">Across all 6 rounds</div></div>
-    <div class="tile"><div class="tile-label">Change Capital</div><div class="tile-val">100 pts</div><div class="tile-sub">Persists round to round</div></div>
-    <div class="tile"><div class="tile-label">Analyst Hours</div><div class="tile-val">60 hrs</div><div class="tile-sub">Resets each round</div></div>
-    <div class="tile"><div class="tile-label">Workforce</div><div class="tile-val">8,000</div><div class="tile-sub">GreenLeaf employees</div></div>
-  </div>
-  <div class="section-label">Simulation rounds &mdash; this demo</div>
-  <div class="rounds-list">
-    <div class="round-row" onclick="goRound(1)">
-      <div class="rnum">R1</div>
-      <div class="rbody"><div class="rtitle">The Diagnosis</div><div class="rmeta">Digital_HR_Maturity &middot; Employee_Master &middot; Transformation thesis</div></div>
-      <div class="rright"><span class="sbadge sb-open" id="badge-r1">Open</span><i class="ti ti-chevron-right" style="color:var(--text-faint);font-size:16px"></i></div>
-    </div>
-    <div class="round-row locked" id="row-r2" onclick="goRound(2)">
-      <div class="rnum">R2</div>
-      <div class="rbody"><div class="rtitle">The Architecture</div><div class="rmeta">TechStack_Inventory &middot; Stack rationalization &middot; D1 deliverable</div></div>
-      <div class="rright"><span class="sbadge sb-locked" id="badge-r2">Locked</span><i class="ti ti-chevron-right" style="color:var(--text-faint);font-size:16px"></i></div>
-    </div>
-    <div class="round-row locked" id="row-r3" onclick="goRound(3)">
-      <div class="rnum">R3</div>
-      <div class="rbody"><div class="rtitle">The Rollout</div><div class="rmeta">Adoption_Telemetry &middot; LMS_Learning &middot; Change program &middot; &#128680; Crisis event</div></div>
-      <div class="rright"><span class="sbadge sb-locked" id="badge-r3">Locked</span><i class="ti ti-chevron-right" style="color:var(--text-faint);font-size:16px"></i></div>
-    </div>
-  </div>
-  <div class="about-box">
-    <div class="about-label">About GreenLeaf Retail</div>
-    <p class="about-text">A fictional 8,000-employee Indian omnichannel retailer spanning Metro to Tier-3 India. Payroll is already mature at Level 4. Analytics, performance management, and workforce planning sit at Levels 1&ndash;2: spreadsheets, paper files, and gut decisions. A new CHRO has secured a &#8377;6 crore, six-quarter transformation mandate from a skeptical Board. That mandate is yours.</p>
-  </div>
-</div>
-</div>
+<!-- ══ ROUND PAGE (shared R1/R2/R3) ═════════════════ -->
+<div class="page" id="page-round">
+<div class="container">
 
-<!-- ROUND 1 -->
-<div class="page" id="page-r1">
-<div class="rpage">
-  <div class="breadcrumb" onclick="goHome()"><i class="ti ti-arrow-left" style="font-size:14px"></i><span class="bc-link">Dashboard</span><span>/</span><span>Round 1</span></div>
-  <div class="step-indicator" id="si-r1">
-    <div class="step-dot active" onclick="gotoStep(1,0)" title="Brief &amp; findings"></div>
-    <div class="step-dot" onclick="gotoStep(1,1)" title="Option &amp; rationale"></div>
-    <div class="step-dot" onclick="gotoStep(1,2)" title="Stakeholder &amp; submit"></div>
-    <span class="step-label" id="sl-r1">Step 1 of 3 &mdash; Brief &amp; findings</span>
+  <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap">
+    <button class="btn btn-secondary" onclick="goHome()">← Home</button>
+    <div><div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text-faint)" id="round-top-label"></div><div style="font-size:.95rem;font-weight:700;color:var(--text)" id="round-top-title"></div></div>
   </div>
-  <div class="step-page active" id="r1-s0">
-    <div class="rp-label">Round 1 &middot; Q1 &middot; Unit I</div>
-    <h2 class="rp-title">The Diagnosis</h2>
-    <p class="rp-sub">Locate GreenLeaf on the digital-HR maturity curve and quantify the divide before choosing a transformation thesis.</p>
-    <div class="rp-meta">
-      <span class="rp-meta-item"><i class="ti ti-database"></i> Digital_HR_Maturity, Employee_Master</span>
-      <span class="rp-meta-item"><i class="ti ti-coin"></i> Budget: &#8377;40&ndash;80L</span>
-      <span class="rp-meta-item"><i class="ti ti-clock"></i> Analyst Hours: 8&ndash;18</span>
-    </div>
-    <div class="block">
-      <div class="block-head"><div class="block-num">1</div><div class="block-label-text">Round brief</div></div>
-      <div class="brief-card">GreenLeaf's new CHRO needs a clear-eyed diagnosis before committing the &#8377;6 crore mandate. The <strong>Digital_HR_Maturity</strong> tab scores ten HR processes 1&ndash;5. People Analytics sits at Level 1 (10% automated). Payroll alone is mature at Level 4. The <strong>Employee_Master</strong> reveals a sharp digital divide: frontline staff in Tier-2 and Tier-3 locations show Digital Literacy averaging <strong>~2.4</strong>, against <strong>~4.0</strong> for corporate and e-commerce roles. Smartphone-only device access rises from ~24% in Metro to ~60% in Tier-3 locations. Voluntary attrition is <strong>17.2%</strong> against a 12% sector benchmark. Commit to a transformation thesis that anchors all six rounds.</div>
-    </div>
-    <div class="block">
-      <div class="block-head"><div class="block-num">2</div><div class="block-label-text">Key dataset findings</div></div>
-      <div class="dtabs"><span class="dtab primary">Digital_HR_Maturity</span><span class="dtab primary">Employee_Master</span></div>
-      <div class="findings">
-        <div class="finding"><div class="fdot"></div><div class="ftext">People Analytics: <strong>Level 1, 10% automated</strong> &mdash; the most critical transformation gap</div></div>
-        <div class="finding"><div class="fdot"></div><div class="ftext">Payroll outlier: <strong>Level 4</strong> &mdash; already mature, not a priority</div></div>
-        <div class="finding"><div class="fdot"></div><div class="ftext">Frontline Digital Literacy mean: <strong>~2.4 / 5.0</strong> vs benchmark 3.5 &mdash; critical gap</div></div>
-        <div class="finding"><div class="fdot"></div><div class="ftext">Tier-3 smartphone-only device access: <strong>~60%</strong> vs ~24% Metro &mdash; infrastructure divide</div></div>
-        <div class="finding"><div class="fdot"></div><div class="ftext">Voluntary attrition: <strong>17.2%</strong> vs 12% benchmark &mdash; highest cost of inaction</div></div>
-        <div class="anchors-row">
-          <span class="anch-note">Human anchors this round:</span>
-          <div class="anchor-chip"><div class="av av-blue">LN</div><span class="anchor-label">GL-1001 Lakshmi Naidu</span></div>
-        </div>
-      </div>
-    </div>
-    <div style="display:flex;justify-content:flex-end">
-      <button class="btn-next" onclick="gotoStep(1,1)">Choose your option <i class="ti ti-arrow-right"></i></button>
-    </div>
-  </div>
-  <div class="step-page" id="r1-s1">
-    <div class="block">
-      <div class="block-head"><div class="block-num">3</div><div class="block-label-text">Choose your option</div></div>
-      <div class="opts-grid" id="r1-opts">
-        <div class="opt" id="r1-A" onclick="pick(1,'A')"><div class="ocode">Option 1A</div><div class="otitle">Foundations first</div><div class="odesc">Stabilize data infrastructure and governance before analytics investment. Fix the base before building on it.</div><div class="ocosts"><span class="cpill">&#8377;40L</span><span class="cpill">8 hrs</span><span class="cpill">CC &plusmn;0</span></div></div>
-        <div class="opt" id="r1-B" onclick="pick(1,'B')"><div class="ocode">Option 1B</div><div class="otitle">Analytics-first leap</div><div class="odesc">Deploy people analytics immediately to generate insights and build the Board's appetite for data-driven HR.</div><div class="ocosts"><span class="cpill">&#8377;80L</span><span class="cpill">18 hrs</span><span class="cpill">CC &minus;5</span></div></div>
-        <div class="opt" id="r1-C" onclick="pick(1,'C')"><div class="ocode">Option 1C</div><div class="otitle">Mobile-first equity lens</div><div class="odesc">Design every system decision around smartphone-only frontline access from day one.</div><div class="ocosts"><span class="cpill">&#8377;60L</span><span class="cpill">12 hrs</span><span class="cpill">CC +5</span></div></div>
-        <div class="opt" id="r1-D" onclick="pick(1,'D')"><div class="ocode">Option 1D</div><div class="otitle">Regulatory alignment</div><div class="odesc">Lead with DPDP 2023 compliance and data governance. Build institutional trust before transformation speed.</div><div class="ocosts"><span class="cpill">&#8377;50L</span><span class="cpill">10 hrs</span><span class="cpill">CC +3</span></div></div>
-      </div>
-      <div class="cost-preview" id="r1-cost" style="display:none">Will spend: <strong id="r1-cb"></strong> &nbsp;&middot;&nbsp; <strong id="r1-ca"></strong> analyst hours &nbsp;&middot;&nbsp; CC: <strong id="r1-cc"></strong></div>
-    </div>
-    <div class="block">
-      <div class="block-head"><div class="block-num">4</div><div class="block-label-text">Evidence rationale <span style="color:var(--text-faint);font-size:10px;font-weight:400;text-transform:none;letter-spacing:0">(min 50 words &mdash; 40% of your score)</span></div></div>
-      <div class="rationale-wrap">
-        <textarea id="r1-rat" placeholder="Cite specific dataset figures to justify your option..." onkeyup="updateWC(1)"></textarea>
-        <div class="rationale-meta"><span class="wc" id="r1-wc">0 / 50 words minimum</span><span style="font-size:11px;color:var(--text-faint)">No figures = zero on Analytical Rigour</span></div>
-      </div>
-    </div>
-    <div class="confirm-bar">
-      <div class="confirm-text" id="r1-ctxt">Select an option and write your evidence rationale.</div>
-      <div class="confirm-btns"><button class="btn-back" onclick="gotoStep(1,0)"><i class="ti ti-arrow-left"></i> Brief</button><button class="btn-next" id="r1-btn" disabled onclick="gotoStep(1,2)">Stakeholder challenge <i class="ti ti-arrow-right"></i></button></div>
-    </div>
-  </div>
-  <div class="step-page" id="r1-s2">
-    <div class="block">
-      <div class="block-head"><div class="block-num">5</div><div class="block-label-text">Stakeholder challenge &mdash; CFO</div></div>
-      <div class="stakeholder"><div class="stwho">CFO &middot; Priya Sharma</div><div class="stq">&ldquo;Why fund HR analytics when payroll and compliance already work? Show me the cost of inaction &mdash; not the cost of the system.&rdquo;</div></div>
-      <div class="st-input"><textarea id="r1-st" placeholder="Respond with data. Cite attrition cost, digital literacy gap as productivity risk, staged ROI logic." onkeyup="updateST(1)"></textarea><div class="rationale-meta"><span class="wc" id="r1-stwc">0 / 100 words &mdash; saves separately</span></div></div>
-    </div>
-    <div id="r1-submit-area">
-      <div class="confirm-bar"><div class="confirm-text"><strong>Ready to lock Round 1?</strong> Your option and rationale are final once submitted.</div><div class="confirm-btns"><button class="btn-back" onclick="gotoStep(1,1)"><i class="ti ti-arrow-left"></i> Back</button><button class="btn-submit" onclick="submit(1)">Submit Round 1</button></div></div>
-    </div>
-    <div id="r1-success" style="display:none">
-      <div class="outcome-box"><div class="outcome-head">Round 1 &mdash; scorecard movement</div><div id="r1-outcome"></div></div>
-      <div class="success-box"><i class="ti ti-circle-check"></i><span class="success-text"><strong id="r1-stxt"></strong> Round 2 is now open.</span></div>
-      <div class="next-row"><button class="btn-next" onclick="goRound(2)">Continue to Round 2 <i class="ti ti-arrow-right"></i></button></div>
-    </div>
-  </div>
-</div>
-</div>
 
-<!-- ROUND 2 -->
-<div class="page" id="page-r2">
-<div class="rpage">
-  <div class="breadcrumb" onclick="goHome()"><i class="ti ti-arrow-left" style="font-size:14px"></i><span class="bc-link">Dashboard</span><span>/</span><span>Round 2</span></div>
-  <div class="step-indicator" id="si-r2"><div class="step-dot active" onclick="gotoStep(2,0)"></div><div class="step-dot" onclick="gotoStep(2,1)"></div><div class="step-dot" onclick="gotoStep(2,2)"></div><span class="step-label" id="sl-r2">Step 1 of 3 &mdash; Brief &amp; findings</span></div>
-  <div class="step-page active" id="r2-s0">
-    <div class="rp-label">Round 2 &middot; Q2 &middot; Unit I&ndash;II</div>
-    <h2 class="rp-title">The Architecture</h2>
-    <p class="rp-sub">Rationalize GreenLeaf's fragmented tech stack and decide how mobile-first to build the target architecture.</p>
-    <div class="rp-meta"><span class="rp-meta-item"><i class="ti ti-database"></i> TechStack_Inventory</span><span class="rp-meta-item"><i class="ti ti-coin"></i> Budget: &#8377;90&ndash;180L</span><span class="rp-meta-item"><i class="ti ti-clock"></i> Analyst Hours: 15&ndash;30</span><span class="d1-tag">D1 deliverable due</span></div>
-    <div class="block" id="r2-cascade" style="display:none"><div class="block-head"><div class="block-num cascade-num">&#8617;</div><div class="block-label-text" style="color:var(--accent)">Carry-over from Round 1</div></div><div class="cascade-card" id="r2-cascade-text"></div></div>
-    <div class="block"><div class="block-head"><div class="block-num">1</div><div class="block-label-text">Round brief</div></div><div class="brief-card">GreenLeaf runs <strong>16 HR systems</strong> simultaneously &mdash; including two HRIS platforms in live parallel. Total annual license spend is <strong>~&#8377;1.57 crore</strong>. InsightHR Analytics is licensed for 90 users but only 38 use it. WellbeingPlus adoption rate: 18%. Shadow spreadsheets remain universal. Resolve the dual-HRIS situation and decide how mobile-first to build &mdash; knowing GL-1001 Lakshmi Naidu (Tier-3, smartphone-only) represents ~60% of your frontline.</div></div>
-    <div class="block">
-      <div class="block-head"><div class="block-num">2</div><div class="block-label-text">Key dataset findings</div></div>
-      <div class="dtabs"><span class="dtab primary">TechStack_Inventory</span></div>
-      <div class="findings">
-        <div class="finding"><div class="fdot"></div><div class="ftext"><strong>Dual HRIS:</strong> SYS-01 LegacyHR (on-prem) + SYS-02 PeopleCloud (cloud pilot, Aug 2025) running simultaneously</div></div>
-        <div class="finding"><div class="fdot"></div><div class="ftext">SYS-10 InsightHR: licensed 90, active <strong>38 only</strong> &mdash; critical adoption failure (42%)</div></div>
-        <div class="finding"><div class="fdot"></div><div class="ftext">SYS-14 WellbeingPlus: adoption rate <strong>0.18</strong> &mdash; lowest in the stack</div></div>
-        <div class="finding"><div class="fdot"></div><div class="ftext">SYS-01 &amp; SYS-08: <strong>not mobile-enabled</strong> &mdash; excludes smartphone-only users</div></div>
-        <div class="finding"><div class="fdot"></div><div class="ftext">3 systems on US/EU data residency &mdash; DPDP 2023 compliance review required</div></div>
-        <div class="anchors-row"><span class="anch-note">Human anchors this round:</span><div class="anchor-chip"><div class="av av-blue">LN</div><span class="anchor-label">GL-1001 Lakshmi Naidu</span></div></div>
+  <div class="alert alert-success" id="already-notice" style="display:none">Your team has already submitted this round. This page is read-only.</div>
+
+  <div class="card"><div class="card-title">Resources</div><div class="resource-grid" id="round-res"></div></div>
+
+  <div class="card">
+    <div class="card-title" id="brief-heading">📊 Section 1 — Guided Dataset Analysis</div>
+    <div class="alert alert-info">Open <strong>GreenLeaf_Disha_DSEH001_Dataset.xlsx</strong> from Google Classroom before selecting your option.</div>
+    <ol style="margin:1rem 0 0 1.5rem;line-height:2;font-size:.9rem" id="brief-list"></ol>
+  </div>
+
+  <div class="card"><div class="card-title">▶ Section 2 — Choose ONE Option (single select)</div><div id="options-container"></div></div>
+
+  <div class="cost-calculator" id="cost-calc" style="display:none">
+    <div style="font-weight:700;font-size:.88rem;margin-bottom:.5rem;color:var(--text-2)">Cost calculator — selected option</div>
+    <div class="cost-row"><span>Budget spend</span><span id="c-budget">—</span></div>
+    <div class="cost-row"><span>Analyst Hours</span><span id="c-ah">—</span></div>
+    <div class="cost-row"><span>Change Capital delta</span><span id="c-cc">—</span></div>
+    <div class="cost-row total"><span>Budget remaining after</span><span id="c-remain">—</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">✏ Section 3 — Evidence Rationale (minimum 200 words)</div>
+    <div class="alert alert-info" id="rationale-prompts" style="font-size:.9rem"></div>
+    <label for="rationale">Cite specific dataset figures to justify your option. No figures = zero on Analytical Rigour.</label>
+    <textarea id="rationale" placeholder="Write your team's evidence rationale here..." oninput="updateWC()"></textarea>
+    <div class="word-count" id="wc">0 words (minimum 200)</div>
+  </div>
+
+  <div class="card sc-card" id="sc-card">
+    <div class="sc-header-badge" id="sc-badge"></div>
+    <div class="card-title" id="sc-title" style="color:var(--teal)"></div>
+    <div class="sc-question" id="sc-question"></div>
+    <div class="sc-outcome-grid">
+      <div class="sc-strong"><strong style="color:var(--success)">✓ Strong response:</strong> <span id="sc-bonus"></span></div>
+      <div class="sc-weak"><strong style="color:var(--danger)">✗ Weak response:</strong> <span id="sc-penalty"></span></div>
+    </div>
+    <div class="alert alert-info" id="sc-criteria" style="font-size:.88rem;margin-bottom:1rem"></div>
+    <label for="sc-response">Your team's defence (as CHRO / Pod Lead) — minimum 100 words</label>
+    <textarea id="sc-response" style="min-height:140px" oninput="updateSCWC()"></textarea>
+    <div class="word-count" id="sc-wc">0 words (minimum 100)</div>
+    <div style="margin-top:.85rem;display:flex;align-items:center;gap:1rem">
+      <button class="btn btn-secondary" onclick="saveSC()">Save Challenge Response</button>
+      <span id="sc-saved" style="color:var(--success);font-size:.88rem;display:none">Response saved — instructor reviews after round closes.</span>
+    </div>
+  </div>
+
+  <div class="card" id="submit-card" style="text-align:center">
+    <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:1rem">One submission per team — cannot be undone.</p>
+    <button class="btn btn-primary btn-large" id="submit-btn" disabled onclick="submitRound()">Submit Round Decision</button>
+  </div>
+
+  <!-- Shock event (R3) -->
+  <div id="shock-section" style="display:none">
+    <div style="background:#0a0000;border:3px solid #991b1b;border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.25rem">
+      <div style="background:#991b1b;color:#fff;padding:.5rem 1rem;border-radius:6px;font-weight:700;font-size:.9rem;display:inline-block;margin-bottom:1rem;letter-spacing:.5px">🚨 BREAKING — DPDP DATA BREACH</div>
+      <div style="font-size:.95rem;font-weight:700;color:#fca5a5;border-bottom:1px solid rgba(252,165,165,.25);padding-bottom:.6rem;margin-bottom:1rem">Critical Incident: DPDP-Notifiable Data Breach Detected</div>
+      <p style="font-size:.95rem;line-height:1.7;margin-bottom:1.25rem;color:#fecaca">At 11:42 PM last night, GreenLeaf Retail's HR analytics platform flagged an anomaly. By 6 AM, your security team confirmed it: personal employee data — including <strong style="color:#fff">Aadhaar-linked payroll records</strong> and performance scores for <strong style="color:#fff">340 frontline workers</strong> across Tier-2 and Tier-3 locations — was exposed due to a misconfigured cloud storage bucket. Under the <strong style="color:#fff">Digital Personal Data Protection Act 2023</strong>, GreenLeaf must notify the Data Protection Board within <strong style="color:#fff">72 hours</strong>. The CHRO is being briefed in 30 minutes. This happened on your watch — because of the very HR systems you are building.</p>
+      <div id="shock-sev" style="font-size:.85rem;color:#fca5a5;background:rgba(255,255,255,.07);border:0.5px solid rgba(252,165,165,.2);border-radius:8px;padding:.625rem .875rem;margin-bottom:1.25rem;line-height:1.6"></div>
+      <div style="background:#1c0202;border:1.5px solid #7f1d1d;border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.25rem">
+        <strong style="color:#fca5a5;display:block;margin-bottom:.625rem;text-transform:uppercase;font-size:.8rem;letter-spacing:.05em">Address all four in your response:</strong>
+        <ol style="margin:.25rem 0 0 1.25rem;font-size:.9rem;line-height:2;color:#fecaca">
+          <li>Immediate containment — what do you shut down or isolate right now?</li>
+          <li>DPDP notification — what do you report to the Data Protection Board, and by when?</li>
+          <li>Affected employee communication — how and when do you tell the 340 workers?</li>
+          <li>Systemic fix — what change to your Round 3 rollout does this incident force?</li>
+        </ol>
+      </div>
+      <label for="shock-response" style="color:#fca5a5">DHTO Incident Response — what does your team do in the next 72 hours?</label>
+      <textarea id="shock-response" placeholder="Address all four prompts..." style="min-height:180px;border-color:#991b1b;background:#1c0202;color:#fecaca" oninput="updateShockWC()"></textarea>
+      <div class="word-count" id="shock-wc" style="color:#fca5a5">0 words (minimum 100)</div>
+      <div style="text-align:center;margin-top:1.5rem">
+        <p style="color:#fecaca;font-size:.9rem;margin-bottom:1rem">Once you submit, this round is permanently locked.</p>
+        <button class="btn btn-large" id="shock-btn" style="background:#991b1b;border-color:#991b1b;color:white;min-width:280px" onclick="finalSubmit()">Confirm &amp; Submit Round 3</button>
+        <div id="shock-warn" style="color:#fca5a5;font-size:.85rem;margin-top:.5rem"></div>
       </div>
     </div>
-    <div style="display:flex;justify-content:flex-end"><button class="btn-next" onclick="gotoStep(2,1)">Choose your option <i class="ti ti-arrow-right"></i></button></div>
   </div>
-  <div class="step-page" id="r2-s1">
-    <div class="block"><div class="block-head"><div class="block-num">3</div><div class="block-label-text">Choose your option</div></div>
-      <div class="opts-grid" id="r2-opts">
-        <div class="opt" id="r2-A" onclick="pick(2,'A')"><div class="ocode">Option 2A</div><div class="otitle">Modular HRMS Core</div><div class="odesc">Retire legacy HRIS, migrate to PeopleCloud. Modular and phased.</div><div class="ocosts"><span class="cpill">&#8377;120L</span><span class="cpill">20 hrs</span><span class="cpill">CC &minus;5</span></div></div>
-        <div class="opt" id="r2-B" onclick="pick(2,'B')"><div class="ocode">Option 2B</div><div class="otitle">People Analytics Platform</div><div class="odesc">Lead with InsightHR as the intelligence layer. Build analytics first.</div><div class="ocosts"><span class="cpill">&#8377;150L</span><span class="cpill">25 hrs</span><span class="cpill">CC &minus;8</span></div></div>
-        <div class="opt" id="r2-C" onclick="pick(2,'C')"><div class="ocode">Option 2C</div><div class="otitle">Integrated Talent Suite</div><div class="odesc">Full suite replacement: HRIS, ATS, LMS, analytics. Maximum integration, highest cost.</div><div class="ocosts"><span class="cpill">&#8377;180L</span><span class="cpill">30 hrs</span><span class="cpill">CC &minus;10</span></div></div>
-        <div class="opt" id="r2-D" onclick="pick(2,'D')"><div class="ocode">Option 2D</div><div class="otitle">Mobile-first lightweight</div><div class="odesc">Prioritize ESS App and SahayakBot for frontline reach. Build for Lakshmi first.</div><div class="ocosts"><span class="cpill">&#8377;90L</span><span class="cpill">15 hrs</span><span class="cpill">CC +5</span></div></div>
-      </div>
-      <div class="cost-preview" id="r2-cost" style="display:none">Will spend: <strong id="r2-cb"></strong> &nbsp;&middot;&nbsp; <strong id="r2-ca"></strong> analyst hours &nbsp;&middot;&nbsp; CC: <strong id="r2-cc"></strong></div>
-    </div>
-    <div class="block"><div class="block-head"><div class="block-num">4</div><div class="block-label-text">Evidence rationale <span style="color:var(--text-faint);font-size:10px;font-weight:400;text-transform:none;letter-spacing:0">(min 50 words)</span></div></div><div class="rationale-wrap"><textarea id="r2-rat" placeholder="Justify your architecture choice with specific figures: dual-HRIS risk, InsightHR adoption failure, DPDP gaps, mobile-first for GL-1001..." onkeyup="updateWC(2)"></textarea><div class="rationale-meta"><span class="wc" id="r2-wc">0 / 50 words minimum</span></div></div></div>
-    <div class="confirm-bar"><div class="confirm-text" id="r2-ctxt">Select an option and write your evidence rationale.</div><div class="confirm-btns"><button class="btn-back" onclick="gotoStep(2,0)"><i class="ti ti-arrow-left"></i> Brief</button><button class="btn-next" id="r2-btn" disabled onclick="gotoStep(2,2)">Stakeholder challenge <i class="ti ti-arrow-right"></i></button></div></div>
+
+  <!-- Individual reflection -->
+  <div class="card" id="reflection-card" style="display:none">
+    <div class="card-title">✍ Individual Reflection (private to you)</div>
+    <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:1rem">Submit individually. Can be re-submitted until the round closes. Minimum 30 words per answer.</p>
+    <div class="alert alert-success" id="ref-already" style="display:none">Reflection saved. You can update it any time before the round closes.</div>
+    <div style="margin-bottom:1rem"><label>Q1. What did the data suggest? Cite at least one specific metric.</label><textarea id="ref-q1" style="min-height:80px" oninput="updateRefWC(1)"></textarea><div class="word-count" id="ref-wc1">0 words</div></div>
+    <div style="margin-bottom:1rem"><label>Q2. What did your team decide — and why?</label><textarea id="ref-q2" style="min-height:80px" oninput="updateRefWC(2)"></textarea><div class="word-count" id="ref-wc2">0 words</div></div>
+    <div style="margin-bottom:1rem"><label>Q3. Where did you disagree, hesitate, or see an alternative?</label><textarea id="ref-q3" style="min-height:80px" oninput="updateRefWC(3)"></textarea><div class="word-count" id="ref-wc3">0 words</div></div>
+    <div style="margin-bottom:1rem"><label>Q4. What would you monitor next as an HR professional?</label><textarea id="ref-q4" style="min-height:80px" oninput="updateRefWC(4)"></textarea><div class="word-count" id="ref-wc4">0 words</div></div>
+    <button class="btn btn-secondary" onclick="saveReflection()">Save Reflection</button>
   </div>
-  <div class="step-page" id="r2-s2">
-    <div class="block"><div class="block-head"><div class="block-num">5</div><div class="block-label-text">Stakeholder challenge &mdash; CIO / CISO</div></div><div class="stakeholder"><div class="stwho">CIO / CISO &middot; Rahul Menon</div><div class="stq">&ldquo;Who owns identity, consent, API security, and vendor risk when three systems store data in US and EU? Name the DPO.&rdquo;</div></div><div class="st-input"><textarea id="r2-st" placeholder="Name a DPO, map API ownership, state DPDP consent architecture, vendor data-processing agreement approach..." onkeyup="updateST(2)"></textarea><div class="rationale-meta"><span class="wc" id="r2-stwc">0 / 100 words &mdash; saves separately</span></div></div></div>
-    <div id="r2-submit-area"><div class="confirm-bar"><div class="confirm-text"><strong>Ready to lock Round 2?</strong> Remember to submit D1 via Google Classroom.</div><div class="confirm-btns"><button class="btn-back" onclick="gotoStep(2,1)"><i class="ti ti-arrow-left"></i> Back</button><button class="btn-submit" onclick="submit(2)">Submit Round 2</button></div></div></div>
-    <div id="r2-success" style="display:none">
-      <div class="outcome-box"><div class="outcome-head">Round 2 &mdash; scorecard movement</div><div id="r2-outcome"></div></div>
-      <div class="success-box"><i class="ti ti-circle-check"></i><span class="success-text"><strong id="r2-stxt"></strong> Round 3 is now open. Submit D1 via Google Classroom.</span></div>
-      <div class="next-row"><button class="btn-next" onclick="goRound(3)">Continue to Round 3 <i class="ti ti-arrow-right"></i></button></div>
-    </div>
-  </div>
+
 </div>
-</div>
-
-<!-- ROUND 3 -->
-<div class="page" id="page-r3">
-<div class="rpage">
-  <div class="breadcrumb" onclick="goHome()"><i class="ti ti-arrow-left" style="font-size:14px"></i><span class="bc-link">Dashboard</span><span>/</span><span>Round 3</span></div>
-  <div class="step-indicator" id="si-r3"><div class="step-dot active" onclick="gotoStep(3,0)"></div><div class="step-dot" onclick="gotoStep(3,1)"></div><div class="step-dot" onclick="gotoStep(3,2)"></div><span class="step-label" id="sl-r3">Step 1 of 3 &mdash; Brief &amp; findings</span></div>
-  <div class="step-page active" id="r3-s0">
-    <div class="rp-label">Round 3 &middot; Q3 &middot; Unit II&ndash;III</div>
-    <h2 class="rp-title">The Rollout</h2>
-    <p class="rp-sub">Design the change and adoption program for a smartphone-only frontline. A live crisis event fires automatically on submission.</p>
-    <div class="rp-meta"><span class="rp-meta-item"><i class="ti ti-database"></i> Adoption_Telemetry, LMS_Learning</span><span class="rp-meta-item"><i class="ti ti-coin"></i> Budget: &#8377;50&ndash;100L</span><span class="rp-meta-item"><i class="ti ti-clock"></i> Analyst Hours: 10&ndash;20</span><span class="crisis-tag">&#128680; Crisis event on submit</span></div>
-    <div class="block" id="r3-cascade" style="display:none"><div class="block-head"><div class="block-num cascade-num">&#8617;</div><div class="block-label-text" style="color:var(--accent)">R2 architecture impact on your rollout</div></div><div class="cascade-card" id="r3-cascade-text"></div></div>
-    <div class="block"><div class="block-head"><div class="block-num">1</div><div class="block-label-text">Round brief</div></div><div class="brief-card">The systems are live &mdash; now you need people to use them. <strong>Adoption_Telemetry</strong> (480 sampled) shows Feature-phone and Tier-3 staff have near-zero ESS logins. <strong>LMS_Learning</strong> reveals digital-skills courses are Not-started for most Tier-3 frontline. <strong>GL-1001 Lakshmi Naidu</strong> (Tier-3, smartphone-only, Literacy 2) is the adoption gap you must close. <strong>GL-1003 Sunil Mehta</strong> (HR Officer, 204 months tenure, Literacy 3) is the face of mid-career change anxiety. On submission, a <strong>DPDP data breach fires automatically</strong>.</div></div>
-    <div class="block">
-      <div class="block-head"><div class="block-num">2</div><div class="block-label-text">Key dataset findings</div></div>
-      <div class="dtabs"><span class="dtab primary">Adoption_Telemetry</span><span class="dtab primary">LMS_Learning</span></div>
-      <div class="findings">
-        <div class="finding"><div class="fdot"></div><div class="ftext">Feature-phone users: <strong>ESS logins &asymp; 0</strong> &mdash; structurally excluded from self-service</div></div>
-        <div class="finding"><div class="fdot"></div><div class="ftext">Tier-3 employees: digital-skills LMS courses <strong>Not-started</strong> at highest rate in sample</div></div>
-        <div class="finding"><div class="fdot"></div><div class="ftext">Training completed = Yes but low ESS usage &rarr; <strong>training effectiveness gap</strong>, not awareness</div></div>
-        <div class="finding"><div class="fdot"></div><div class="ftext">High helpdesk tickets + low ESS logins = <strong>Awareness-stage non-adopter</strong></div></div>
-        <div class="finding"><div class="fdot"></div><div class="ftext">GL-1003 Sunil Mehta: 204 months tenure &mdash; needs structured transition, not just a training module</div></div>
-        <div class="anchors-row"><span class="anch-note">Human anchors this round:</span><div class="anchor-chip"><div class="av av-blue">LN</div><span class="anchor-label">GL-1001 Lakshmi Naidu</span></div><div class="anchor-chip"><div class="av av-green">SM</div><span class="anchor-label">GL-1003 Sunil Mehta</span></div></div>
-      </div>
-    </div>
-    <div style="display:flex;justify-content:flex-end"><button class="btn-next" onclick="gotoStep(3,1)">Choose your option <i class="ti ti-arrow-right"></i></button></div>
-  </div>
-  <div class="step-page" id="r3-s1">
-    <div class="block"><div class="block-head"><div class="block-num">3</div><div class="block-label-text">Choose your option</div></div>
-      <div class="opts-grid" id="r3-opts">
-        <div class="opt" id="r3-A" onclick="pick(3,'A')"><div class="ocode">Option 3A</div><div class="otitle">Phased rollout</div><div class="odesc">Start with high-literacy Metro staff, stabilize, then extend to Tier-2 and Tier-3.</div><div class="ocosts"><span class="cpill">&#8377;60L</span><span class="cpill">12 hrs</span><span class="cpill">CC +5</span></div></div>
-        <div class="opt" id="r3-B" onclick="pick(3,'B')"><div class="ocode">Option 3B</div><div class="otitle">Full rollout and training</div><div class="odesc">Deploy simultaneously across all tiers with mandatory ILT. Maximum coverage, maximum disruption.</div><div class="ocosts"><span class="cpill">&#8377;100L</span><span class="cpill">20 hrs</span><span class="cpill">CC &minus;5</span></div></div>
-        <div class="opt" id="r3-C" onclick="pick(3,'C')"><div class="ocode">Option 3C</div><div class="otitle">Change agent network</div><div class="odesc">Train frontline adoption champions in each store and warehouse. Peer-led, high trust.</div><div class="ocosts"><span class="cpill">&#8377;50L</span><span class="cpill">10 hrs</span><span class="cpill">CC +10</span></div></div>
-        <div class="opt" id="r3-D" onclick="pick(3,'D')"><div class="ocode">Option 3D</div><div class="otitle">Gamified campaign</div><div class="odesc">Mobile-native gamification: badges, leaderboards, incentives for ESS app engagement.</div><div class="ocosts"><span class="cpill">&#8377;70L</span><span class="cpill">14 hrs</span><span class="cpill">CC +8</span></div></div>
-      </div>
-      <div class="cost-preview" id="r3-cost" style="display:none">Will spend: <strong id="r3-cb"></strong> &nbsp;&middot;&nbsp; <strong id="r3-ca"></strong> analyst hours &nbsp;&middot;&nbsp; CC: <strong id="r3-cc"></strong></div>
-    </div>
-    <div class="block"><div class="block-head"><div class="block-num">4</div><div class="block-label-text">Evidence rationale <span style="color:var(--text-faint);font-size:10px;font-weight:400;text-transform:none;letter-spacing:0">(min 50 words)</span></div></div><div class="rationale-wrap"><textarea id="r3-rat" placeholder="Cite adoption telemetry figures. What is Lakshmi Naidu's Adoption_Stage? How does your option reach feature-phone users?" onkeyup="updateWC(3)"></textarea><div class="rationale-meta"><span class="wc" id="r3-wc">0 / 50 words minimum</span></div></div></div>
-    <div class="confirm-bar"><div class="confirm-text" id="r3-ctxt">Select an option and write your evidence rationale.</div><div class="confirm-btns"><button class="btn-back" onclick="gotoStep(3,0)"><i class="ti ti-arrow-left"></i> Brief</button><button class="btn-next" id="r3-btn" disabled onclick="gotoStep(3,2)">Stakeholder challenge <i class="ti ti-arrow-right"></i></button></div></div>
-  </div>
-  <div class="step-page" id="r3-s2">
-    <div class="block"><div class="block-head"><div class="block-num">5</div><div class="block-label-text">Stakeholder challenge &mdash; Operations Head</div></div><div class="stakeholder"><div class="stwho">Operations Head &middot; Vikram Nair</div><div class="stq">&ldquo;Your rollout reduces store productivity during peak festive weeks. Show the training-hours impact on sales floor capacity &mdash; with a revised calendar.&rdquo;</div></div><div class="st-input"><textarea id="r3-st" placeholder="Name specific peak weeks, quantify training-hours impact, show revised calendar or data-backed trade-off." onkeyup="updateST(3)"></textarea><div class="rationale-meta"><span class="wc" id="r3-stwc">0 / 100 words &mdash; saves separately</span></div></div></div>
-    <div id="r3-submit-area">
-      <div class="confirm-danger">
-        <div class="confirm-danger-text"><strong>&#9888; Warning:</strong> Submitting Round 3 triggers the DPDP data breach event. This demo shows the event text immediately.</div>
-        <div class="confirm-btns"><button class="btn-back" onclick="gotoStep(3,1)"><i class="ti ti-arrow-left"></i> Back</button><button class="btn-danger" onclick="submit(3)">Submit Round 3</button></div>
-      </div>
-    </div>
-    <div id="r3-success" style="display:none">
-
-      <!-- ═══ CRISIS BLOCK — inline styles are the source of truth ═══ -->
-      <div class="crisis-box" style="background:#450a0a;border:2px solid #991b1b;border-radius:12px;padding:1.25rem;margin-top:1.5rem">
-        <div class="crisis-head" style="color:#fca5a5;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.625rem;display:flex;align-items:center;gap:8px">
-          <i class="ti ti-alert-triangle" style="color:#fca5a5;font-size:16px"></i>
-          &#128680; Critical Incident: DPDP-Notifiable Data Breach Detected
-        </div>
-        <div class="crisis-body" style="color:#fecaca;font-size:13.5px;line-height:1.75">
-          At 11:42 PM last night, GreenLeaf's HR platform flagged an anomaly. By 6 AM your security team confirmed it: personal employee data &mdash; including Aadhaar-linked payroll records and performance scores for <strong style="color:#ffffff;font-weight:600">340 frontline workers</strong> across Tier-2 and Tier-3 locations &mdash; was exposed due to a misconfigured cloud storage bucket. Under the <strong style="color:#ffffff;font-weight:600">Digital Personal Data Protection Act 2023</strong>, GreenLeaf must notify the Data Protection Board within <strong style="color:#ffffff;font-weight:600">72 hours</strong>. The CHRO is being briefed in 30 minutes. This happened on your watch &mdash; because of the very systems you are building.
-        </div>
-        <div class="crisis-severity" id="r3-breach-sev" style="color:#fca5a5;font-size:12px;background:rgba(255,255,255,.07);border:0.5px solid rgba(252,165,165,.25);border-radius:8px;padding:.625rem .875rem;margin-top:.875rem;line-height:1.6"></div>
-      </div>
-
-      <!-- ═══ PROMPTS BLOCK — inline styles are the source of truth ═══ -->
-      <div class="crisis-prompts" style="background:#1c0202;border:1.5px solid #7f1d1d;border-radius:12px;padding:1.25rem 1.5rem;margin-top:1rem">
-        <div class="cp-head" style="color:#fca5a5;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.875rem">
-          Address all four in your response:
-        </div>
-        <div class="cp-item" style="color:#fecaca;font-size:13px;line-height:1.65;margin-bottom:10px;padding-left:12px;border-left:2px solid rgba(252,165,165,.45)">
-          1. Immediate containment &mdash; what do you shut down or isolate right now?
-        </div>
-        <div class="cp-item" style="color:#fecaca;font-size:13px;line-height:1.65;margin-bottom:10px;padding-left:12px;border-left:2px solid rgba(252,165,165,.45)">
-          2. DPDP notification &mdash; what do you report to the Data Protection Board, and by when?
-        </div>
-        <div class="cp-item" style="color:#fecaca;font-size:13px;line-height:1.65;margin-bottom:10px;padding-left:12px;border-left:2px solid rgba(252,165,165,.45)">
-          3. Affected employee communication &mdash; how and when do you tell the 340 workers?
-        </div>
-        <div class="cp-item" style="color:#fecaca;font-size:13px;line-height:1.65;margin-bottom:0;padding-left:12px;border-left:2px solid rgba(252,165,165,.45)">
-          4. Systemic fix &mdash; what change to your Round 3 rollout does this incident force?
-        </div>
-      </div>
-
-      <div class="outcome-box"><div class="outcome-head">Round 3 &mdash; scorecard movement</div><div id="r3-outcome"></div></div>
-      <div class="done-banner"><i class="ti ti-circle-check"></i><span><strong id="r3-stxt"></strong> Rounds 4&ndash;6 continue on the full platform at disha-simulation.vercel.app</span></div>
-    </div>
-  </div>
-</div>
+<div class="round-nav" id="round-nav"></div>
+<footer class="footer">Project Disha &middot; DSEH001 &middot; Cohort 1 AY 2026&ndash;27 &middot; Prof. R.K. Singh &middot; Dept of Commerce, Faculty of Commerce &amp; Business, University of Delhi</footer>
 </div>
 
 <script>
-const COSTS={
-  '1A':{b:40,a:8,c:0},'1B':{b:80,a:18,c:-5},'1C':{b:60,a:12,c:5},'1D':{b:50,a:10,c:3},
-  '2A':{b:120,a:20,c:-5},'2B':{b:150,a:25,c:-8},'2C':{b:180,a:30,c:-10},'2D':{b:90,a:15,c:5},
-  '3A':{b:60,a:12,c:5},'3B':{b:100,a:20,c:-5},'3C':{b:50,a:10,c:10},'3D':{b:70,a:14,c:8}
+// ── DATA (exact from production rounds.ts / StakeholderChallenge.tsx / OptionCard.tsx) ──
+
+const ROUND_META=[
+  {num:1,title:'The Diagnosis',week:'Week 2',unit:'Unit I',event:'Baseline dataset analysis'},
+  {num:2,title:'The Architecture',week:'Week 4',unit:'Unit I–II',event:'D1 due at close'},
+  {num:3,title:'The Rollout',week:'Week 6',unit:'Unit II',event:'DPDP Shock Event on submit'},
+  {num:4,title:'The Audit',week:'Week 8',unit:'Unit III',event:'Algorithmic Fairness Audit — SIGNATURE ROUND'},
+  {num:5,title:'The Story',week:'Week 10',unit:'Unit III–IV',event:'Gig-worker Shock Event possible'},
+  {num:6,title:'The Future',week:'Week 12',unit:'Unit IV',event:'D2 due at close'},
+];
+const ROUND_OPTIONS={
+  1:[
+    {code:'1A',name:'Foundations First',budgetCost:40,analystCost:8,changeDelta:0,description:'Commission a device and connectivity audit across all 1,000 employees before any platform decisions. Produces an infrastructure baseline. Slower but de-risks future investment. Theory anchor: Kavanagh HR Technology Maturity Model (Stage 1 assessment).'},
+    {code:'1B',name:'Analytics-First Leap',budgetCost:80,analystCost:18,changeDelta:-5,description:'Skip infrastructure baseline; deploy a people-analytics platform immediately to start generating insights. Fast but risks building on digital-divide blind spots. High Analyst Hours cost. Theory anchor: HR Analytics maturity (Bersin tiers).'},
+    {code:'1C',name:'Mobile-First Equity Lens',budgetCost:60,analystCost:12,changeDelta:5,description:'Conduct a mobile-device and digital-literacy survey segmented by Location Tier and Job Category. Directly surfaces the frontline digital divide. Earns Change Capital through participatory design. Theory anchor: Digital inclusion frameworks.'},
+    {code:'1D',name:'Regulatory Alignment Thesis',budgetCost:50,analystCost:10,changeDelta:3,description:'Begin with a DPDP Act 2023 and Code on Social Security 2020 compliance gap analysis. Identifies regulatory risk before any system build. Earns Change Capital through governance credibility. Theory anchor: HR compliance and risk management.'},
+  ],
+  2:[
+    {code:'2A',name:'Modular HRMS Core',budgetCost:120,analystCost:20,changeDelta:-5,description:'Implement a modular HRIS covering payroll, attendance, and leave. Solid operational foundation. Limited people-analytics capability until modules are added. Theory anchor: HRMS implementation lifecycle (Kavanagh Stage 2–3).'},
+    {code:'2B',name:'People Analytics Platform',budgetCost:150,analystCost:25,changeDelta:-8,description:'Deploy a standalone people-analytics layer on top of existing payroll. Fast insights but creates integration debt. Requires clean data inputs — risky if R1 skipped the baseline. Theory anchor: Bersin analytics maturity.'},
+    {code:'2C',name:'Integrated Talent Suite',budgetCost:180,analystCost:30,changeDelta:-10,description:'Full integrated talent suite covering HRMS + analytics + learning. Highest capability ceiling, highest cost and change burden. Requires strong Change Capital. Theory anchor: HR technology ecosystem design.'},
+    {code:'2D',name:'Mobile-First Lightweight',budgetCost:90,analystCost:15,changeDelta:5,description:'Deploy a mobile-first, lightweight HRMS optimised for frontline and Tier-2/3 employees. Lower cost, higher adoption in the field. Trade-off: limited analytics capability. Theory anchor: Digital inclusion + mobile-first design.'},
+  ],
+  3:[
+    {code:'3A',name:'Phased Rollout — Pilot First',budgetCost:60,analystCost:12,changeDelta:5,description:'Pilot in one Location Tier before full rollout. Slower but gathers adoption data and protects Change Capital. Reduces risk of large-scale rejection. Theory anchor: Lewin change model (unfreeze–change–refreeze phased).'},
+    {code:'3B',name:'Full Rollout with Intensive Training',budgetCost:100,analystCost:20,changeDelta:-5,description:'Deploy across all locations simultaneously with mandatory training. Faster value realisation but high Change Capital burn. Risk of frontline fatigue. Theory anchor: Kotter 8-step change acceleration.'},
+    {code:'3C',name:'Change Agent Network',budgetCost:50,analystCost:10,changeDelta:10,description:'Identify and train internal change champions in each location tier. Lowest direct cost, strongest Change Capital gain. Slower adoption spread. Theory anchor: Diffusion of innovation (Rogers) — champion-led.'},
+    {code:'3D',name:'Gamified Adoption Campaign',budgetCost:70,analystCost:14,changeDelta:8,description:'Launch a gamified adoption drive with leaderboards and incentives for digital engagement. High engagement for frontline workers. Risk of superficial adoption without deep skill-building. Theory anchor: Behavioural nudge + gamification.'},
+  ],
 };
-const TITLES={
-  1:{A:'Foundations first',B:'Analytics-first leap',C:'Mobile-first equity lens',D:'Regulatory alignment'},
-  2:{A:'Modular HRMS Core',B:'People Analytics Platform',C:'Integrated Talent Suite',D:'Mobile-first lightweight'},
-  3:{A:'Phased rollout',B:'Full rollout and training',C:'Change agent network',D:'Gamified campaign'}
+const DATA_BRIEFS={
+  1:['From Employee_Master: Calculate mean Digital_Literacy_Score for Frontline vs non-Frontline employees. What is the gap?','From Employee_Master: What % of employees in each Location_Tier have Device_Access = Smartphone_Only?','From Employee_Master: Frontline employees as a % of total workforce?','Based on the above: which option is most grounded in the data you have just analysed? Cite specific figures.'],
+  2:['From Employee_Master: What % of employees are in Tier-2 and Tier-3 locations combined?','From Employee_Master: What is the mean Digital_Literacy_Score for Device_Access = Smartphone_Only employees?','From TechStack_Inventory: Which systems have adoption rates below 50%? Which are not mobile-enabled?','Which architecture option best serves the digital-divide profile you have computed? Cite the data.'],
+  3:['From Adoption_Telemetry: What is the overall active-user % for the primary HRIS? What is the frontline vs corporate split?','From LMS_Learning: What is the completion rate by delivery method (mobile vs desktop) for frontline staff?','From Employee_Master: Which Job_Category has the lowest mean Digital_Literacy_Score?','Which rollout option minimises adoption risk for the segments your data identified?'],
 };
-const OUTCOMES={
-  '1A':[['Analytical Rigour','+2','pos'],['Financial Discipline','+3','pos'],['Equity & Compliance','0','neu'],['Adoption & Change','+1','pos'],['Strategic Coherence','+2','pos']],
-  '1B':[['Analytical Rigour','+3','pos'],['Financial Discipline','-1','neg'],['Equity & Compliance','0','neu'],['Adoption & Change','-1','neg'],['Strategic Coherence','+2','pos']],
-  '1C':[['Analytical Rigour','+2','pos'],['Financial Discipline','+1','pos'],['Equity & Compliance','+2','pos'],['Adoption & Change','+3','pos'],['Strategic Coherence','+2','pos']],
-  '1D':[['Analytical Rigour','+1','pos'],['Financial Discipline','+2','pos'],['Equity & Compliance','+3','pos'],['Adoption & Change','+1','pos'],['Strategic Coherence','+1','pos']],
-  '2A':[['Analytical Rigour','+2','pos'],['Financial Discipline','+2','pos'],['Equity & Compliance','+1','pos'],['Adoption & Change','+2','pos'],['Strategic Coherence','+2','pos']],
-  '2B':[['Analytical Rigour','+3','pos'],['Financial Discipline','-2','neg'],['Equity & Compliance','+1','pos'],['Adoption & Change','+2','pos'],['Strategic Coherence','+2','pos']],
-  '2C':[['Analytical Rigour','+2','pos'],['Financial Discipline','-3','neg'],['Equity & Compliance','+1','pos'],['Adoption & Change','+1','pos'],['Strategic Coherence','+3','pos']],
-  '2D':[['Analytical Rigour','+1','pos'],['Financial Discipline','+3','pos'],['Equity & Compliance','+2','pos'],['Adoption & Change','+3','pos'],['Strategic Coherence','+1','pos']],
-  '3A':[['Analytical Rigour','+2','pos'],['Financial Discipline','+2','pos'],['Equity & Compliance','0','neu'],['Adoption & Change','-1','neg'],['Strategic Coherence','+1','pos']],
-  '3B':[['Analytical Rigour','+2','pos'],['Financial Discipline','-2','neg'],['Equity & Compliance','+1','pos'],['Adoption & Change','+2','pos'],['Strategic Coherence','+2','pos']],
-  '3C':[['Analytical Rigour','+2','pos'],['Financial Discipline','+2','pos'],['Equity & Compliance','+2','pos'],['Adoption & Change','+3','pos'],['Strategic Coherence','+2','pos']],
-  '3D':[['Analytical Rigour','+1','pos'],['Financial Discipline','+1','pos'],['Equity & Compliance','+1','pos'],['Adoption & Change','+3','pos'],['Strategic Coherence','+1','pos']]
+const RATIONALE_PROMPTS={
+  1:['Why this option, citing specific data figures?','Which theoretical model grounds your choice?','What 2–3 findings does this option surface that others would miss?','How does this R1 choice set up your R2 architecture decision?','Is the resource trade-off justified?'],
+  2:['How does your R1 diagnosis drive this architecture choice?','Which employee segments does this architecture serve best — and worst?','What is the integration risk if your R1 baseline was incomplete?','How does this choice affect your Change Capital entering R3?','Is the budget expenditure proportionate to the capability gained?'],
+  3:['What adoption risk does your chosen rollout strategy most directly mitigate?','Which employee segment is most at risk of being left behind — and how does your option address that?','How does this choice affect Change Capital entering the Fairness Audit round?','What would a failed rollout look like, and how does your option guard against it?','Is the Analyst Hours cost justified given the adoption telemetry data?'],
 };
-const CASCADE_R1={
-  A:'<strong>Option 1A (Foundations first)</strong> grounds your R2 architecture in data quality. Analytics on poor-quality data creates compounding interpretation errors by R4\u2013R5.',
-  B:'<strong>Option 1B (Analytics-first leap)</strong> means InsightHR needs strong underlying data to be credible. Watch InsightHR\u2019s adoption rate carefully.',
-  C:'<strong>Option 1C (Mobile-first equity lens)</strong> is established. Any non-mobile-enabled system in R2 contradicts your R1 thesis \u2014 the Board will notice.',
-  D:'<strong>Option 1D (Regulatory alignment)</strong> means DPDP governance must be woven into R2 architecture. Teams with DPDP posture absorb the R3 shock with lower Change Capital damage.'
+const SC={
+  1:{stakeholder:'CFO',badge:'⚖ ROUND 1 STAKEHOLDER CHALLENGE — CFO',title:'CFO Challenge',concern:'Cost discipline & financial justification',bonus:'+1 Board Confidence',penalty:'-1 Implementation Readiness',criteria:'Team links the chosen diagnostic option to a measurable operational or financial risk, citing at least one specific figure from the dataset.',text:'Why should we fund HR analytics when payroll and compliance systems already work? What specific financial or operational risk are we solving — and how does it justify this spend?'},
+  2:{stakeholder:'CIO / CISO',badge:'⚖ ROUND 2 STAKEHOLDER CHALLENGE — CIO / CISO',title:'CIO / CISO Challenge',concern:'Security, integration risk, vendor lock-in',bonus:'+1 Governance score (BCI)',penalty:'Security_Debt tag applied',criteria:'Team specifies ownership of data governance, consent architecture, and integration risk for the chosen architecture option.',text:'Your architecture increases mobile access and data collection. Who owns identity, access management, consent tracking, API security, and vendor risk? Name the roles and the governance controls.'},
+  3:{stakeholder:'Operations Head',badge:'⚖ ROUND 3 STAKEHOLDER CHALLENGE — OPERATIONS HEAD',title:'Operations Head Challenge',concern:'Store productivity and frontline disruption',bonus:'+Adoption score',penalty:'-Change Capital',criteria:'Team presents a training-hour estimate, a revised rollout calendar, or a data-supported productivity trade-off for the chosen option.',text:'Your rollout plan will reduce store productivity during peak retail weeks. How many training hours per frontline employee does this require, and what is the lost-productivity cost? Show us a revised calendar or justify the trade-off with data.'},
 };
-const CASCADE_R2={
-  A:'<strong>Option 2A (Modular HRMS Core):</strong> PeopleCloud is live. R3 must drive adoption across all tiers. Feature-phone users remain a structural gap to address in your change plan.',
-  B:'<strong>Option 2B (People Analytics Platform):</strong> InsightHR is primary. R3 must drive adoption of analytics dashboards alongside the ESS App \u2014 two systems simultaneously. Change Capital under pressure.',
-  C:'<strong>Option 2C (Integrated Talent Suite):</strong> Highest-change scenario. Budget pressure is real \u2014 watch your remaining envelope carefully.',
-  D:'<strong>Option 2D (Mobile-first lightweight):</strong> ESS App and SahayakBot are your frontline channels. R3 adoption must be mobile-native and peer-led to stay consistent.'
+const AXIS_IMPACT={
+  '1A':{primary:['FD','AR'],secondary:['SC']},'1B':{primary:['AR'],secondary:['FD','SC']},
+  '1C':{primary:['AC','EC'],secondary:['AR']},'1D':{primary:['EC','SC'],secondary:['FD']},
+  '2A':{primary:['FD','SC'],secondary:['AR']},'2B':{primary:['AR','SC'],secondary:['FD']},
+  '2C':{primary:['AR','AC'],secondary:['SC']},'2D':{primary:['AC','EC'],secondary:['FD']},
+  '3A':{primary:['AC'],secondary:['SC','AR']},'3B':{primary:['AC','AR'],secondary:['FD']},
+  '3C':{primary:['AC','EC'],secondary:['SC']},'3D':{primary:['AC'],secondary:['EC','AR']},
+};
+const AXIS_FULL={AR:'Analytical Rigour (40%)',FD:'Financial Discipline (20%)',AC:'Adoption & Change (20%)',EC:'Equity & Compliance (10%)',SC:'Strategic Coherence (10%)'};
+const AXIS_COLOR={AR:'#1B5E20',FD:'#0D47A1',AC:'#00695C',EC:'#E65100',SC:'#4A148C'};
+const CASCADE={
+  '1A':'Grounds R2 architecture in real infrastructure data. Reduces risk of over-engineering.',
+  '1B':'Fast insights — but analytics on unknown infrastructure creates interpretation debt in R4–R5.',
+  '1C':'Frontline framing already set for R2. R3 adoption design will be evidence-grounded.',
+  '1D':'DPDP compliance layer planned. Shock 1 damage in R3 will be lower if breach occurs.',
+  '2A':'Solid operational base. Limited people-analytics capability until R3 modules are added.',
+  '2B':'Fast insights but integration debt. Risky if R1 skipped the infrastructure baseline.',
+  '2C':'Highest capability — but highest Change Capital burn entering R3. Watch CC carefully.',
+  '2D':'Best frontline reach. Trade-off: limited analytics for the R4 fairness audit.',
+  '3A':'Adoption data from pilot informs R4 audit framing. Change Capital protected.',
+  '3B':'Fastest value — but frontline fatigue risk can reduce engagement scores in R5.',
+  '3C':'Strongest Change Capital gain. Champion network becomes evidence base for R5 story.',
+  '3D':'High frontline engagement. Risk: superficial adoption surfaces as a gap in the R4 audit.',
+};
+const ANCHOR={
+  '1A':{id:'GL-1001',name:'Lakshmi N.',impact:'Infrastructure audit will surface her Tier-3 / smartphone-only barrier.'},
+  '1B':{id:'GL-1001',name:'Lakshmi N.',impact:'Skipping the baseline leaves her digital divide undiagnosed.'},
+  '1C':{id:'GL-1001',name:'Lakshmi N.',impact:'Mobile-first survey directly maps her access constraints.'},
+  '1D':{id:'GL-1003',name:'Sunil M.',impact:'DPDP focus builds governance credibility before R3 rollout reaches him.'},
+  '2A':{id:'GL-1001',name:'Lakshmi N.',impact:'Core HRMS may not reach her without a mobile layer. Check mobile-enabled flag.'},
+  '2B':{id:'GL-1004',name:'Shreya I.',impact:'Analytics platform will surface the flight-risk model anomaly sooner in R4.'},
+  '2C':{id:'GL-1001',name:'Lakshmi N.',impact:'Integrated suite risks leaving frontline behind if mobile UX is not prioritised.'},
+  '2D':{id:'GL-1001',name:'Lakshmi N.',impact:'Mobile-first design directly addresses her device constraint.'},
+  '3A':{id:'GL-1003',name:'Sunil M.',impact:'Phased rollout gives him structured transition time — reduces change anxiety.'},
+  '3B':{id:'GL-1003',name:'Sunil M.',impact:'Full rollout intensity may overwhelm long-tenure employees like him.'},
+  '3C':{id:'GL-1003',name:'Sunil M.',impact:'He is a prime candidate to become a Change Agent — draws on his 204 months of institutional knowledge.'},
+  '3D':{id:'GL-1001',name:'Lakshmi N.',impact:'Gamification engagement hinges on literacy. Does she have the digital confidence to participate?'},
 };
 const BREACH_SEV={
-  A:'Your Modular HRMS Core had partial DPDP governance \u2014 breach impact moderate. Estimated Change Capital damage: \u221212 pts.',
-  B:'Your People Analytics Platform had US-residency data not fully governed \u2014 breach impact significant. Estimated Change Capital damage: \u221215 pts.',
-  C:'Your Integrated Talent Suite deferred DPDP compliance \u2014 breach hits ungoverned architecture hard. Estimated Change Capital damage: \u221218 pts.',
-  D:'Your Mobile-first Lightweight kept most data in-house \u2014 lower exposure. Estimated Change Capital damage: \u221210 pts.'
+  A:'Your Modular HRMS Core had partial DPDP governance — breach impact moderate. Estimated Change Capital damage: −12 pts.',
+  B:'Your People Analytics Platform had US-residency data not fully governed — breach impact significant. Estimated Change Capital damage: −15 pts.',
+  C:'Your Integrated Talent Suite deferred DPDP compliance — breach hits ungoverned architecture hard. Estimated Change Capital damage: −18 pts.',
+  D:'Your Mobile-first Lightweight kept most data in-house — lower exposure. Estimated Change Capital damage: −10 pts.',
 };
+const HUMAN_ANCHORS=[
+  {id:'GL-1001',name:'Lakshmi R.',role:'Frontline, Tier-3',why:'Digital divide; smartphone-only; Digital Literacy score 2'},
+  {id:'GL-1002',name:'Arjun J.',role:'Gig / Bronze tier · Chennai',why:'Earnings ~₹11,400/mo; not enrolled for SS2020 benefits; 5 grievances'},
+  {id:'GL-1003',name:'Sunil M.',role:'HR Officer · Lucknow · Tier-1',why:'204 months tenure; Digital Literacy 3; face of change management anxiety (R3)'},
+  {id:'GL-1004',name:'Shreya Iyer',role:'Analyst, HQ',why:'Model flags HIGH flight risk; did NOT leave; top-quartile engagement'},
+];
 
-let S={budget:600,cc:100,choices:{},submitted:{},unlocked:{1:true,2:false,3:false}};
-try{const d=localStorage.getItem('disha_v4');if(d)S=JSON.parse(d);}catch(e){}
-function save(){try{localStorage.setItem('disha_v4',JSON.stringify(S));}catch(e){}}
+// ── STATE ─────────────────────────────────────────────
+let S={budget:600,cc:100,choices:{},submitted:{},scSaved:{},reflections:{},rationale:{},shockTriggered3:false,shockResponse3:'',unlocked:{1:true,2:false,3:false}};
+let curRound=1,shockTriggered=false;
+function loadS(){try{const d=localStorage.getItem('disha_v5');if(d)S=JSON.parse(d);}catch(e){}}
+function saveS(){try{localStorage.setItem('disha_v5',JSON.stringify(S));}catch(e){}}
 
-function updateResBar(){
-  const bPct=Math.max(0,(S.budget/600)*100);
-  const cPct=Math.max(0,(S.cc/100)*100);
-  document.getElementById('res-budget').textContent='\u20b9'+S.budget+'L';
-  document.getElementById('res-cc').textContent=S.cc+' pts';
-  document.getElementById('res-ah').textContent='60 hrs';
-  document.getElementById('bar-budget').style.width=bPct+'%';
-  document.getElementById('bar-cc').style.width=cPct+'%';
-  document.getElementById('bar-ah').style.width='100%';
+// ── THEME ─────────────────────────────────────────────
+let dark=false;
+function toggleTheme(){dark=!dark;document.documentElement.setAttribute('data-theme',dark?'dark':'');document.getElementById('theme-ico').textContent=dark?'☀️':'🌙';document.getElementById('theme-label').textContent=dark?'Light mode':'Dark mode';}
+
+// ── PAGES ─────────────────────────────────────────────
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');window.scrollTo(0,0);}
+function goHome(){showPage('home');renderHome();}
+
+// ── TABS ──────────────────────────────────────────────
+function setTab(t){
+  ['control','history','reflections','playbook'].forEach(x=>{document.getElementById('tab-'+x).style.display=x===t?'block':'none';});
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>{b.classList.toggle('active',['control','history','reflections','playbook'][i]===t);});
+  if(t==='reflections')renderReflections();
+  if(t==='playbook')renderPlaybook();
 }
 
-const STEP_LABELS=['Brief & findings','Option & rationale','Stakeholder & submit'];
-function gotoStep(r,s){
-  document.querySelectorAll('#page-r'+r+' .step-page').forEach((p,i)=>p.classList.toggle('active',i===s));
-  document.querySelectorAll('#si-r'+r+' .step-dot').forEach((d,i)=>{d.classList.remove('active','done');if(i<s)d.classList.add('done');else if(i===s)d.classList.add('active');});
-  const sl=document.getElementById('sl-r'+r);if(sl)sl.textContent='Step '+(s+1)+' of 3 \u2014 '+STEP_LABELS[s];
-  window.scrollTo(0,0);
+// ── HOME RENDER ───────────────────────────────────────
+function renderHome(){renderBanner();renderResGrid('home-res');renderRoundProgress();renderHistoryTable();}
+
+function getActiveRound(){
+  const open=ROUND_META.filter(r=>S.unlocked[r.num]);
+  return open.find(r=>!S.submitted[r.num])||open[0]||null;
 }
-function show(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');window.scrollTo(0,0);}
-function goHome(){show('landing');}
-function goRound(n){if(!S.unlocked[n])return;show('r'+n);showCascades(n);if(S.submitted[n])gotoStep(n,2);}
-function showCascades(n){
-  if(n===2&&S.choices[1]){const el=document.getElementById('r2-cascade');const txt=document.getElementById('r2-cascade-text');if(el&&txt){el.style.display='block';txt.innerHTML=CASCADE_R1[S.choices[1]]||'';}}
-  if(n===3&&S.choices[2]){const el=document.getElementById('r3-cascade');const txt=document.getElementById('r3-cascade-text');if(el&&txt){el.style.display='block';txt.innerHTML=CASCADE_R2[S.choices[2]]||'';}}
+
+function renderBanner(){
+  const r=getActiveRound();
+  const b=document.getElementById('banner-btn');
+  if(!r){document.getElementById('banner-status').textContent='Status';document.getElementById('banner-title').textContent='No round open';document.getElementById('banner-meta').textContent='Your instructor will open the next round after the debrief.';b.style.display='none';return;}
+  b.style.display='';
+  const done=S.submitted[r.num];
+  document.getElementById('banner-status').textContent=done?'Submitted — next round':'Active now';
+  document.getElementById('banner-title').textContent=`Round ${r.num} — ${r.title}`;
+  document.getElementById('banner-meta').textContent=`${r.week} · ${r.unit} · ${r.event}`;
+  b.textContent=done?`View Round ${r.num}`:`Enter Round ${r.num} →`;
+  b.onclick=()=>openRound(r.num);
 }
-function pick(r,l){
-  if(S.submitted[r])return;S.choices[r]=l;
-  document.querySelectorAll('#r'+r+'-opts .opt').forEach(c=>c.classList.remove('selected'));
-  document.getElementById('r'+r+'-'+l).classList.add('selected');
-  const key=r+''+l,c=COSTS[key];const cp=document.getElementById('r'+r+'-cost');
-  if(cp){cp.style.display='flex';document.getElementById('r'+r+'-cb').textContent='\u20b9'+c.b+'L';document.getElementById('r'+r+'-ca').textContent=c.a;document.getElementById('r'+r+'-cc').textContent=(c.c>0?'+':'')+c.c;}
-  save();checkReady(r);
+
+function enterRound(){const r=getActiveRound();if(r)openRound(r.num);}
+
+function renderResGrid(id){
+  const el=document.getElementById(id);if(!el)return;
+  const bCls=S.budget<0?'danger':S.budget<120?'warning':'budget';
+  const cCls=S.cc<20?'danger':S.cc<40?'warning':'change';
+  el.innerHTML=`
+    <div class="resource-tile ${bCls}"><div class="resource-label">Budget remaining</div><div class="resource-value">₹${S.budget}L</div><div class="resource-sub">of ₹600L total (₹6 Cr)</div></div>
+    <div class="resource-tile ${cCls}"><div class="resource-label">Change Capital</div><div class="resource-value">${S.cc}</div><div class="resource-sub">Persists round-to-round · starts at 100</div></div>
+    <div class="resource-tile analyst"><div class="resource-label">Analyst Hours</div><div class="resource-value">60</div><div class="resource-sub">Resets each round</div></div>
+  `;
 }
-function wc(txt){return txt.trim().split(/\s+/).filter(w=>w.length>0).length;}
-function updateWC(r){const ta=document.getElementById('r'+r+'-rat');const sp=document.getElementById('r'+r+'-wc');if(!ta||!sp)return;const n=wc(ta.value);sp.textContent=n+' / 50 words minimum';sp.className='wc'+(n>=50?' ok':n>20?' mid':'');checkReady(r);}
-function updateST(r){const ta=document.getElementById('r'+r+'-st');const sp=document.getElementById('r'+r+'-stwc');if(!ta||!sp)return;const n=wc(ta.value);sp.textContent=n+' / 100 words \u2014 saves separately';sp.className='wc'+(n>=100?' ok':n>40?' mid':'');}
-function checkReady(r){const btn=document.getElementById('r'+r+'-btn');if(!btn)return;const hasC=!!S.choices[r];const ta=document.getElementById('r'+r+'-rat');const hasW=ta?wc(ta.value)>=50:false;btn.disabled=!(hasC&&hasW);if(hasC){const l=S.choices[r];const txt=document.getElementById('r'+r+'-ctxt');if(txt)txt.innerHTML='Option '+r+l+': <strong>'+TITLES[r][l]+'</strong>'+(hasW?' \u2014 ready for stakeholder challenge.':' selected. Write your rationale ('+wc(ta?ta.value:'')+'&thinsp;/&thinsp;50 words).');}}
-function buildOutcome(r){const l=S.choices[r];const rows=OUTCOMES[r+''+l]||[];const el=document.getElementById('r'+r+'-outcome');if(el)el.innerHTML=rows.map(([ax,d,dir])=>`<div class="outcome-row"><span class="outcome-axis">${ax}</span><span class="delta-${dir}">${d}</span></div>`).join('');}
-function submit(r){
-  if(!S.choices[r])return;const l=S.choices[r],c=COSTS[r+''+l];
-  S.budget-=c.b;S.cc+=c.c;S.submitted[r]=true;if(r<3)S.unlocked[r+1]=true;
-  buildOutcome(r);
-  const sa=document.getElementById('r'+r+'-submit-area');if(sa)sa.style.display='none';
-  const suc=document.getElementById('r'+r+'-success');if(suc)suc.style.display='block';
-  const stxt=document.getElementById('r'+r+'-stxt');if(stxt)stxt.textContent='Round '+r+' locked \u2014 Option '+r+l+': '+TITLES[r][l]+'.';
-  if(r===3){const sev=document.getElementById('r3-breach-sev');if(sev)sev.textContent=(S.choices[2]?BREACH_SEV[S.choices[2]]||'':'');}
-  document.querySelectorAll('#r'+r+'-opts .opt').forEach(c=>{c.classList.add('locked-opt');c.onclick=null;});
-  save();updateResBar();updateBadges();
+
+function renderRoundProgress(){
+  const el=document.getElementById('round-progress');if(!el)return;
+  el.innerHTML=ROUND_META.map(m=>{
+    const sub=S.submitted[m.num],open=S.unlocked[m.num],active=open&&!sub,locked=!open&&!sub;
+    const bg=sub?'var(--audit-bg)':active?'var(--green)':'var(--surface-2)';
+    const col=active?'#fff':sub?'var(--success)':'var(--text-faint)';
+    const brd=sub?'var(--audit-border)':active?'var(--green)':'var(--border)';
+    return `<div style="background:${bg};border:1px solid ${brd};border-radius:var(--radius);padding:.65rem .5rem;text-align:center;opacity:${locked&&m.num>3?0.3:locked?0.45:1}">
+      <div style="font-size:.72rem;font-weight:800;color:${col};margin-bottom:3px">R${m.num}</div>
+      <div style="font-size:.65rem;color:${active?'rgba(255,255,255,.75)':'var(--text-faint)'};line-height:1.3">${m.title}</div>
+      <div style="margin-top:5px">${sub?`<span style="font-size:.65rem;font-weight:700;color:var(--success)">✓ Done</span>`:active?`<span style="font-size:.65rem;font-weight:700;color:var(--gold)">● Open</span>`:m.num<=3?`<span style="font-size:.65rem;color:var(--text-faint)">Locked</span>`:`<span style="font-size:.65rem;color:var(--text-faint)">Full platform</span>`}</div>
+      ${m.num===2||m.num===6?`<div style="font-size:.6rem;margin-top:3px;color:${active?'rgba(255,255,255,.7)':'var(--teal)'};font-weight:600">D${m.num===2?'1':'2'} due</div>`:''}
+    </div>`;
+  }).join('');
 }
-function updateBadges(){
-  for(let r=1;r<=3;r++){const b=document.getElementById('badge-r'+r);const row=document.getElementById('row-r'+r);if(!b)continue;if(S.submitted[r]){b.className='sbadge sb-done';b.textContent='Done';}else if(S.unlocked[r]){b.className='sbadge sb-open';b.textContent='Open';}else{b.className='sbadge sb-locked';b.textContent='Locked';}if(row&&r>1){if(S.unlocked[r]){row.classList.remove('locked');row.onclick=()=>goRound(r);}else{row.classList.add('locked');row.onclick=null;}}}
+
+function renderHistoryTable(){
+  const tb=document.getElementById('history-tbody');if(!tb)return;
+  tb.innerHTML=ROUND_META.map(m=>{
+    const sub=S.submitted[m.num],open=S.unlocked[m.num];
+    const badge=sub?`<span style="font-size:.75rem;font-weight:700;color:var(--success)">✓ Submitted</span>`:open?`<span style="font-size:.75rem;font-weight:700;color:var(--teal);background:var(--audit-bg);padding:.1rem .45rem;border-radius:3px">OPEN</span>`:`<span style="font-size:.75rem;color:var(--text-faint)">Locked</span>`;
+    const ch=S.choices[m.num],opt=ch&&ROUND_OPTIONS[m.num]?.find(o=>o.code===ch);
+    const spent=opt?`₹${opt.budgetCost}L · CC ${opt.changeDelta>0?'+':''}${opt.changeDelta} · ${opt.analystCost}h`:'—';
+    const action=sub&&m.num<=3?`<button class="btn btn-secondary btn-sm" onclick="openRound(${m.num})">View</button>`:open&&!sub&&m.num<=3?`<button class="btn btn-primary btn-sm" onclick="openRound(${m.num})">Enter →</button>`:m.num>3?`<a href="https://disha-simulation.vercel.app" target="_blank" class="btn btn-secondary btn-sm">Full platform ↗</a>`:'—';
+    return `<tr style="${!sub&&!open?'opacity:.45':''}"><td><strong>R${m.num}</strong></td><td>${m.title}<div style="font-size:.72rem;color:var(--text-faint)">${m.event}</div></td><td>${badge}</td><td style="font-weight:700;font-size:.85rem">${ch||'—'}</td><td style="font-size:.8rem;color:var(--text-muted)">${spent}</td><td>${action}</td></tr>`;
+  }).join('');
 }
-function restore(){
-  for(let r=1;r<=3;r++){
-    if(S.choices[r]){const el=document.getElementById('r'+r+'-'+S.choices[r]);if(el)el.classList.add('selected');}
-    if(S.submitted[r]){buildOutcome(r);const sa=document.getElementById('r'+r+'-submit-area');if(sa)sa.style.display='none';const suc=document.getElementById('r'+r+'-success');if(suc)suc.style.display='block';const l=S.choices[r];const stxt=document.getElementById('r'+r+'-stxt');if(stxt&&l)stxt.textContent='Round '+r+' locked \u2014 Option '+r+l+': '+TITLES[r][l]+'.';if(r===3){const sev=document.getElementById('r3-breach-sev');if(sev)sev.textContent=(S.choices[2]?BREACH_SEV[S.choices[2]]||'':'');}document.querySelectorAll('#r'+r+'-opts .opt').forEach(c=>{c.classList.add('locked-opt');c.onclick=null;});}
+
+function renderReflections(){
+  const el=document.getElementById('reflections-body');if(!el)return;
+  const done=ROUND_META.filter(m=>S.submitted[m.num]);
+  if(!done.length){el.innerHTML='<p style="color:var(--text-muted);font-size:.875rem;font-style:italic">Submit your first round to start seeing reflections here.</p>';return;}
+  el.innerHTML=done.map(m=>{
+    const r=S.reflections[m.num];
+    return `<div style="margin-bottom:1.25rem;border-bottom:1px solid var(--border);padding-bottom:1.25rem">
+      <div style="font-weight:700;font-size:.95rem;margin-bottom:.65rem">Round ${m.num} — ${m.title} <span style="font-weight:400;font-size:.78rem;color:var(--text-muted)">${m.week}</span></div>
+      ${!r?`<p style="font-size:.82rem;color:var(--text-faint);font-style:italic">No reflection saved. <button class="btn btn-sm btn-secondary" onclick="openRound(${m.num})">Open round page</button></p>`:`<div style="display:grid;gap:.65rem">${[['Q1. What did the data suggest?',r.q1],['Q2. What did your team decide and why?',r.q2],['Q3. Where did you disagree or hesitate?',r.q3],['Q4. What would you monitor next?',r.q4]].map(([q,a])=>`<div><div class="reflection-q">${q}</div><div class="reflection-a">${a||'—'}</div></div>`).join('')}</div>`}
+    </div>`;
+  }).join('');
+}
+
+function renderPlaybook(){
+  const ap=document.getElementById('axes-playbook');
+  if(ap&&!ap.innerHTML)ap.innerHTML=[
+    {label:'AR',name:'Analytical Rigour',weight:'40%',desc:'Did you cite specific dataset figures? Did your evidence support your choice?'},
+    {label:'FD',name:'Financial Discipline',weight:'20%',desc:'Are you within the ₹6 crore envelope? Are investments generating measurable returns?'},
+    {label:'EC',name:'Equity & Compliance',weight:'10%',desc:'Are adverse impact ratios improving? Is your DPDP 2023 and SS2020 posture sound?'},
+    {label:'AC',name:'Adoption & Change',weight:'20%',desc:'Is frontline adoption improving? Does GL-1001 (Lakshmi) have a pathway in your plan?'},
+    {label:'SC',name:'Strategic Coherence',weight:'10%',desc:'Do your choices across rounds form a consistent thesis?'},
+  ].map(a=>`<div style="display:flex;gap:.85rem;margin-bottom:.6rem;align-items:flex-start"><span class="rule-badge green" style="margin-top:.1rem;min-width:28px;text-align:center">${a.label}</span><div><span style="font-weight:700;font-size:.875rem;margin-right:.4rem">${a.name}</span><span class="rule-badge amber">${a.weight}</span><p style="font-size:.82rem;color:var(--text-muted);margin-top:.15rem">${a.desc}</p></div></div>`).join('');
+  const an=document.getElementById('anchor-playbook');
+  if(an&&!an.innerHTML)an.innerHTML=HUMAN_ANCHORS.map(a=>`<div class="anchor-card"><div class="anchor-id">${a.id}</div><div class="anchor-name">${a.name}</div><div class="anchor-role">${a.role}</div><div class="anchor-why">${a.why}</div></div>`).join('');
+}
+
+// ── OPEN ROUND ────────────────────────────────────────
+function openRound(n){
+  if(!S.unlocked[n])return;
+  curRound=n;shockTriggered=n===3&&S.shockTriggered3;
+  const meta=ROUND_META.find(r=>r.num===n);
+  const submitted=S.submitted[n];
+
+  document.getElementById('round-top-label').textContent=`Round ${n} · ${meta.week} · ${meta.unit}`;
+  document.getElementById('round-top-title').textContent=meta.title;
+  document.getElementById('already-notice').style.display=submitted?'':'none';
+
+  renderResGrid('round-res');
+
+  // Brief
+  document.getElementById('brief-list').innerHTML=(DATA_BRIEFS[n]||[]).map(q=>`<li>${q}</li>`).join('');
+
+  // Rationale prompts
+  const p=RATIONALE_PROMPTS[n]||[];
+  document.getElementById('rationale-prompts').innerHTML=`<strong>Address all five in your rationale:</strong><ol style="margin:.5rem 0 0 1.25rem">${p.map(x=>`<li>${x}</li>`).join('')}</ol>`;
+
+  // Options
+  buildOptions(n,submitted);
+
+  // Cost calc
+  document.getElementById('cost-calc').style.display='none';
+
+  // Rationale
+  const ra=document.getElementById('rationale');
+  ra.value=S.rationale[n]||'';ra.disabled=submitted||shockTriggered;updateWC();
+
+  // Stakeholder
+  const s=SC[n];
+  if(s){
+    document.getElementById('sc-badge').textContent=s.badge;
+    document.getElementById('sc-title').textContent=s.title;
+    document.getElementById('sc-question').innerHTML=`<strong style="color:var(--teal);display:block;margin-bottom:.4rem">${s.stakeholder} asks:</strong>"${s.text}"`;
+    document.getElementById('sc-bonus').textContent=s.bonus;document.getElementById('sc-penalty').textContent=s.penalty;
+    document.getElementById('sc-criteria').innerHTML=`<strong>What a strong response must include:</strong> ${s.criteria}`;
+    const sr=document.getElementById('sc-response');sr.value=S.scSaved[n]||'';sr.disabled=submitted;
+    document.getElementById('sc-saved').style.display=S.scSaved[n]?'':'none';
+    document.getElementById('sc-card').style.display='';updateSCWC();
+  } else {
+    document.getElementById('sc-card').style.display='none';
   }
-  updateBadges();updateResBar();
+
+  // Submit / shock
+  document.getElementById('submit-card').style.display=submitted||shockTriggered?'none':'';
+  document.getElementById('shock-section').style.display=shockTriggered&&n===3?'block':'none';
+  if(shockTriggered&&n===3){
+    const sr2=document.getElementById('shock-response');sr2.value=S.shockResponse3||'';sr2.disabled=submitted;
+    document.getElementById('shock-btn').style.display=submitted?'none':'';
+    if(S.choices[2])document.getElementById('shock-sev').textContent=BREACH_SEV[S.choices[2]]||'';
+    updateShockWC();
+  }
+
+  // Reflection
+  const ref=S.reflections[n];
+  if(submitted){
+    document.getElementById('reflection-card').style.display='';
+    document.getElementById('ref-already').style.display=ref?'':'none';
+    if(ref){['q1','q2','q3','q4'].forEach((q,i)=>{document.getElementById('ref-'+q).value=ref['q'+(i+1)]||'';});[1,2,3,4].forEach(i=>updateRefWC(i));}
+  } else {
+    document.getElementById('reflection-card').style.display='none';
+  }
+
+  renderRoundNav(n);
+  showPage('round');
 }
-restore();
+
+function buildOptions(n,disabled){
+  const container=document.getElementById('options-container');
+  container.innerHTML='';
+  (ROUND_OPTIONS[n]||[]).forEach(opt=>{
+    const sel=S.choices[n]===opt.code;
+    const card=document.createElement('div');
+    card.className=`option-card${sel?' selected':''}${disabled?' disabled':''}`;
+    const ccSign=opt.changeDelta>=0?'+':'';const ccPos=opt.changeDelta>=0;
+    const bAfter=S.budget-opt.budgetCost,ccAfter=S.cc+opt.changeDelta;
+    const bDanger=bAfter<0,ccDanger=!ccPos&&ccAfter<20;
+    card.innerHTML=`
+      <div class="option-header">
+        <span class="option-code">${opt.code}</span>
+        <span class="option-name">${opt.name}</span>
+        ${sel?'<span class="sel-badge">✓ Selected</span>':''}
+      </div>
+      <div class="option-desc">${opt.description}</div>
+      <div class="option-cost">
+        <span class="cost-tag${bDanger?' neg':''}">₹${opt.budgetCost}L${!disabled?` <span style="opacity:.65">→ ₹${bAfter}L${bDanger?' ⚠':''}</span>`:''}
+        </span>
+        <span class="cost-tag">⏱ ${opt.analystCost} hrs</span>
+        <span class="cost-tag ${ccPos?'pos':'neg'}">CC ${ccSign}${opt.changeDelta}${!disabled?` <span style="opacity:.65">→ ${ccAfter}${ccDanger?' ⚠':''}</span>`:''}
+        </span>
+      </div>
+    `;
+    if(!disabled){
+      // Hover infographic
+      const MAX_B=180,MAX_A=30,MAX_CC=10;
+      const bPct=Math.min(100,opt.budgetCost/MAX_B*100);
+      const aPct=Math.min(100,opt.analystCost/MAX_A*100);
+      const ccAbsPct=Math.min(100,Math.abs(opt.changeDelta)/MAX_CC*100);
+      const bBarColor=bPct>75?'var(--danger)':bPct>50?'var(--warning)':'var(--green)';
+      const axes=AXIS_IMPACT[opt.code]||{primary:[],secondary:[]};
+      const cascade=CASCADE[opt.code]||'';
+      const anch=ANCHOR[opt.code]||null;
+      const axisRows=['AR','FD','AC','EC','SC'].filter(ax=>axes.primary.includes(ax)||axes.secondary.includes(ax)).map(ax=>{
+        const isPri=axes.primary.includes(ax);
+        return `<div class="impact-axis-row${isPri?'':' secondary'}"><span class="impact-axis-dot" style="background:${AXIS_COLOR[ax]}"></span><span class="impact-axis-label">${AXIS_FULL[ax]}</span><span class="impact-axis-badge ${isPri?'high':'med'}">${isPri?'↑ Primary':'~ Secondary'}</span></div>`;
+      }).join('');
+      let panel=null;
+      card.addEventListener('mouseenter',()=>{
+        if(panel)return;panel=document.createElement('div');panel.className='option-impact';
+        panel.innerHTML=`
+          <div class="impact-section-label">Resource cost</div>
+          <div class="impact-row"><span class="impact-label"><span class="impact-currency-dot" style="background:var(--green)"></span>Budget</span><div class="impact-bar-track"><div class="impact-bar-fill" style="width:${bPct}%;background:${bBarColor}"></div></div><span class="impact-val" style="color:${bDanger?'var(--danger)':'var(--green)'}">₹${opt.budgetCost}L</span></div>
+          <div class="impact-subrow">Remaining: <strong style="color:${bDanger?'var(--danger)':'var(--impact-text-2)'}">₹${bAfter}L${bDanger?' ⚠ Overspend':''}</strong></div>
+          <div class="impact-row" style="margin-top:.45rem"><span class="impact-label"><span class="impact-currency-dot" style="background:#7B52D0"></span>Analyst hrs</span><div class="impact-bar-track"><div class="impact-bar-fill" style="width:${aPct}%;background:#7B52D0"></div></div><span class="impact-val" style="color:#7B52D0">${opt.analystCost}h</span></div>
+          <div class="impact-subrow">${opt.analystCost<20?'⚠ Below minimum analysis threshold':`${60-opt.analystCost} hrs left`}</div>
+          <div class="impact-row" style="margin-top:.45rem"><span class="impact-label"><span class="impact-currency-dot" style="background:${ccPos?'var(--teal)':'var(--danger)'}"></span>Change cap</span><div class="impact-cc-gauge"><div class="impact-cc-track"><div class="impact-cc-half left">${!ccPos?`<div class="impact-cc-fill neg" style="width:${ccAbsPct}%"></div>`:''}</div><div class="impact-cc-centre"></div><div class="impact-cc-half right">${ccPos?`<div class="impact-cc-fill pos" style="width:${ccAbsPct}%"></div>`:''}</div></div></div><span class="impact-val" style="color:${ccPos?'var(--teal)':'var(--danger)'}">${ccSign}${opt.changeDelta}</span></div>
+          <div class="impact-subrow">After: <strong style="color:${ccDanger?'var(--danger)':'var(--impact-text-2)'}">${ccAfter} pts${ccDanger?' — resistance risk ⚠':ccAfter<50?' — moderate':' — healthy'}</strong></div>
+          ${axisRows?`<div class="impact-divider"></div><div class="impact-section-label">Scorecard axes</div><div class="impact-axes-grid">${axisRows}</div>`:''}
+          ${cascade?`<div class="impact-divider"></div><div class="impact-section-label">Downstream effect</div><div class="impact-cascade">${cascade}</div>`:''}
+          ${anch?`<div class="impact-divider"></div><div class="impact-section-label">Human anchor</div><div class="impact-anchor"><span class="impact-anchor-id">${anch.id}</span><span class="impact-anchor-name">${anch.name}</span><span class="impact-anchor-text">${anch.impact}</span></div>`:''}
+        `;
+        card.appendChild(panel);
+      });
+      card.addEventListener('mouseleave',()=>{if(panel){panel.remove();panel=null;}});
+      card.addEventListener('click',()=>selectOption(n,opt.code));
+    }
+    container.appendChild(card);
+  });
+}
+
+function selectOption(n,code){
+  S.choices[n]=code;saveS();
+  buildOptions(n,false);
+  const opt=(ROUND_OPTIONS[n]||[]).find(o=>o.code===code);
+  if(opt){
+    document.getElementById('cost-calc').style.display='';
+    document.getElementById('c-budget').textContent=`₹${opt.budgetCost}L`;
+    document.getElementById('c-ah').textContent=`${opt.analystCost} hrs`;
+    document.getElementById('c-cc').textContent=`${opt.changeDelta>0?'+':''}${opt.changeDelta}`;
+    document.getElementById('c-remain').textContent=`₹${S.budget-opt.budgetCost}L`;
+  }
+  checkReady();
+}
+
+// ── WORD COUNTS ───────────────────────────────────────
+function wc(t){return t.trim().split(/\s+/).filter(Boolean).length;}
+function updateWC(){const t=document.getElementById('rationale').value;const n=wc(t);const el=document.getElementById('wc');el.textContent=`${n} words (minimum 200)`;el.className=`word-count${n<100?' warning':n>=200?' success':''}`;checkReady();}
+function updateSCWC(){const t=document.getElementById('sc-response').value;const n=wc(t);const el=document.getElementById('sc-wc');el.textContent=`${n} words (minimum 100)`;el.className=`word-count${n<50?' warning':n>=100?' success':''}`;}
+function updateShockWC(){const t=document.getElementById('shock-response').value;const n=wc(t);const el=document.getElementById('shock-wc');el.textContent=`${n} words (minimum 100)`;el.className=`word-count${n<50?' warning':n>=100?' success':''}`;const btn=document.getElementById('shock-btn');const warn=document.getElementById('shock-warn');if(n>=100){btn.textContent=`Confirm & Submit Round 3`;warn.textContent='';}else{btn.textContent=`${100-n} more words needed`;warn.textContent=`${100-n} more words needed before you can submit.`;}}
+function updateRefWC(q){const t=document.getElementById(`ref-q${q}`).value;const n=wc(t);const el=document.getElementById(`ref-wc${q}`);el.textContent=`${n} words`;el.className=`word-count${n>=30?' success':' warning'}`;}
+function checkReady(){const btn=document.getElementById('submit-btn');if(!btn)return;btn.disabled=!(S.choices[curRound]&&wc(document.getElementById('rationale').value)>=200);}
+
+// ── SC SAVE ───────────────────────────────────────────
+function saveSC(){S.scSaved[curRound]=document.getElementById('sc-response').value;saveS();document.getElementById('sc-saved').style.display='';}
+
+// ── SUBMIT ────────────────────────────────────────────
+function submitRound(){
+  if(!S.choices[curRound]){alert('Please select an option.');return;}
+  const rat=document.getElementById('rationale').value;
+  if(wc(rat)<200){alert('Evidence Rationale must be at least 200 words.');return;}
+  S.rationale[curRound]=rat;
+  if(curRound===3){
+    // Fire shock
+    shockTriggered=true;S.shockTriggered3=true;
+    document.getElementById('submit-card').style.display='none';
+    document.getElementById('rationale').disabled=true;
+    document.getElementById('shock-section').style.display='block';
+    if(S.choices[2])document.getElementById('shock-sev').textContent=BREACH_SEV[S.choices[2]]||'';
+    document.querySelectorAll('.option-card').forEach(c=>{c.classList.add('disabled');c.style.pointerEvents='none';});
+    saveS();document.getElementById('shock-section').scrollIntoView({behavior:'smooth',block:'start'});
+    return;
+  }
+  if(!confirm(`Submit Round ${curRound}? This cannot be undone.`))return;
+  doSubmit(curRound);
+}
+
+function finalSubmit(){
+  const t=document.getElementById('shock-response').value;
+  if(wc(t)<100){document.getElementById('shock-warn').textContent=`${100-wc(t)} more words needed.`;return;}
+  if(!confirm('Submit Round 3 permanently?'))return;
+  S.shockResponse3=t;doSubmit(3);
+}
+
+function doSubmit(n){
+  const opt=(ROUND_OPTIONS[n]||[]).find(o=>o.code===S.choices[n]);
+  if(!opt)return;
+  S.budget-=opt.budgetCost;S.cc+=opt.changeDelta;S.submitted[n]=true;
+  if(n<3)S.unlocked[n+1]=true;
+  document.getElementById('reflection-card').style.display='';
+  document.getElementById('submit-card').style.display='none';
+  document.getElementById('shock-section').style.display='none';
+  document.getElementById('already-notice').style.display='';
+  document.getElementById('rationale').disabled=true;
+  document.getElementById('sc-response').disabled=true;
+  document.querySelectorAll('.option-card').forEach(c=>{c.classList.add('disabled');c.style.pointerEvents='none';});
+  saveS();renderResGrid('round-res');renderRoundNav(n);
+  alert(`Round ${n} submitted! ${n<3?`Round ${n+1} is now open.`:'Demo complete. Rounds 4–6 continue on the full platform at disha-simulation.vercel.app'}`);
+}
+
+function saveReflection(){
+  const q=[1,2,3,4].map(i=>document.getElementById(`ref-q${i}`).value);
+  if(!q.every(v=>wc(v)>=30)){alert('Each answer must be at least 30 words.');return;}
+  S.reflections[curRound]={q1:q[0],q2:q[1],q3:q[2],q4:q[3]};saveS();
+  document.getElementById('ref-already').style.display='';alert('Reflection saved.');
+}
+
+// ── ROUND NAV ─────────────────────────────────────────
+function renderRoundNav(n){
+  const el=document.getElementById('round-nav');
+  el.innerHTML=`<button class="round-nav-btn round-nav-home" onclick="goHome()">← Home</button>
+    ${n>1&&n<=3?`<button class="round-nav-btn" onclick="openRound(${n-1})">Round ${n-1}</button>`:''}
+    ${n<3&&S.unlocked[n+1]?`<button class="round-nav-btn round-nav-next" onclick="openRound(${n+1})">Round ${n+1} →</button>`:n===3?`<a href="https://disha-simulation.vercel.app" target="_blank" class="round-nav-btn round-nav-next">Full platform ↗</a>`:''}`;
+}
+
+// ── INIT ─────────────────────────────────────────────
+loadS();renderHome();
 </script>
 </body>
 </html>
