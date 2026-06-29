@@ -208,16 +208,16 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f5f5f4;color:#1c1917;l
 .success-text{font-size:13px;color:var(--success)}
 .next-row{display:flex;justify-content:flex-end;margin-top:.75rem}
 
-/* CRISIS */
-.crisis-box{background:var(--danger-bg);border:0.5px solid var(--danger-border);border-radius:12px;padding:1.25rem;margin-top:1.5rem}
-.crisis-head{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--danger);font-weight:500;margin-bottom:.5rem;display:flex;align-items:center;gap:6px}
+/* CRISIS — dark background so text is always visible in light mode */
+.crisis-box{background:#450a0a;border:2px solid #991b1b;border-radius:12px;padding:1.25rem;margin-top:1.5rem}
+.crisis-head{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:#fca5a5;font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:6px}
 .crisis-head i{font-size:14px}
-.crisis-body{font-size:13.5px;color:var(--danger);line-height:1.65}
-.crisis-body strong{font-weight:500}
-.crisis-severity{font-size:12px;color:var(--danger);background:rgba(220,38,38,.06);border-radius:var(--radius);padding:.5rem .75rem;margin-top:.75rem;line-height:1.55}
-.crisis-prompts{background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:1rem 1.25rem;margin-top:.875rem}
-.cp-head{font-size:12px;font-weight:500;color:var(--text-muted);margin-bottom:.5rem}
-.cp-item{font-size:13px;color:var(--text-muted);margin-bottom:4px}
+.crisis-body{font-size:13.5px;color:#fecaca;line-height:1.7}
+.crisis-body strong{font-weight:600;color:#ffffff}
+.crisis-severity{font-size:12px;color:#fca5a5;background:rgba(255,255,255,.07);border:0.5px solid rgba(252,165,165,.25);border-radius:var(--radius);padding:.625rem .875rem;margin-top:.875rem;line-height:1.6}
+.crisis-prompts{background:#1c0202;border:1.5px solid #7f1d1d;border-radius:12px;padding:1.125rem 1.375rem;margin-top:.875rem}
+.cp-head{font-size:12px;font-weight:700;color:#fca5a5;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em}
+.cp-item{font-size:13px;color:#fecaca;margin-bottom:8px;line-height:1.6;padding-left:10px;border-left:2px solid rgba(252,165,165,.35)}
 .done-banner{background:var(--success-bg);border:0.5px solid var(--success-border);border-radius:12px;padding:.75rem 1.25rem;display:flex;align-items:center;gap:8px;margin-top:.75rem}
 .done-banner i{color:var(--success);font-size:16px}
 .done-banner span{font-size:13px;color:var(--success)}
@@ -690,12 +690,12 @@ body{font-family:'Inter',system-ui,sans-serif;background:#f5f5f4;color:#1c1917;l
     </div>
     <div id="r3-success" style="display:none">
       <div class="crisis-box">
-        <div class="crisis-head"><i class="ti ti-alert-triangle"></i> &#128680; Breaking &mdash; DPDP Data Breach</div>
+        <div class="crisis-head"><i class="ti ti-alert-triangle"></i> &#128680; Critical Incident: DPDP-Notifiable Data Breach Detected</div>
         <div class="crisis-body">At 11:42 PM last night, GreenLeaf's HR platform flagged an anomaly. By 6 AM your security team confirmed it: personal employee data &mdash; including Aadhaar-linked payroll records and performance scores for <strong>340 frontline workers</strong> across Tier-2 and Tier-3 locations &mdash; was exposed due to a misconfigured cloud storage bucket. Under the <strong>Digital Personal Data Protection Act 2023</strong>, GreenLeaf must notify the Data Protection Board within <strong>72 hours</strong>. The CHRO is being briefed in 30 minutes. This happened on your watch &mdash; because of the very systems you are building.</div>
         <div class="crisis-severity" id="r3-breach-sev"></div>
       </div>
       <div class="crisis-prompts">
-        <div class="cp-head">Your crisis response prompts (recorded on the full platform):</div>
+        <div class="cp-head">Address all four in your response:</div>
         <div class="cp-item">1. Immediate containment &mdash; what do you shut down or isolate right now?</div>
         <div class="cp-item">2. DPDP notification &mdash; what do you report to the Data Protection Board, and by when?</div>
         <div class="cp-item">3. Affected employee communication &mdash; how and when do you tell the 340 workers?</div>
