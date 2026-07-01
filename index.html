@@ -202,7 +202,6 @@ table{width:100%;border-collapse:collapse;font-size:.875rem}
 th,td{padding:.6rem .75rem;text-align:left;border-bottom:1px solid var(--border)}
 th{background:var(--surface-2);color:var(--text-2);font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.5px}
 tbody tr:hover{background:var(--hover-row)}
-/* Mobile hint label shown on touch devices */
 .touch-hint{display:none;font-size:.72rem;color:var(--teal);text-align:center;margin-top:.4rem;font-style:italic}
 @media(hover:none){.touch-hint{display:block}}
 @media(max-width:768px){.container{padding:1rem}.round-progress-grid{grid-template-columns:repeat(3,1fr)}.currency-grid{grid-template-columns:1fr}.resource-grid{grid-template-columns:1fr 1fr}}
@@ -227,7 +226,6 @@ tbody tr:hover{background:var(--hover-row)}
   </div>
 </header>
 
-<!-- ══ HOME ══════════════════════════════════════════ -->
 <div class="page active" id="page-home">
 <div class="container">
 
@@ -254,9 +252,7 @@ tbody tr:hover{background:var(--hover-row)}
     <div class="card">
       <div class="card-title">Round progress</div>
       <div class="round-progress-grid" id="round-progress"></div>
-      <div style="margin-top:.75rem">
-        <a href="https://disha-simulation.vercel.app" target="_blank" class="btn btn-secondary btn-sm">↗ Full platform</a>
-      </div>
+      <div style="margin-top:.75rem"><a href="https://disha-simulation.vercel.app" target="_blank" class="btn btn-secondary btn-sm">↗ Full platform</a></div>
     </div>
   </div>
 
@@ -299,7 +295,6 @@ tbody tr:hover{background:var(--hover-row)}
 <footer class="footer">Project Disha &middot; DSEH001 &middot; Cohort 1 AY 2026&ndash;27 &middot; Prof. R.K. Singh &middot; Dept of Commerce, Faculty of Commerce &amp; Business, University of Delhi</footer>
 </div>
 
-<!-- ══ ROUND PAGE ═════════════════ -->
 <div class="page" id="page-round">
 <div class="container">
 
@@ -309,7 +304,6 @@ tbody tr:hover{background:var(--hover-row)}
   </div>
 
   <div class="alert alert-success" id="already-notice" style="display:none">Your team has already submitted this round. This page is read-only.</div>
-
   <div class="card"><div class="card-title">Resources</div><div class="resource-grid" id="round-res"></div></div>
 
   <div class="card">
@@ -363,7 +357,6 @@ tbody tr:hover{background:var(--hover-row)}
     <button class="btn btn-primary btn-large" id="submit-btn" disabled onclick="submitRound()">Submit Round Decision</button>
   </div>
 
-  <!-- Shock event (R3) -->
   <div id="shock-section" style="display:none">
     <div style="background:#0a0000;border:3px solid #991b1b;border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1.25rem">
       <div style="background:#991b1b;color:#fff;padding:.5rem 1rem;border-radius:6px;font-weight:700;font-size:.9rem;display:inline-block;margin-bottom:1rem;letter-spacing:.5px">🚨 BREAKING — DPDP DATA BREACH</div>
@@ -390,7 +383,6 @@ tbody tr:hover{background:var(--hover-row)}
     </div>
   </div>
 
-  <!-- Individual reflection -->
   <div class="card" id="reflection-card" style="display:none">
     <div class="card-title">✍ Individual Reflection (private to you)</div>
     <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:1rem">Submit individually. Can be re-submitted until the round closes. Minimum 30 words per answer.</p>
@@ -465,7 +457,7 @@ const CASCADE={
   '1A':'Grounds R2 architecture in real infrastructure data. Reduces risk of over-engineering.',
   '1B':'Fast insights — but analytics on unknown infrastructure creates interpretation debt in R4–R5.',
   '1C':'Frontline framing already set for R2. R3 adoption design will be evidence-grounded.',
-  '1D':'DPDP compliance layer planned. Shock 1 damage in R3 will be lower if breach occurs.',
+  '1D':'DPDP compliance layer established early. Governance credibility built before R3 rollout begins.',
   '2A':'Solid operational base. Limited people-analytics capability until R3 modules are added.',
   '2B':'Fast insights but integration debt. Risky if R1 skipped the infrastructure baseline.',
   '2C':'Highest capability — but highest Change Capital burn entering R3. Watch CC carefully.',
@@ -491,7 +483,7 @@ const ANCHOR={
 };
 const BREACH_SEV={
   A:'Your Modular HRMS Core had partial DPDP governance — breach impact moderate. Estimated Change Capital damage: −12 pts.',
-  B:'Your People Analytics Platform had US-residency data not fully governed — breach impact significant. Estimated Change Capital damage: −15 pts.',
+  B:'Your People Analytics Platform had data not fully governed — breach impact significant. Estimated Change Capital damage: −15 pts.',
   C:'Your Integrated Talent Suite deferred DPDP compliance — breach hits ungoverned architecture hard. Estimated Change Capital damage: −18 pts.',
   D:'Your Mobile-first Lightweight kept most data in-house — lower exposure. Estimated Change Capital damage: −10 pts.',
 };
@@ -656,7 +648,6 @@ function openRound(n){
   showPage('round');
 }
 
-// ── Detect touch/hover capability ──────────────────────
 const isTouch=()=>window.matchMedia('(hover:none)').matches;
 
 function buildOptions(n,disabled){
@@ -698,7 +689,6 @@ function buildOptions(n,disabled){
         return `<div class="impact-axis-row${isPri?'':' secondary'}"><span class="impact-axis-dot" style="background:${AXIS_COLOR[ax]}"></span><span class="impact-axis-label">${AXIS_FULL[ax]}</span><span class="impact-axis-badge ${isPri?'high':'med'}">${isPri?'↑ Primary':'~ Secondary'}</span></div>`;
       }).join('');
 
-      // ── Shared panel builder ──────────────────────────
       function buildPanel(){
         const p=document.createElement('div');p.className='option-impact';
         p.innerHTML=`
@@ -718,7 +708,6 @@ function buildOptions(n,disabled){
 
       let panel=null;
 
-      // ── Desktop: hover to preview, click to select ──
       card.addEventListener('mouseenter',()=>{
         if(isTouch())return;
         if(panel)return;panel=buildPanel();card.appendChild(panel);
@@ -731,28 +720,23 @@ function buildOptions(n,disabled){
         if(!isTouch())selectOption(n,opt.code);
       });
 
-      // ── Mobile/touch: first tap = stable infographic; second tap = select ──
       card.addEventListener('touchend',(e)=>{
-        // Tapping the "select" button inside the panel
         if(e.target.closest('.impact-close-btn')){
           e.preventDefault();
           if(panel){panel.remove();panel=null;}
           selectOption(n,opt.code);
           return;
         }
-        // Second tap on this card = close and select
         if(panel){
           e.preventDefault();
           panel.remove();panel=null;
           selectOption(n,opt.code);
           return;
         }
-        // First tap: close any open panel elsewhere, show this one stably
         e.preventDefault();
         document.querySelectorAll('.option-impact').forEach(p=>p.remove());
         panel=buildPanel();
         panel.style.pointerEvents='auto';
-        // Prominent "select" button at top of panel
         const btn=document.createElement('button');
         btn.className='impact-close-btn';
         btn.innerHTML='✓ Select this option';
