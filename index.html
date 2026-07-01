@@ -96,10 +96,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
 .cost-tag{background:var(--surface-2);border:1px solid var(--border);padding:.18rem .55rem;border-radius:4px;color:var(--text-2);font-weight:500}
 .cost-tag.pos{background:#E8F5E9;border-color:#A5D6A7;color:var(--success)}
 .cost-tag.neg{background:#FEECEC;border-color:#FFCDD2;color:var(--danger)}
+/* Desktop: panel floats to the left */
 .option-impact{position:absolute;right:calc(100% + 14px);top:0;width:272px;background:var(--impact-bg);border:2px solid var(--impact-border);border-radius:var(--radius-lg);box-shadow:var(--impact-shadow);padding:1rem 1.1rem;z-index:40;pointer-events:none;animation:impactFadeIn .13s ease-out}
 @keyframes impactFadeIn{from{opacity:0;transform:translateX(8px)}to{opacity:1;transform:translateX(0)}}
 .option-impact::after{content:'';position:absolute;right:-10px;top:20px;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:10px solid var(--impact-border)}
-@media(max-width:960px){.option-impact{right:auto;left:0;top:calc(100% + 10px);width:100%}.option-impact::after{right:auto;left:20px;top:-10px;border-left:9px solid transparent;border-right:9px solid transparent;border-bottom:10px solid var(--impact-border);border-top:none}}
+/* Mobile: panel expands below card, full-width, stable */
+@media(max-width:960px){
+  .option-impact{position:relative;right:auto;left:auto;top:auto;width:100%;margin-top:.75rem;pointer-events:auto;}
+  .option-impact::after{display:none;}
+}
 .impact-section-label{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:1.1px;color:var(--impact-label-color);margin-bottom:.55rem}
 .impact-divider{height:1px;background:var(--impact-divider);margin:.7rem 0}
 .impact-row{display:flex;align-items:center;gap:.5rem;margin-bottom:.08rem}
@@ -197,6 +202,9 @@ table{width:100%;border-collapse:collapse;font-size:.875rem}
 th,td{padding:.6rem .75rem;text-align:left;border-bottom:1px solid var(--border)}
 th{background:var(--surface-2);color:var(--text-2);font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.5px}
 tbody tr:hover{background:var(--hover-row)}
+/* Mobile hint label shown on touch devices */
+.touch-hint{display:none;font-size:.72rem;color:var(--teal);text-align:center;margin-top:.4rem;font-style:italic}
+@media(hover:none){.touch-hint{display:block}}
 @media(max-width:768px){.container{padding:1rem}.round-progress-grid{grid-template-columns:repeat(3,1fr)}.currency-grid{grid-template-columns:1fr}.resource-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.round-nav{flex-direction:column}.round-nav-btn{width:100%}.header h1{font-size:1rem}.round-progress-grid{grid-template-columns:repeat(2,1fr)}.sc-outcome-grid{grid-template-columns:1fr}}
 </style>
@@ -223,7 +231,6 @@ tbody tr:hover{background:var(--hover-row)}
 <div class="page active" id="page-home">
 <div class="container">
 
-  <!-- Active round banner -->
   <div class="card" id="banner-card" style="background:var(--green);border:none;border-bottom:3px solid var(--gold);margin-bottom:1rem">
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
       <div>
@@ -242,7 +249,6 @@ tbody tr:hover{background:var(--hover-row)}
     <button class="tab-btn" onclick="setTab('playbook')">📖 Playbook</button>
   </div>
 
-  <!-- TAB: control -->
   <div id="tab-control">
     <div class="card"><div class="card-title">Team resources</div><div class="resource-grid" id="home-res"></div></div>
     <div class="card">
@@ -254,7 +260,6 @@ tbody tr:hover{background:var(--hover-row)}
     </div>
   </div>
 
-  <!-- TAB: history -->
   <div id="tab-history" style="display:none">
     <div class="card"><div class="card-title">All rounds</div>
       <table><thead><tr><th>Round</th><th>Theme</th><th>Status</th><th>Option</th><th>Spent</th><th>Action</th></tr></thead>
@@ -262,7 +267,6 @@ tbody tr:hover{background:var(--hover-row)}
     </div>
   </div>
 
-  <!-- TAB: reflections -->
   <div id="tab-reflections" style="display:none">
     <div class="card"><div class="card-title">My individual reflections</div>
       <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:1rem">Private to you. Submit after completing each round.</p>
@@ -270,7 +274,6 @@ tbody tr:hover{background:var(--hover-row)}
     </div>
   </div>
 
-  <!-- TAB: playbook -->
   <div id="tab-playbook" style="display:none">
     <div class="card"><div class="card-title">The mission</div><p style="font-size:.875rem;color:var(--text-muted);line-height:1.7">You are the <strong>Digital HR Transformation Office (DHTO)</strong> at GreenLeaf Retail — a fictional 8,000-employee Indian omnichannel retailer. Over six compressed quarters, carry GreenLeaf from a paper-heavy, fragmented HR function to one that is digital, analytical, equitable, and Board-ready.<br><br>"Disha" (दिशा) means direction. You are setting GreenLeaf's direction for the digital decade.</p></div>
     <div class="card"><div class="card-title">The three scarce currencies</div>
@@ -296,7 +299,7 @@ tbody tr:hover{background:var(--hover-row)}
 <footer class="footer">Project Disha &middot; DSEH001 &middot; Cohort 1 AY 2026&ndash;27 &middot; Prof. R.K. Singh &middot; Dept of Commerce, Faculty of Commerce &amp; Business, University of Delhi</footer>
 </div>
 
-<!-- ══ ROUND PAGE (shared R1/R2/R3) ═════════════════ -->
+<!-- ══ ROUND PAGE ═════════════════ -->
 <div class="page" id="page-round">
 <div class="container">
 
@@ -315,7 +318,11 @@ tbody tr:hover{background:var(--hover-row)}
     <ol style="margin:1rem 0 0 1.5rem;line-height:2;font-size:.9rem" id="brief-list"></ol>
   </div>
 
-  <div class="card"><div class="card-title">▶ Section 2 — Choose ONE Option (single select)</div><div id="options-container"></div></div>
+  <div class="card">
+    <div class="card-title">▶ Section 2 — Choose ONE Option (single select)</div>
+    <p class="touch-hint">💡 Tap an option once to preview its infographic · Tap again or press the button to select</p>
+    <div id="options-container"></div>
+  </div>
 
   <div class="cost-calculator" id="cost-calc" style="display:none">
     <div style="font-weight:700;font-size:.88rem;margin-bottom:.5rem;color:var(--text-2)">Cost calculator — selected option</div>
@@ -401,8 +408,6 @@ tbody tr:hover{background:var(--hover-row)}
 </div>
 
 <script>
-// ── DATA ──────────────────────────────────────────────
-
 const ROUND_META=[
   {num:1,title:'The Diagnosis',week:'Week 1',unit:'Unit I',event:'Baseline dataset analysis'},
   {num:2,title:'The Architecture',week:'Week 2',unit:'Unit I–II',event:'D1 due at close'},
@@ -497,21 +502,17 @@ const HUMAN_ANCHORS=[
   {id:'GL-1004',name:'Shreya Iyer',role:'Analyst, HQ',why:'Model flags HIGH flight risk; did NOT leave; top-quartile engagement'},
 ];
 
-// ── STATE ─────────────────────────────────────────────
 let S={budget:600,cc:100,choices:{},submitted:{},scSaved:{},reflections:{},rationale:{},shockTriggered3:false,shockResponse3:'',unlocked:{1:true,2:false,3:false}};
 let curRound=1,shockTriggered=false;
 function loadS(){try{const d=localStorage.getItem('disha_v5');if(d)S=JSON.parse(d);}catch(e){}}
 function saveS(){try{localStorage.setItem('disha_v5',JSON.stringify(S));}catch(e){}}
 
-// ── THEME ─────────────────────────────────────────────
 let dark=false;
 function toggleTheme(){dark=!dark;document.documentElement.setAttribute('data-theme',dark?'dark':'');document.getElementById('theme-ico').textContent=dark?'☀️':'🌙';document.getElementById('theme-label').textContent=dark?'Light mode':'Dark mode';}
 
-// ── PAGES ─────────────────────────────────────────────
 function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');window.scrollTo(0,0);}
 function goHome(){showPage('home');renderHome();}
 
-// ── TABS ──────────────────────────────────────────────
 function setTab(t){
   ['control','history','reflections','playbook'].forEach(x=>{document.getElementById('tab-'+x).style.display=x===t?'block':'none';});
   document.querySelectorAll('.tab-btn').forEach((b,i)=>{b.classList.toggle('active',['control','history','reflections','playbook'][i]===t);});
@@ -519,7 +520,6 @@ function setTab(t){
   if(t==='playbook')renderPlaybook();
 }
 
-// ── HOME RENDER ───────────────────────────────────────
 function renderHome(){renderBanner();renderResGrid('home-res');renderRoundProgress();renderHistoryTable();}
 
 function getActiveRound(){
@@ -607,29 +607,22 @@ function renderPlaybook(){
   if(an&&!an.innerHTML)an.innerHTML=HUMAN_ANCHORS.map(a=>`<div class="anchor-card"><div class="anchor-id">${a.id}</div><div class="anchor-name">${a.name}</div><div class="anchor-role">${a.role}</div><div class="anchor-why">${a.why}</div></div>`).join('');
 }
 
-// ── OPEN ROUND ────────────────────────────────────────
 function openRound(n){
   if(!S.unlocked[n])return;
   curRound=n;shockTriggered=n===3&&S.shockTriggered3;
   const meta=ROUND_META.find(r=>r.num===n);
   const submitted=S.submitted[n];
-
   document.getElementById('round-top-label').textContent=`Round ${n} · ${meta.week} · ${meta.unit}`;
   document.getElementById('round-top-title').textContent=meta.title;
   document.getElementById('already-notice').style.display=submitted?'':'none';
-
   renderResGrid('round-res');
   document.getElementById('brief-list').innerHTML=(DATA_BRIEFS[n]||[]).map(q=>`<li>${q}</li>`).join('');
-
   const p=RATIONALE_PROMPTS[n]||[];
   document.getElementById('rationale-prompts').innerHTML=`<strong>Address all five in your rationale:</strong><ol style="margin:.5rem 0 0 1.25rem">${p.map(x=>`<li>${x}</li>`).join('')}</ol>`;
-
   buildOptions(n,submitted);
   document.getElementById('cost-calc').style.display='none';
-
   const ra=document.getElementById('rationale');
   ra.value=S.rationale[n]||'';ra.disabled=submitted||shockTriggered;updateWC();
-
   const s=SC[n];
   if(s){
     document.getElementById('sc-badge').textContent=s.badge;
@@ -643,7 +636,6 @@ function openRound(n){
   } else {
     document.getElementById('sc-card').style.display='none';
   }
-
   document.getElementById('submit-card').style.display=submitted||shockTriggered?'none':'';
   document.getElementById('shock-section').style.display=shockTriggered&&n===3?'block':'none';
   if(shockTriggered&&n===3){
@@ -652,7 +644,6 @@ function openRound(n){
     if(S.choices[2])document.getElementById('shock-sev').textContent=BREACH_SEV[S.choices[2]]||'';
     updateShockWC();
   }
-
   const ref=S.reflections[n];
   if(submitted){
     document.getElementById('reflection-card').style.display='';
@@ -661,10 +652,12 @@ function openRound(n){
   } else {
     document.getElementById('reflection-card').style.display='none';
   }
-
   renderRoundNav(n);
   showPage('round');
 }
+
+// ── Detect touch/hover capability ──────────────────────
+const isTouch=()=>window.matchMedia('(hover:none)').matches;
 
 function buildOptions(n,disabled){
   const container=document.getElementById('options-container');
@@ -704,10 +697,11 @@ function buildOptions(n,disabled){
         const isPri=axes.primary.includes(ax);
         return `<div class="impact-axis-row${isPri?'':' secondary'}"><span class="impact-axis-dot" style="background:${AXIS_COLOR[ax]}"></span><span class="impact-axis-label">${AXIS_FULL[ax]}</span><span class="impact-axis-badge ${isPri?'high':'med'}">${isPri?'↑ Primary':'~ Secondary'}</span></div>`;
       }).join('');
-      let panel=null;
-      card.addEventListener('mouseenter',()=>{
-        if(panel)return;panel=document.createElement('div');panel.className='option-impact';
-        panel.innerHTML=`
+
+      // ── Shared panel builder ──────────────────────────
+      function buildPanel(){
+        const p=document.createElement('div');p.className='option-impact';
+        p.innerHTML=`
           <div class="impact-section-label">Resource cost</div>
           <div class="impact-row"><span class="impact-label"><span class="impact-currency-dot" style="background:var(--green)"></span>Budget</span><div class="impact-bar-track"><div class="impact-bar-fill" style="width:${bPct}%;background:${bBarColor}"></div></div><span class="impact-val" style="color:${bDanger?'var(--danger)':'var(--green)'}">₹${opt.budgetCost}L</span></div>
           <div class="impact-subrow">Remaining: <strong style="color:${bDanger?'var(--danger)':'var(--impact-text-2)'}">₹${bAfter}L${bDanger?' ⚠ Overspend':''}</strong></div>
@@ -719,10 +713,54 @@ function buildOptions(n,disabled){
           ${cascade?`<div class="impact-divider"></div><div class="impact-section-label">Downstream effect</div><div class="impact-cascade">${cascade}</div>`:''}
           ${anch?`<div class="impact-divider"></div><div class="impact-section-label">Human anchor</div><div class="impact-anchor"><span class="impact-anchor-id">${anch.id}</span><span class="impact-anchor-name">${anch.name}</span><span class="impact-anchor-text">${anch.impact}</span></div>`:''}
         `;
-        card.appendChild(panel);
+        return p;
+      }
+
+      let panel=null;
+
+      // ── Desktop: hover to preview, click to select ──
+      card.addEventListener('mouseenter',()=>{
+        if(isTouch())return;
+        if(panel)return;panel=buildPanel();card.appendChild(panel);
       });
-      card.addEventListener('mouseleave',()=>{if(panel){panel.remove();panel=null;}});
-      card.addEventListener('click',()=>selectOption(n,opt.code));
+      card.addEventListener('mouseleave',()=>{
+        if(isTouch())return;
+        if(panel){panel.remove();panel=null;}
+      });
+      card.addEventListener('click',()=>{
+        if(!isTouch())selectOption(n,opt.code);
+      });
+
+      // ── Mobile/touch: first tap = stable infographic; second tap = select ──
+      card.addEventListener('touchend',(e)=>{
+        // Tapping the "select" button inside the panel
+        if(e.target.closest('.impact-close-btn')){
+          e.preventDefault();
+          if(panel){panel.remove();panel=null;}
+          selectOption(n,opt.code);
+          return;
+        }
+        // Second tap on this card = close and select
+        if(panel){
+          e.preventDefault();
+          panel.remove();panel=null;
+          selectOption(n,opt.code);
+          return;
+        }
+        // First tap: close any open panel elsewhere, show this one stably
+        e.preventDefault();
+        document.querySelectorAll('.option-impact').forEach(p=>p.remove());
+        panel=buildPanel();
+        panel.style.pointerEvents='auto';
+        // Prominent "select" button at top of panel
+        const btn=document.createElement('button');
+        btn.className='impact-close-btn';
+        btn.innerHTML='✓ Select this option';
+        btn.style.cssText='display:block;width:100%;margin-bottom:.85rem;padding:.55rem;background:var(--impact-border);color:var(--impact-bg);border:none;border-radius:5px;font-weight:700;font-size:.85rem;cursor:pointer;font-family:inherit;letter-spacing:.2px;';
+        panel.insertBefore(btn,panel.firstChild);
+        card.appendChild(panel);
+        setTimeout(()=>panel&&panel.scrollIntoView({behavior:'smooth',block:'nearest'}),60);
+      },{passive:false});
     }
     container.appendChild(card);
   });
@@ -742,7 +780,6 @@ function selectOption(n,code){
   checkReady();
 }
 
-// ── WORD COUNTS ───────────────────────────────────────
 function wc(t){return t.trim().split(/\s+/).filter(Boolean).length;}
 function updateWC(){const t=document.getElementById('rationale').value;const n=wc(t);const el=document.getElementById('wc');el.textContent=`${n} words (minimum 5)`;el.className=`word-count${n<3?' warning':n>=5?' success':''}`;checkReady();}
 function updateSCWC(){const t=document.getElementById('sc-response').value;const n=wc(t);const el=document.getElementById('sc-wc');el.textContent=`${n} words (minimum 100)`;el.className=`word-count${n<50?' warning':n>=100?' success':''}`;}
@@ -750,10 +787,8 @@ function updateShockWC(){const t=document.getElementById('shock-response').value
 function updateRefWC(q){const t=document.getElementById(`ref-q${q}`).value;const n=wc(t);const el=document.getElementById(`ref-wc${q}`);el.textContent=`${n} words`;el.className=`word-count${n>=30?' success':' warning'}`;}
 function checkReady(){const btn=document.getElementById('submit-btn');if(!btn)return;btn.disabled=!(S.choices[curRound]&&wc(document.getElementById('rationale').value)>=5);}
 
-// ── SC SAVE ───────────────────────────────────────────
 function saveSC(){S.scSaved[curRound]=document.getElementById('sc-response').value;saveS();document.getElementById('sc-saved').style.display='';}
 
-// ── SUBMIT ────────────────────────────────────────────
 function submitRound(){
   if(!S.choices[curRound]){alert('Please select an option.');return;}
   const rat=document.getElementById('rationale').value;
@@ -803,7 +838,6 @@ function saveReflection(){
   document.getElementById('ref-already').style.display='';alert('Reflection saved.');
 }
 
-// ── ROUND NAV ─────────────────────────────────────────
 function renderRoundNav(n){
   const el=document.getElementById('round-nav');
   el.innerHTML=`<button class="round-nav-btn round-nav-home" onclick="goHome()">← Home</button>
@@ -811,7 +845,6 @@ function renderRoundNav(n){
     ${n<3&&S.unlocked[n+1]?`<button class="round-nav-btn round-nav-next" onclick="openRound(${n+1})">Round ${n+1} →</button>`:n===3?`<a href="https://disha-simulation.vercel.app" target="_blank" class="round-nav-btn round-nav-next">Full platform ↗</a>`:''}`;
 }
 
-// ── INIT ─────────────────────────────────────────────
 loadS();renderHome();
 </script>
 </body>
