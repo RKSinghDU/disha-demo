@@ -229,7 +229,7 @@ tbody tr:hover{background:var(--hover-row)}
       <div>
         <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:rgba(255,255,255,.55);margin-bottom:.3rem" id="banner-status">Active now</div>
         <div style="font-weight:800;font-size:1.15rem;color:#fff;margin-bottom:.2rem" id="banner-title">Round 1 — The Diagnosis</div>
-        <div style="font-size:.8rem;color:rgba(255,255,255,.6)" id="banner-meta">Week 2 · Unit I · Baseline dataset analysis</div>
+        <div style="font-size:.8rem;color:rgba(255,255,255,.6)" id="banner-meta">Week 1 · Unit I · Baseline dataset analysis</div>
       </div>
       <button class="btn btn-large" id="banner-btn" style="background:var(--gold);border-color:var(--gold);color:#1a2a0a;font-weight:800" onclick="enterRound()">Enter Round 1 →</button>
     </div>
@@ -287,7 +287,6 @@ tbody tr:hover{background:var(--hover-row)}
         <li><span class="rule-badge red">Final</span> Submissions are final once you click Submit and confirm.</li>
         <li><span class="rule-badge amber">Evidence</span> Rationale must cite specific figures from the GreenLeaf dataset. Generic reasoning scores zero on Analytical Rigour.</li>
         <li><span class="rule-badge green">Personal</span> Individual reflections (4 questions, min 30 words each) are private to you.</li>
-        <li><span class="rule-badge red">Crisis</span> Round 3 contains a live DPDP breach event that fires automatically on Submit.</li>
         <li><span class="rule-badge green">Anchors</span> GL-1001, GL-1002, GL-1003, GL-1004 are real dataset rows. Reference them for Equity &amp; Compliance marks.</li>
       </ul>
     </div>
@@ -328,11 +327,11 @@ tbody tr:hover{background:var(--hover-row)}
   </div>
 
   <div class="card">
-    <div class="card-title">✏ Section 3 — Evidence Rationale (minimum 200 words)</div>
+    <div class="card-title">✏ Section 3 — Evidence Rationale (minimum 5 words)</div>
     <div class="alert alert-info" id="rationale-prompts" style="font-size:.9rem"></div>
     <label for="rationale">Cite specific dataset figures to justify your option. No figures = zero on Analytical Rigour.</label>
     <textarea id="rationale" placeholder="Write your team's evidence rationale here..." oninput="updateWC()"></textarea>
-    <div class="word-count" id="wc">0 words (minimum 200)</div>
+    <div class="word-count" id="wc">0 words (minimum 5)</div>
   </div>
 
   <div class="card sc-card" id="sc-card">
@@ -403,15 +402,15 @@ tbody tr:hover{background:var(--hover-row)}
 </div>
 
 <script>
-// ── DATA (exact from production rounds.ts / StakeholderChallenge.tsx / OptionCard.tsx) ──
+// ── DATA ──────────────────────────────────────────────
 
 const ROUND_META=[
-  {num:1,title:'The Diagnosis',week:'Week 2',unit:'Unit I',event:'Baseline dataset analysis'},
-  {num:2,title:'The Architecture',week:'Week 4',unit:'Unit I–II',event:'D1 due at close'},
-  {num:3,title:'The Rollout',week:'Week 6',unit:'Unit II',event:'DPDP Shock Event on submit'},
-  {num:4,title:'The Audit',week:'Week 8',unit:'Unit III',event:'Algorithmic Fairness Audit — SIGNATURE ROUND'},
-  {num:5,title:'The Story',week:'Week 10',unit:'Unit III–IV',event:'Gig-worker Shock Event possible'},
-  {num:6,title:'The Future',week:'Week 12',unit:'Unit IV',event:'D2 due at close'},
+  {num:1,title:'The Diagnosis',week:'Week 1',unit:'Unit I',event:'Baseline dataset analysis'},
+  {num:2,title:'The Architecture',week:'Week 2',unit:'Unit I–II',event:'D1 due at close'},
+  {num:3,title:'The Rollout',week:'Week 3',unit:'Unit II',event:'Change management & adoption'},
+  {num:4,title:'The Audit',week:'Week 4',unit:'Unit III',event:'Algorithmic Fairness Audit — SIGNATURE ROUND'},
+  {num:5,title:'The Story',week:'Week 5',unit:'Unit III–IV',event:'People analytics & data storytelling'},
+  {num:6,title:'The Future',week:'Week 6',unit:'Unit IV',event:'D2 due at close'},
 ];
 const ROUND_OPTIONS={
   1:[
@@ -473,18 +472,18 @@ const CASCADE={
   '3D':'High frontline engagement. Risk: superficial adoption surfaces as a gap in the R4 audit.',
 };
 const ANCHOR={
-  '1A':{id:'GL-1001',name:'Lakshmi N.',impact:'Infrastructure audit will surface her Tier-3 / smartphone-only barrier.'},
-  '1B':{id:'GL-1001',name:'Lakshmi N.',impact:'Skipping the baseline leaves her digital divide undiagnosed.'},
-  '1C':{id:'GL-1001',name:'Lakshmi N.',impact:'Mobile-first survey directly maps her access constraints.'},
-  '1D':{id:'GL-1003',name:'Sunil M.',impact:'DPDP focus builds governance credibility before R3 rollout reaches him.'},
-  '2A':{id:'GL-1001',name:'Lakshmi N.',impact:'Core HRMS may not reach her without a mobile layer. Check mobile-enabled flag.'},
-  '2B':{id:'GL-1004',name:'Shreya I.',impact:'Analytics platform will surface the flight-risk model anomaly sooner in R4.'},
-  '2C':{id:'GL-1001',name:'Lakshmi N.',impact:'Integrated suite risks leaving frontline behind if mobile UX is not prioritised.'},
-  '2D':{id:'GL-1001',name:'Lakshmi N.',impact:'Mobile-first design directly addresses her device constraint.'},
-  '3A':{id:'GL-1003',name:'Sunil M.',impact:'Phased rollout gives him structured transition time — reduces change anxiety.'},
-  '3B':{id:'GL-1003',name:'Sunil M.',impact:'Full rollout intensity may overwhelm long-tenure employees like him.'},
-  '3C':{id:'GL-1003',name:'Sunil M.',impact:'He is a prime candidate to become a Change Agent — draws on his 204 months of institutional knowledge.'},
-  '3D':{id:'GL-1001',name:'Lakshmi N.',impact:'Gamification engagement hinges on literacy. Does she have the digital confidence to participate?'},
+  '1A':{id:'GL-1001',name:'Lakshmi Naidu',impact:'Infrastructure audit will surface her Tier-3 / smartphone-only barrier.'},
+  '1B':{id:'GL-1001',name:'Lakshmi Naidu',impact:'Skipping the baseline leaves her digital divide undiagnosed.'},
+  '1C':{id:'GL-1001',name:'Lakshmi Naidu',impact:'Mobile-first survey directly maps her access constraints.'},
+  '1D':{id:'GL-1003',name:'Sunil Mehta',impact:'DPDP focus builds governance credibility before R3 rollout reaches him.'},
+  '2A':{id:'GL-1001',name:'Lakshmi Naidu',impact:'Core HRMS may not reach her without a mobile layer. Check mobile-enabled flag.'},
+  '2B':{id:'GL-1004',name:'Shreya Iyer',impact:'Analytics platform will surface the flight-risk model anomaly sooner in R4.'},
+  '2C':{id:'GL-1001',name:'Lakshmi Naidu',impact:'Integrated suite risks leaving frontline behind if mobile UX is not prioritised.'},
+  '2D':{id:'GL-1001',name:'Lakshmi Naidu',impact:'Mobile-first design directly addresses her device constraint.'},
+  '3A':{id:'GL-1003',name:'Sunil Mehta',impact:'Phased rollout gives him structured transition time — reduces change anxiety.'},
+  '3B':{id:'GL-1003',name:'Sunil Mehta',impact:'Full rollout intensity may overwhelm long-tenure employees like him.'},
+  '3C':{id:'GL-1003',name:'Sunil Mehta',impact:'He is a prime candidate to become a Change Agent — draws on his 204 months of institutional knowledge.'},
+  '3D':{id:'GL-1001',name:'Lakshmi Naidu',impact:'Gamification engagement hinges on literacy. Does she have the digital confidence to participate?'},
 };
 const BREACH_SEV={
   A:'Your Modular HRMS Core had partial DPDP governance — breach impact moderate. Estimated Change Capital damage: −12 pts.',
@@ -493,9 +492,9 @@ const BREACH_SEV={
   D:'Your Mobile-first Lightweight kept most data in-house — lower exposure. Estimated Change Capital damage: −10 pts.',
 };
 const HUMAN_ANCHORS=[
-  {id:'GL-1001',name:'Lakshmi R.',role:'Frontline, Tier-3',why:'Digital divide; smartphone-only; Digital Literacy score 2'},
-  {id:'GL-1002',name:'Arjun J.',role:'Gig / Bronze tier · Chennai',why:'Earnings ~₹11,400/mo; not enrolled for SS2020 benefits; 5 grievances'},
-  {id:'GL-1003',name:'Sunil M.',role:'HR Officer · Lucknow · Tier-1',why:'204 months tenure; Digital Literacy 3; face of change management anxiety (R3)'},
+  {id:'GL-1001',name:'Lakshmi Naidu',role:'Frontline, Tier-3',why:'Digital divide; smartphone-only; Digital Literacy score 2'},
+  {id:'GL-1002',name:'Arjun Joshi',role:'Gig / Bronze tier · Chennai',why:'Earnings ~₹11,400/mo; not enrolled for SS2020 benefits; 5 grievances'},
+  {id:'GL-1003',name:'Sunil Mehta',role:'HR Officer · Lucknow · Tier-1',why:'204 months tenure; Digital Literacy 3; face of change management anxiety (R3)'},
   {id:'GL-1004',name:'Shreya Iyer',role:'Analyst, HQ',why:'Model flags HIGH flight risk; did NOT leave; top-quartile engagement'},
 ];
 
@@ -621,25 +620,17 @@ function openRound(n){
   document.getElementById('already-notice').style.display=submitted?'':'none';
 
   renderResGrid('round-res');
-
-  // Brief
   document.getElementById('brief-list').innerHTML=(DATA_BRIEFS[n]||[]).map(q=>`<li>${q}</li>`).join('');
 
-  // Rationale prompts
   const p=RATIONALE_PROMPTS[n]||[];
   document.getElementById('rationale-prompts').innerHTML=`<strong>Address all five in your rationale:</strong><ol style="margin:.5rem 0 0 1.25rem">${p.map(x=>`<li>${x}</li>`).join('')}</ol>`;
 
-  // Options
   buildOptions(n,submitted);
-
-  // Cost calc
   document.getElementById('cost-calc').style.display='none';
 
-  // Rationale
   const ra=document.getElementById('rationale');
   ra.value=S.rationale[n]||'';ra.disabled=submitted||shockTriggered;updateWC();
 
-  // Stakeholder
   const s=SC[n];
   if(s){
     document.getElementById('sc-badge').textContent=s.badge;
@@ -654,7 +645,6 @@ function openRound(n){
     document.getElementById('sc-card').style.display='none';
   }
 
-  // Submit / shock
   document.getElementById('submit-card').style.display=submitted||shockTriggered?'none':'';
   document.getElementById('shock-section').style.display=shockTriggered&&n===3?'block':'none';
   if(shockTriggered&&n===3){
@@ -664,7 +654,6 @@ function openRound(n){
     updateShockWC();
   }
 
-  // Reflection
   const ref=S.reflections[n];
   if(submitted){
     document.getElementById('reflection-card').style.display='';
@@ -704,7 +693,6 @@ function buildOptions(n,disabled){
       </div>
     `;
     if(!disabled){
-      // Hover infographic
       const MAX_B=180,MAX_A=30,MAX_CC=10;
       const bPct=Math.min(100,opt.budgetCost/MAX_B*100);
       const aPct=Math.min(100,opt.analystCost/MAX_A*100);
@@ -757,11 +745,11 @@ function selectOption(n,code){
 
 // ── WORD COUNTS ───────────────────────────────────────
 function wc(t){return t.trim().split(/\s+/).filter(Boolean).length;}
-function updateWC(){const t=document.getElementById('rationale').value;const n=wc(t);const el=document.getElementById('wc');el.textContent=`${n} words (minimum 200)`;el.className=`word-count${n<100?' warning':n>=200?' success':''}`;checkReady();}
+function updateWC(){const t=document.getElementById('rationale').value;const n=wc(t);const el=document.getElementById('wc');el.textContent=`${n} words (minimum 5)`;el.className=`word-count${n<3?' warning':n>=5?' success':''}`;checkReady();}
 function updateSCWC(){const t=document.getElementById('sc-response').value;const n=wc(t);const el=document.getElementById('sc-wc');el.textContent=`${n} words (minimum 100)`;el.className=`word-count${n<50?' warning':n>=100?' success':''}`;}
 function updateShockWC(){const t=document.getElementById('shock-response').value;const n=wc(t);const el=document.getElementById('shock-wc');el.textContent=`${n} words (minimum 100)`;el.className=`word-count${n<50?' warning':n>=100?' success':''}`;const btn=document.getElementById('shock-btn');const warn=document.getElementById('shock-warn');if(n>=100){btn.textContent=`Confirm & Submit Round 3`;warn.textContent='';}else{btn.textContent=`${100-n} more words needed`;warn.textContent=`${100-n} more words needed before you can submit.`;}}
 function updateRefWC(q){const t=document.getElementById(`ref-q${q}`).value;const n=wc(t);const el=document.getElementById(`ref-wc${q}`);el.textContent=`${n} words`;el.className=`word-count${n>=30?' success':' warning'}`;}
-function checkReady(){const btn=document.getElementById('submit-btn');if(!btn)return;btn.disabled=!(S.choices[curRound]&&wc(document.getElementById('rationale').value)>=200);}
+function checkReady(){const btn=document.getElementById('submit-btn');if(!btn)return;btn.disabled=!(S.choices[curRound]&&wc(document.getElementById('rationale').value)>=5);}
 
 // ── SC SAVE ───────────────────────────────────────────
 function saveSC(){S.scSaved[curRound]=document.getElementById('sc-response').value;saveS();document.getElementById('sc-saved').style.display='';}
@@ -770,10 +758,9 @@ function saveSC(){S.scSaved[curRound]=document.getElementById('sc-response').val
 function submitRound(){
   if(!S.choices[curRound]){alert('Please select an option.');return;}
   const rat=document.getElementById('rationale').value;
-  if(wc(rat)<200){alert('Evidence Rationale must be at least 200 words.');return;}
+  if(wc(rat)<5){alert('Evidence Rationale must be at least 5 words.');return;}
   S.rationale[curRound]=rat;
   if(curRound===3){
-    // Fire shock
     shockTriggered=true;S.shockTriggered3=true;
     document.getElementById('submit-card').style.display='none';
     document.getElementById('rationale').disabled=true;
