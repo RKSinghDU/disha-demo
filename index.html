@@ -374,7 +374,7 @@ tbody tr:hover{background:var(--hover-row)}
       </div>
       <label for="shock-response" style="color:#fca5a5">DHTO Incident Response — what does your team do in the next 72 hours?</label>
       <textarea id="shock-response" placeholder="Address all four prompts..." style="min-height:180px;border-color:#991b1b;background:#1c0202;color:#fecaca" oninput="updateShockWC()"></textarea>
-      <div class="word-count" id="shock-wc" style="color:#fca5a5">0 words (minimum 100)</div>
+      <div class="word-count" id="shock-wc" style="color:#fca5a5">0 words (minimum 5)</div>
       <div style="text-align:center;margin-top:1.5rem">
         <p style="color:#fecaca;font-size:.9rem;margin-bottom:1rem">Once you submit, this round is permanently locked.</p>
         <button class="btn btn-large" id="shock-btn" style="background:#991b1b;border-color:#991b1b;color:white;min-width:280px" onclick="finalSubmit()">Confirm &amp; Submit Round 3</button>
@@ -746,7 +746,7 @@ function selectOption(n,code){
 function wc(t){return t.trim().split(/\s+/).filter(Boolean).length;}
 function updateWC(){const t=document.getElementById('rationale').value;const n=wc(t);const el=document.getElementById('wc');el.textContent=`${n} words (minimum 5)`;el.className=`word-count${n<3?' warning':n>=5?' success':''}`;checkReady();}
 function updateSCWC(){const t=document.getElementById('sc-response').value;const n=wc(t);const el=document.getElementById('sc-wc');el.textContent=`${n} words (minimum 100)`;el.className=`word-count${n<50?' warning':n>=100?' success':''}`;}
-function updateShockWC(){const t=document.getElementById('shock-response').value;const n=wc(t);const el=document.getElementById('shock-wc');el.textContent=`${n} words (minimum 100)`;el.className=`word-count${n<50?' warning':n>=100?' success':''}`;const btn=document.getElementById('shock-btn');const warn=document.getElementById('shock-warn');if(n>=100){btn.textContent=`Confirm & Submit Round 3`;warn.textContent='';}else{btn.textContent=`${100-n} more words needed`;warn.textContent=`${100-n} more words needed before you can submit.`;}}
+function updateShockWC(){const t=document.getElementById('shock-response').value;const n=wc(t);const el=document.getElementById('shock-wc');el.textContent=`${n} words (minimum 5)`;el.className=`word-count${n<3?' warning':n>=5?' success':''}`;const btn=document.getElementById('shock-btn');const warn=document.getElementById('shock-warn');if(n>=5){btn.textContent=`Confirm & Submit Round 3`;warn.textContent='';}else{btn.textContent=`${5-n} more words needed`;warn.textContent=`${5-n} more words needed before you can submit.`;}}
 function updateRefWC(q){const t=document.getElementById(`ref-q${q}`).value;const n=wc(t);const el=document.getElementById(`ref-wc${q}`);el.textContent=`${n} words`;el.className=`word-count${n>=30?' success':' warning'}`;}
 function checkReady(){const btn=document.getElementById('submit-btn');if(!btn)return;btn.disabled=!(S.choices[curRound]&&wc(document.getElementById('rationale').value)>=5);}
 
@@ -775,7 +775,7 @@ function submitRound(){
 
 function finalSubmit(){
   const t=document.getElementById('shock-response').value;
-  if(wc(t)<100){document.getElementById('shock-warn').textContent=`${100-wc(t)} more words needed.`;return;}
+  if(wc(t)<5){document.getElementById('shock-warn').textContent=`${5-wc(t)} more words needed.`;return;}
   if(!confirm('Submit Round 3 permanently?'))return;
   S.shockResponse3=t;doSubmit(3);
 }
