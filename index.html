@@ -100,10 +100,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
 .option-impact{position:absolute;right:calc(100% + 14px);top:0;width:272px;background:var(--impact-bg);border:2px solid var(--impact-border);border-radius:var(--radius-lg);box-shadow:var(--impact-shadow);padding:1rem 1.1rem;z-index:40;pointer-events:none;animation:impactFadeIn .13s ease-out}
 @keyframes impactFadeIn{from{opacity:0;transform:translateX(8px)}to{opacity:1;transform:translateX(0)}}
 .option-impact::after{content:'';position:absolute;right:-10px;top:20px;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:10px solid var(--impact-border)}
+/* Smart placement (desktop): chosen by placePanel() based on free space */
+.option-impact.pos-right{right:auto;left:calc(100% + 14px)}
+.option-impact.pos-right::after{right:auto;left:-10px;border-left:none;border-right:10px solid var(--impact-border)}
+.option-impact.pos-below,.option-impact.pos-above{right:auto;left:1.1rem;width:min(640px,calc(100% - 2.2rem));z-index:60;column-count:2;column-gap:1.4rem}
+.option-impact.pos-below>*,.option-impact.pos-above>*{break-inside:avoid}
+.option-impact.pos-below{top:calc(100% + 10px)}
+.option-impact.pos-above{top:auto;bottom:calc(100% + 10px)}
+.option-impact.pos-below::after{right:auto;left:22px;top:-10px;border:none;border-left:9px solid transparent;border-right:9px solid transparent;border-bottom:10px solid var(--impact-border)}
+.option-impact.pos-above::after{right:auto;left:22px;top:auto;bottom:-10px;border:none;border-left:9px solid transparent;border-right:9px solid transparent;border-top:10px solid var(--impact-border)}
 /* Mobile: panel expands below card, full-width, stable */
 @media(max-width:960px){
-  .option-impact{position:relative;right:auto;left:auto;top:auto;width:100%;margin-top:.75rem;pointer-events:auto;}
-  .option-impact::after{display:none;}
+  .option-impact,.option-impact.pos-right,.option-impact.pos-below,.option-impact.pos-above{position:relative;right:auto;left:auto;top:auto;bottom:auto;width:100%;margin-top:.75rem;pointer-events:auto;}
+  .option-impact::after,.option-impact.pos-right::after,.option-impact.pos-below::after,.option-impact.pos-above::after{display:none;}
 }
 .impact-section-label{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:1.1px;color:var(--impact-label-color);margin-bottom:.55rem}
 .impact-divider{height:1px;background:var(--impact-divider);margin:.7rem 0}
@@ -650,6 +659,25 @@ function openRound(n){
 
 const isTouch=()=>window.matchMedia('(hover:none)').matches;
 
+/* Keeps the hover panel fully on screen: left, else right, else below, else above */
+function placePanel(p,card){
+  if(window.innerWidth<=960)return;
+  const r=card.getBoundingClientRect(),need=272+14+12;p.style.top='';
+  p.classList.remove('pos-right','pos-below','pos-above');
+  if(r.left>=need){
+    const pr=p.getBoundingClientRect(),over=pr.bottom-(window.innerHeight-12);
+    if(over>0)p.style.top=Math.max(-(r.top-12),-over)+'px';
+    return;
+  }
+  if(window.innerWidth-r.right>=need){p.classList.add('pos-right');return;}
+  p.classList.add('pos-below');
+  const ph=p.getBoundingClientRect().height;
+  const roomBelow=window.innerHeight-r.bottom,roomAbove=r.top;
+  if(r.bottom+10+ph>window.innerHeight-12 && roomAbove>roomBelow){
+    p.classList.remove('pos-below');p.classList.add('pos-above');
+  }
+}
+
 function buildOptions(n,disabled){
   const container=document.getElementById('options-container');
   container.innerHTML='';
@@ -710,7 +738,7 @@ function buildOptions(n,disabled){
 
       card.addEventListener('mouseenter',()=>{
         if(isTouch())return;
-        if(panel)return;panel=buildPanel();card.appendChild(panel);
+        if(panel)return;panel=buildPanel();card.appendChild(panel);placePanel(panel,card);
       });
       card.addEventListener('mouseleave',()=>{
         if(isTouch())return;
